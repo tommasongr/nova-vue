@@ -30,9 +30,12 @@
 		</multiline>
 	</comments>
 	
-	<!-- <brackets>
-		<pair open="&lt;" close="&gt;" />
-	</brackets> -->
+	<brackets>
+		<!-- <pair open="&lt;" close="&gt;" /> -->
+		<pair open="{" close="}" />
+		<pair open="[" close="]" />
+		<pair open="(" close=")" />
+	</brackets>
 	
 	<surrounding-pairs>
 		<pair open="&lt;" close="&gt;" />
@@ -55,7 +58,6 @@
 			</ends-with>
 		</scope>
 		
-		
 		<include syntax="self" collection="vue-template"/>
 		
 		<include syntax="self" collection="vue-style"/>
@@ -64,7 +66,6 @@
 		
 		<include syntax="self" collection="vue-generic"/>
 		
-		<include syntax="self" collection="vue-interpolation" />
 	</scopes>
 	
 	<collections>
@@ -142,11 +143,14 @@
 						<ends-with>
 							<expression>(?=&lt;/(?i:template)\b)</expression>
 						</ends-with>
-						<subsyntax name="html">
-							<cut-off>
-								<expression>(?=&lt;/(?i:template)\b)</expression>
-							</cut-off>
-						</subsyntax>
+						<subscopes>
+							<include syntax="self" collection="vue-interpolation" />
+							<include syntax="html">
+								<cut-off>
+									<expression>(?=&lt;/(?i:template)\b)</expression>
+								</cut-off>
+							</include>
+						</subscopes>
 					</scope>
 				</subscopes>
 			</scope>
@@ -260,15 +264,19 @@
 			</scope>
 		</collection>
 		
+		<!-- <collection name="vue-directives">
+			<scope></scope>
+		</collection> -->
+		
 		<collection name="vue-interpolation">
-			<scope name="">
+			<scope name="vue.embedded.interpolation" spell-check="false" lookup="documentation">
 				<starts-with>
 					<expression>\{\{\{?</expression>
-					<capture number="1" name="vue.bracket" />
+					<capture number="0" name="vue.bracket" />
 				</starts-with>
 				<ends-with>
 					<expression>\}\}\}?</expression>
-					<capture number="1" name="vue.bracket"/>
+					<capture number="0" name="vue.bracket"/>
 				</ends-with>
 				<subsyntax name="javascript"></subsyntax>
 			</scope>

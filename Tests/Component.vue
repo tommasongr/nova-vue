@@ -25,6 +25,7 @@ comment -->
             />
         </div>
         <div class="book-info">
+            <span>{{{}}}</span>
             <span>{{ bookData.title }}</span>
             <span>{{ catagoriesLabel }}</span>
         </div>
