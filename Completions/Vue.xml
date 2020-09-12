@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<completions>
+	<provider>
+		<selector>vue</selector>
+		<expression>\b[a-zA-Z0-9-_]*</expression>
+		<set>vue.entities</set>
+	</provider>
+	
+	<!-- Entities -->
+	<set name="vue.entities">
+		<completion string="&quot;" />
+		<completion string="&amp;" />
+		<completion string="&apos;" />
+		<completion string="&lt;" />
+		<completion string="&gt;" />
+	</set>
+</completions>

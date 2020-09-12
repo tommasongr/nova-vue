@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax name="vue">
+	<meta>
+		<name>Vue</name>
+		<type>structured</type>
+		<preferred-file-extension>vue</preferred-file-extension>
+	</meta>
+	
+	<detectors>
+		<extension priority="1.0">vue</extension>
+	</detectors>
+	
+	<indentation>
+		<increase>
+			<expression>^\s*&lt;(([^!/?]|%)(?!.+?([/%]&gt;|&lt;/.+?&gt;))|[%!]--\s*$)</expression>
+		</increase>
+		<decrease>
+			<expression>^\s*(&lt;/[^&gt;]+&gt;|--&gt;|--%&gt;)</expression>
+		</decrease>
+	</indentation>
+	
+	<comments>
+		<multiline>
+			<starts-with>
+				<expression>&lt;!--</expression>
+			</starts-with>
+			<ends-with>
+				<expression>--&gt;</expression>
+			</ends-with>
+		</multiline>
+	</comments>
+	
+	<!-- <brackets>
+		<pair open="&lt;" close="&gt;" />
+	</brackets> -->
+	
+	<surrounding-pairs>
+		<pair open="&lt;" close="&gt;" />
+		<pair open="{" close="}" />
+		<pair open="[" close="]" />
+		<pair open="(" close=")" />
+		<pair open="&apos;" close="&apos;" />
+		<pair open="&quot;" close="&quot;" />
+		<pair open="`" close="`" />
+	</surrounding-pairs>
+	
+	<scopes>
+		<!-- Comments -->
+		<scope name="vue.comment">
+			<starts-with>
+				<expression>&lt;!--</expression>
+			</starts-with>
+			<ends-with>
+				<expression>--&gt;</expression>
+			</ends-with>
+		</scope>
+		
+		
+		<include syntax="self" collection="vue-template"/>
+		
+		<include syntax="self" collection="vue-style"/>
+		
+		<include syntax="self" collection="vue-script"/>
+		
+		<include syntax="self" collection="vue-generic"/>
+		
+		<include syntax="self" collection="vue-interpolation" />
+	</scopes>
+	
+	<collections>
+		<!-- Generic -->
+		<collection name="vue-generic">
+			<!-- Opening Tags -->
+			<scope name="vue.tag.open.paired" spell-check="false" lookup="documentation">
+				<symbol type="tag">
+					<display-name>
+						<component variable="name" />
+						<component selector="tag.attribute.value.id" prepend="#" />
+						<component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+					</display-name>
+					<context behavior="start" group-by-name="true" unclosed="parent">
+						<auto-close string="&lt;/" completion="${name}&gt;" />
+					</context>
+				</symbol>
+				<starts-with>
+					<expression>&lt;(?!/)([a-zA-Z_][a-zA-Z0-9_:-]*)?</expression>
+					<capture number="1" name="vue.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+			
+			<!-- Closing Tags -->
+			<scope name="vue.tag.close" spell-check="false" lookup="documentation">
+				<symbol type="tag">
+					<context behavior="end" group-by-name="true" unclosed="truncate" />
+				</symbol>
+				<expression>&lt;/([a-zA-Z_][a-zA-Z0-9_:-]*)&gt;</expression>
+				<capture number="1" name="vue.tag.name" />
+			</scope>
+		</collection>
+		
+		<!-- Template -->
+		<collection name="vue-template">
+			<scope name="vue.embedded.block.template" spell-check="false" lookup="documentation">
+				<starts-with>
+					<expression>(?=&lt;(?i:template)\b)</expression>
+				</starts-with>
+				<ends-with>
+					<expression>(?=&lt;/(?i:template)\b)</expression>
+				</ends-with>
+				<subscopes>
+					<scope name="vue.tag.template.open">
+						<symbol type="tag-template">
+							<display-name>
+								<component variable="name" />
+								<component selector="vue.tag.attribute.value.link" prepend=" – " />
+							</display-name>
+							<context behavior="start" group-by-name="true">
+								<auto-close string="&lt;/" completion="${name}&gt;" />
+							</context>
+						</symbol>
+						<starts-with>
+							<expression>&lt;((?i:template))</expression>
+							<capture number="1" name="vue.tag.name" />
+						</starts-with>
+						<ends-with>
+							<expression>/?&gt;</expression>
+						</ends-with>
+						<subscopes>
+							<include syntax="html" collection="attributes" />
+						</subscopes>
+					</scope>
+					<scope name="vue.embedded.block.template.content">
+						<starts-with>
+							<expression>(?&lt;=&gt;)</expression>
+						</starts-with>
+						<ends-with>
+							<expression>(?=&lt;/(?i:template)\b)</expression>
+						</ends-with>
+						<subsyntax name="html">
+							<cut-off>
+								<expression>(?=&lt;/(?i:template)\b)</expression>
+							</cut-off>
+						</subsyntax>
+					</scope>
+				</subscopes>
+			</scope>
+		</collection>
+		
+		<!-- Style -->
+		<collection name="vue-style">
+			<scope name="vue.embedded.block.style" spell-check="false" lookup="documentation">
+				<starts-with>
+					<expression>(?=&lt;(?i:style)\b)</expression>
+				</starts-with>
+				<ends-with>
+					<expression>(?=&lt;/(?i:style)\b)</expression>
+				</ends-with>
+				<subscopes>
+					<scope name="vue.tag.style.open">
+						<symbol type="tag-style">
+							<context behavior="start" group-by-name="true">
+								<auto-close string="&lt;/" completion="${name}&gt;" />
+							</context>
+						</symbol>
+						<starts-with>
+							<expression>&lt;((?i:style))</expression>
+							<capture number="1" name="vue.tag.name" />
+						</starts-with>
+						<ends-with>
+							<expression>/?&gt;</expression>
+						</ends-with>
+						<subscopes>
+							<include syntax="html" collection="attributes" />
+						</subscopes>
+					</scope>
+					<scope name="vue.embedded.block.style.content">
+						<starts-with>
+							<expression>(?&lt;=&gt;)</expression>
+						</starts-with>
+						<ends-with>
+							<expression>(?=&lt;/(?i:style)\b)</expression>
+						</ends-with>
+						<subsyntax name="css">
+							<cut-off>
+								<expression>(?=&lt;/(?i:style|head|body|div)\b)</expression>
+							</cut-off>
+						</subsyntax>
+					</scope>
+				</subscopes>
+			</scope>
+		</collection>
+		
+		<!-- Script -->
+		<collection name="vue-script">
+			<scope name="vue.embedded.block.script" spell-check="false" lookup="documentation">
+				<starts-with>
+					<expression>(?=&lt;(?i:script)\b)</expression>
+				</starts-with>
+				<ends-with>
+					<expression>(?=&lt;/(?i:script)\b)</expression>
+				</ends-with>
+				<subscopes>
+					<scope name="vue.tag.script.open">
+						<symbol type="tag-script">
+							<display-name>
+								<component variable="name" />
+								<component selector="vue.tag.attribute.value.link" prepend=" – " />
+							</display-name>
+							<context behavior="start" group-by-name="true">
+								<auto-close string="&lt;/" completion="${name}&gt;" />
+							</context>
+						</symbol>
+						<starts-with>
+							<expression>&lt;((?i:script))</expression>
+							<capture number="1" name="vue.tag.name" />
+						</starts-with>
+						<ends-with>
+							<expression>/?&gt;</expression>
+						</ends-with>
+						<subscopes>
+							<include syntax="html" collection="attributes" />
+						</subscopes>
+					</scope>
+					<scope name="vue.embedded.block.script.content">
+						<starts-with>
+							<expression>(?&lt;=&gt;)</expression>
+						</starts-with>
+						<ends-with>
+							<expression>(?=&lt;/(?i:script)\b)</expression>
+						</ends-with>
+						<subsyntax name="javascript">
+							<cut-off>
+								<expression>(?=&lt;/(?i:script|head|body|div)\b)</expression>
+							</cut-off>
+						</subsyntax>
+					</scope>
+				</subscopes>
+			</scope>
+		</collection>
+		
+		<collection name="vue-directive">
+			<scope name="vue.meta.directive">
+				<starts-with>
+					<expression>(?:\\b(v-)|([:@#]))([a-zA-Z][0-9a-zA-Z\\-\\:\\._]+)\\s*(=)</expression>
+					<capture number="1" name="vue.tag.attribute.name" />
+					<capture number="2" name="vue.punctuation.separator" />
+					<capture number="3" name="vue.tag.attribute.name" />
+					<capture number="4" name="vue.punctuation.separator" />
+				</starts-with>
+				
+				<ends-with>
+					<expression>(?&lt;='|\")</expression>
+				</ends-with>
+			</scope>
+		</collection>
+		
+		<collection name="vue-interpolation">
+			<scope name="">
+				<starts-with>
+					<expression>\{\{\{?</expression>
+					<capture number="1" name="vue.bracket" />
+				</starts-with>
+				<ends-with>
+					<expression>\}\}\}?</expression>
+					<capture number="1" name="vue.bracket"/>
+				</ends-with>
+				<subsyntax name="javascript"></subsyntax>
+			</scope>
+		</collection>
+	</collections>
+</syntax>
