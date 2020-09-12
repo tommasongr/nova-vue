@@ -272,7 +272,7 @@
 				</starts-with>
 				<ends-with>
 					<expression>/?&gt;</expression>
-					<capture number="0" name="vue.tag.open" />
+					<capture number="0" name="vue.tag.close" />
 				</ends-with>
 				<subscopes>
 					<include syntax="self" collection="attributes" />

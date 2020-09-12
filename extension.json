@@ -2,7 +2,10 @@
     "identifier": "com.tommasonegri.Vue",
     "name": "Vue",
     "organization": "Tommaso Negri",
-    "description": "Vue support for nova editor",
-    "version": "1.0",
-    "categories": ["languages"]
+    "description": "Vue support for nova editor.",
+    "version": "0.4",
+    "categories": ["languages", "clips", "completions"],
+    "license": "MIT",
+    "repository": "https://github.com/tommasongr/nova-vue",
+    "bugs": "https://github.com/tommasongr/nova-vue/issues"
 }

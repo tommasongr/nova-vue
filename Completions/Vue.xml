@@ -1,17 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <completions>
-	<provider>
+	<provider name="vue.snippets">
+		<syntax>vue</syntax>
+		<expression>\b[a-zA-Z0-9-_]*</expression>
+		
+		<set>vue.snippets</set>
+		<!-- <set>vue.directives</set> -->
+	</provider>
+	
+	<provider name="vue.directives">
+		<syntax>vue</syntax>
 		<selector>vue</selector>
 		<expression>\b[a-zA-Z0-9-_]*</expression>
+		
+		<set>vue.directives</set>
+	</provider>
+	
+	<provider>
+		<syntax>vue</syntax>
+		<selector>vue.embedded.block.template.content</selector>
+		<expression>\b[a-zA-Z0-9-_]*</expression>
+		
 		<set>vue.entities</set>
 	</provider>
 	
+	<set name="vue.snippets" symbol="statement">
+		<completion string="vue">
+			<behavior>
+				<append><![CDATA[
+				<template>
+						  
+				</template>
+						
+				<script>
+				export default {
+				
+				}
+				</script>
+				
+				<style scoped>
+				
+				</style>
+				]]>
+				</append>
+			</behavior>
+		</completion>
+	</set>
+	
+	<set name="vue.directives" symbol="statement">
+		<completion string="v-if">
+			<behavior>
+				<append><![CDATA[="$[condition]"
+				]]>
+				</append>
+			</behavior>
+		</completion>
+	</set>
+	
 	<!-- Entities -->
 	<set name="vue.entities">
-		<completion string="&quot;" />
+		<completion string="class">
+					<behavior>
+						<append><![CDATA[ $[Name] {
+			constructor($[argument, ...]) {
+				$[statements]
+			}
+		}]]></append>
+					</behavior>
+				</completion>
+		<!-- <completion string="&quot;" />
 		<completion string="&amp;" />
 		<completion string="&apos;" />
 		<completion string="&lt;" />
-		<completion string="&gt;" />
+		<completion string="&gt;" /> -->
 	</set>
 </completions>

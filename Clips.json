@@ -1,0 +1,33 @@
+{
+    "clips": [
+        {
+            "content": "$AUTHOR_NAME",
+            "name": "Vue",
+            "trigger": "usersig"
+        },
+        {
+            "name": "Vue",
+            "children": [
+                {
+                    "content": "<template>\n\t<div>\n\t\n\t</div>\n</template>\n\n<script>\nexport default {\n\n}\n</script>\n\n<style scoped>\n\n</style>",
+                    "name": "vbase",
+                    "scope": "editor",
+                    "syntax": "vue",
+                    "trigger": ""
+                }
+            ]
+        },
+        {
+            "name": "Template",
+            "children": [
+                {
+                    "content": "",
+                    "name": "vfor",
+                    "scope": "editor",
+                    "syntax": "vue",
+                    "trigger": ""
+                }
+            ]
+        }
+    ]
+}
