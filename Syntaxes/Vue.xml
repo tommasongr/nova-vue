@@ -145,7 +145,7 @@
 						</ends-with>
 						<subscopes>
 							<include syntax="self" collection="vue-interpolation" />
-							<include syntax="html">
+							<include syntax="self" collection="tags" >
 								<cut-off>
 									<expression>(?=&lt;/(?i:template)\b)</expression>
 								</cut-off>
@@ -248,26 +248,68 @@
 			</scope>
 		</collection>
 		
-		<collection name="vue-directive">
-			<scope name="vue.meta.directive">
+		<!-- Vue HTML - Tags -->
+		<collection name="tags">
+			<scope name="vue.tag.close">
+				<symbol type="tag">
+					<context behavior="end" group-by-name="true" />
+				</symbol>
+				<expression>&lt;/((?:[a-zA-Z_][a-zA-Z0-9_-]*\:)?(?:[a-zA-Z_][a-zA-Z0-9_-]*)(?:\.[a-zA-Z_][a-zA-Z0-9-_]*)*)&gt;</expression>
+				<capture number="1" name="vue.tag.name" />
+			</scope>
+			<scope name="vue.tag-definition.open">
+				<symbol type="tag">
+					<context behavior="start" group-by-name="true" />
+				</symbol>
 				<starts-with>
-					<expression>(?:\\b(v-)|([:@#]))([a-zA-Z][0-9a-zA-Z\\-\\:\\._]+)\\s*(=)</expression>
-					<capture number="1" name="vue.tag.attribute.name" />
-					<capture number="2" name="vue.punctuation.separator" />
-					<capture number="3" name="vue.tag.attribute.name" />
-					<capture number="4" name="vue.punctuation.separator" />
+					<expression>&lt;((?:[a-zA-Z_][a-zA-Z0-9_-]*\:)?(?:[a-zA-Z_][a-zA-Z0-9_-]*)(?:\.[a-zA-Z_][a-zA-Z0-9-_]*)*)</expression>
+					<capture number="0" name="vue.tag.open" />
+					<capture number="1" name="vue.tag.name" />
 				</starts-with>
-				
 				<ends-with>
-					<expression>(?&lt;='|\")</expression>
+					<expression>/?&gt;</expression>
+					<capture number="0" name="vue.tag.open" />
 				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="attributes" />
+				</subscopes>
 			</scope>
 		</collection>
 		
-		<!-- <collection name="vue-directives">
-			<scope></scope>
-		</collection> -->
+		<!-- Vue HTML - Tag Attributes -->
+		<collection name="attributes">
+			<include syntax="self" collection="vue-directives" />
+			<include syntax="html" collection="attributes" />
+		</collection>
 		
+		<!-- Vue Directives -->
+		<collection name="vue-directives">
+			<scope name="vue.meta.directive">
+				<starts-with>
+					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))*\s*(=)(&apos;|&quot;)</expression>
+					<capture number="1" name="vue.tag.attribute.name" />
+					<capture number="2" name="vue.tag.attribute.separator.key-value" />
+					<capture number="3" name="vue.tag.attribute.name" />
+					<capture number="4" name="vue.tag.attribute.name" />
+					<capture number="5" name="vue.tag.attribute.name" />
+					<capture number="6" name="vue.tag.attribute.equals-sign" />
+					<capture number="7" name="vue.tag.attribute.value.quote.left" />
+				</starts-with>
+				
+				<ends-with>
+					<expression>(&apos;|&quot;)</expression>
+					<capture number="0" name="vue.tag.attribute.value.quote.right" />
+				</ends-with>
+				
+				<subsyntax name="javascript">
+					<cut-off>
+						<expression>\\</expression>
+					</cut-off>
+				</subsyntax>
+			</scope>
+		</collection>
+		
+		<!-- Vue Interpolation -->
 		<collection name="vue-interpolation">
 			<scope name="vue.embedded.interpolation" spell-check="false" lookup="documentation">
 				<starts-with>

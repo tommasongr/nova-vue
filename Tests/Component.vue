@@ -6,7 +6,7 @@ comment -->
 <template>
     <div class="book-card">
         <a
-            v-if="bookData.link"
+            v-if="console.log()"
             :href="bookData.link"
             target="_blank"
             rel="nofollow noopener noreferrer"
