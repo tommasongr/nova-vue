@@ -12,10 +12,10 @@ comment -->
             rel="nofollow noopener noreferrer"
         >
             <div class="book-cover">
-                <g-image
+                <!-- <g-image
                     :src="bookData.cover"
                     style="width: 100%; height: min-intrinsic;"
-                />
+                /> -->
             </div>
         </a>
         <div v-else class="book-cover">

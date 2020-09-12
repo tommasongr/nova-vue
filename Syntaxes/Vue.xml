@@ -47,15 +47,7 @@
 	</surrounding-pairs>
 	
 	<scopes>
-		<!-- Comments -->
-		<scope name="vue.comment">
-			<starts-with>
-				<expression>&lt;!--</expression>
-			</starts-with>
-			<ends-with>
-				<expression>--&gt;</expression>
-			</ends-with>
-		</scope>
+		<include syntax="self" collection="vue-comment"/>
 		
 		<include syntax="self" collection="vue-template"/>
 		
@@ -68,6 +60,18 @@
 	</scopes>
 	
 	<collections>
+		<!-- Comments -->
+		<collection name="vue-comment">
+			<scope name="vue.comment" spell-check="true" lookup="documentation">
+				<starts-with>
+					<expression>&lt;!--</expression>
+				</starts-with>
+				<ends-with>
+					<expression>--&gt;</expression>
+				</ends-with>
+			</scope>
+		</collection>
+		
 		<!-- Generic -->
 		<collection name="vue-generic">
 			<!-- Opening Tags -->
@@ -143,6 +147,7 @@
 							<expression>(?=&lt;/(?i:template)\b)</expression>
 						</ends-with>
 						<subscopes>
+							<include syntax="self" collection="vue-comment"/>
 							<include syntax="self" collection="vue-interpolation" />
 							<include syntax="self" collection="tags" >
 								<cut-off>

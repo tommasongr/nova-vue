@@ -2,7 +2,7 @@
     "identifier": "com.tommasonegri.Vue",
     "name": "Vue",
     "organization": "Tommaso Negri",
-    "description": "Lorem ipsum, dolor sit amet.",
+    "description": "Vue support for nova editor",
     "version": "1.0",
     "categories": ["languages"]
 }
