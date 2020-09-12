@@ -31,7 +31,6 @@
 	</comments>
 	
 	<brackets>
-		<!-- <pair open="&lt;" close="&gt;" /> -->
 		<pair open="{" close="}" />
 		<pair open="[" close="]" />
 		<pair open="(" close=")" />
@@ -284,7 +283,7 @@
 		
 		<!-- Vue Directives -->
 		<collection name="vue-directives">
-			<scope name="vue.meta.directive">
+			<scope name="vue.tag.attribute">
 				<starts-with>
 					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))*\s*(=)(&apos;|&quot;)</expression>
 					<capture number="1" name="vue.tag.attribute.name" />
