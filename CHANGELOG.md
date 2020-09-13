@@ -1,6 +1,10 @@
+## Version 0.5.1
+
+Updated CHANGELOG with previous versions.
+
 ## Version 0.5.0
 
-Added Completions for Vue API
+Added Completions for Vue API.
 
 ## Version 0.4.0
 
