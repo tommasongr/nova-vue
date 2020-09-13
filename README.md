@@ -14,6 +14,7 @@ The extension is still under development and is **not** production ready.
 -   [x] Basic Style Tag
 -   [x] Vue Directives
 -   [x] Vue Interpolation
+-   [x] Completions for Vue API
 
 ### Features missed
 
