@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<completions>
+	<!-- Vue API Snippets -->
+	<provider name="vue.instance.snippets">
+		<syntax>vue</syntax>
+		<selector>javascript</selector>
+		<expression>\b[a-zA-Z0-9-_]*</expression>
+		
+		<set>vue.instance.snippets.data</set>
+		<set>vue.instance.snippets.lifecycle</set>
+		<set>vue.instance.snippets.assets</set>
+		<set>vue.instance.snippets.misc</set>
+	</provider>
+	
+	<!-- DATA -->
+	<set name="vue.instance.snippets.data">
+		<completion string="data" symbol="property">
+			<behavior>
+				<append><![CDATA[: function() {
+					return {
+						$[name]: $[value],
+					}
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="props" symbol="property">
+			<behavior>
+				<append><![CDATA[: ['$[name]'],]]></append>
+			</behavior>
+		</completion>
+		<completion string="props" symbol="property">
+			<behavior>
+				<append><![CDATA[: {
+					$[name]: {
+						type: $[Type],
+						default: $[default],
+						required: true,
+					},
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="propsData" symbol="property">
+			<behavior>
+				<append><![CDATA[: {
+					$[name]: '$[value]',
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="computed" symbol="property">
+			<behavior>
+				<append><![CDATA[: {
+					$[name]($[argument, ...]) {
+						$[statement]
+					},
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="methods" symbol="property">
+			<behavior>
+				<append><![CDATA[: {
+					$[name]($[argument, ...]) {
+						$[statement]
+					},
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="watch" symbol="property">
+			<behavior>
+				<append><![CDATA[: {
+					$[name]: function(val, oldVal) {
+						$[statement]
+					},
+				},]]></append>
+			</behavior>
+		</completion>
+	</set>
+	
+	<!-- LIFECYCLE -->
+	<set name="vue.instance.snippets.lifecycle" symbol="method">
+		<completion string="beforeCreate">
+			<behavior>
+				<append><![CDATA[() {
+					$[statement]
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="created">
+			<behavior>
+				<append><![CDATA[() {
+					$[statement]
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="beforeMount">
+			<behavior>
+				<append><![CDATA[() {
+					$[statement]
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="mounted">
+			<behavior>
+				<append><![CDATA[() {
+					$[statement]
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="beforeUpdate">
+			<behavior>
+				<append><![CDATA[() {
+					$[statement]
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="updated">
+			<behavior>
+				<append><![CDATA[() {
+					$[statement]
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="activated">
+			<behavior>
+				<append><![CDATA[() {
+					$[statement]
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="deactivated">
+			<behavior>
+				<append><![CDATA[() {
+					$[statement]
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="beforeDestroy">
+			<behavior>
+				<append><![CDATA[() {
+					$[statement]
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="destroyed">
+			<behavior>
+				<append><![CDATA[() {
+					$[statement]
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="errorCaptured">
+			<behavior>
+				<append><![CDATA[($[err], $[vm], $[info]) {
+					$[statement]
+				},]]></append>
+			</behavior>
+		</completion>
+	</set>
+	
+	<!-- ASSETS -->
+	<set name="vue.instance.snippets.assets" symbol="property">
+		<completion string="directives">
+			<behavior>
+				<append><![CDATA[: {
+					$[name]: {
+						$[hook]: function(el) {
+							$[statement]
+						}
+					},
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="filters">
+			<behavior>
+				<append><![CDATA[: {
+					$[name]: function(value) {
+						$[statement]
+					},
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="components">
+			<behavior>
+				<append><![CDATA[: {
+					$[Name],
+				},]]></append>
+			</behavior>
+		</completion>
+	</set>
+	
+	<!-- MISC -->
+	<set name="vue.instance.snippets.misc">
+		<completion string="name" symbol="property">
+			<behavior>
+				<append><![CDATA[: '$[Name]',]]></append>
+			</behavior>
+		</completion>
+		<completion string="delimiters" symbol="property">
+			<behavior>
+				<append><![CDATA[: [$['{{', '}}']],]]></append>
+			</behavior>
+		</completion>
+		<completion string="functional" symbol="property">
+			<behavior>
+				<append><![CDATA[: $[false],]]></append>
+			</behavior>
+		</completion>
+		<completion string="model" symbol="property">
+			<behavior>
+				<append><![CDATA[: {
+					prop: '$[name]',
+					event: '$[name]'
+				},]]></append>
+			</behavior>
+		</completion>
+		<completion string="inheritAttrs" symbol="property">
+			<behavior>
+				<append><![CDATA[: $[true],]]></append>
+			</behavior>
+		</completion>
+		<completion string="comments" symbol="property">
+			<behavior>
+				<append><![CDATA[: $[false],]]></append>
+			</behavior>
+		</completion>
+	</set>
+</completions>

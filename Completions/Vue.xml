@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <completions>
-	<provider name="vue.snippets">
+	<!-- <provider name="vue.snippets">
 		<syntax>vue</syntax>
 		<expression>\b[a-zA-Z0-9-_]*</expression>
 		
 		<set>vue.snippets</set>
-		<!-- <set>vue.directives</set> -->
+		<set>vue.directives</set>
 	</provider>
 	
 	<provider name="vue.directives">
@@ -19,12 +19,12 @@
 	<provider>
 		<syntax>vue</syntax>
 		<selector>vue.embedded.block.template.content</selector>
-		<expression>\b[a-zA-Z0-9-_]*</expression>
+		<expression>.</expression>
 		
 		<set>vue.entities</set>
-	</provider>
+	</provider> -->
 	
-	<set name="vue.snippets" symbol="statement">
+	<!-- <set name="vue.snippets" symbol="statement">
 		<completion string="vue">
 			<behavior>
 				<append><![CDATA[
@@ -50,15 +50,15 @@
 	<set name="vue.directives" symbol="statement">
 		<completion string="v-if">
 			<behavior>
-				<append><![CDATA[="$[condition]"
+				<append><![CDATA[="$[Condition]"
 				]]>
 				</append>
 			</behavior>
 		</completion>
-	</set>
+	</set> -->
 	
 	<!-- Entities -->
-	<set name="vue.entities">
+	<!-- <set name="vue.entities">
 		<completion string="class">
 					<behavior>
 						<append><![CDATA[ $[Name] {
@@ -68,10 +68,10 @@
 		}]]></append>
 					</behavior>
 				</completion>
-		<!-- <completion string="&quot;" />
+		<completion string="&quot;" />
 		<completion string="&amp;" />
 		<completion string="&apos;" />
 		<completion string="&lt;" />
-		<completion string="&gt;" /> -->
-	</set>
+		<completion string="&gt;" />
+	</set> -->
 </completions>
