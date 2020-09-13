@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <completions>
+	<!-- HTML -->
+	
+	
+	
 	<!-- <provider name="vue.snippets">
 		<syntax>vue</syntax>
 		<expression>\b[a-zA-Z0-9-_]*</expression>

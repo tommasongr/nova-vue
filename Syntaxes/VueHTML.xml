@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax name="vue-html" subsyntax="true">
+	<meta>
+		<name>Vue HTML</name>
+		<type>markup</type>
+		<parent>html</parent>
+	</meta>
+	
+	<indentation>
+		<increase>
+			<expression>(?x)
+				(&lt;(?!\?|(?:area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)\b)
+				([-_\.A-Za-z0-9]+)(?=\s|&gt;)\b[^&gt;]*&gt;[^&lt;]*$)
+				|(&lt;!--\s*$)
+			</expression>
+		</increase>
+		<decrease>
+			<expression>(?x)
+				^\s*
+				(&lt;/[-_\.A-Za-z0-9]+\b[^>]*&gt;
+					|--&gt;
+				)</expression>
+		</decrease>
+	</indentation>
+	
+	<comments>
+		<multiline>
+			<starts-with>
+				<expression>&lt;!--</expression>
+			</starts-with>
+			<ends-with>
+				<expression>--&gt;</expression>
+			</ends-with>
+		</multiline>
+	</comments>
+	
+	<surrounding-pairs>
+		<pair open="&lt;" close="&gt;" />
+		<pair open="{" close="}" />
+		<pair open="[" close="]" />
+		<pair open="(" close=")" />
+		<pair open="&apos;" close="&apos;" />
+		<pair open="&quot;" close="&quot;" />
+		<pair open="`" close="`" />
+	</surrounding-pairs>
+	
+	<scopes spell-check="true" lookup="dictionary">
+	
+		<!-- Comments -->
+		<scope name="html.comment.block">
+			<starts-with>
+				<expression>&lt;!--</expression>
+			</starts-with>
+			<ends-with>
+				<expression>--&gt;</expression>
+			</ends-with>
+		</scope>
+		
+		<include syntax="self" collection="vue-interpolation" />
+		
+		<include syntax="self" collection="vue-directives" />
+		
+		<!-- Tags -->
+		<include syntax="self" collection="custom-html-tags" />
+		
+		<include syntax="html" collection="tags" />
+		
+	</scopes>
+	
+	<collections>
+		<!-- Custom HTML Tags -->
+		<!-- This collection overrides some html tags in order to inject custom Vue directives as attributes -->
+		<collection name="custom-html-tags" override="true">
+			<!-- Headings -->
+			<scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+				<symbol type="tag-heading">
+					<display-name>
+						<component variable="name" />
+						<component selector="tag.attribute.value.id" prepend="#" />
+						<component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+					</display-name>
+					<context behavior="start" group-by-name="true" unclosed="parent">
+						<auto-close string="&lt;/" completion="${name}&gt;" />
+					</context>
+				</symbol>
+				<starts-with>
+					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>h1</string>
+						<string>h2</string>
+						<string>h3</string>
+						<string>h4</string>
+						<string>h5</string>
+						<string>h6</string>
+						<string>header</string>
+						<string>hgroup</string>
+					</strings>
+					<capture number="1" name="html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="vue-directives" />
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+			
+			<!-- Sections -->
+			<scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+				<symbol type="tag-section">
+					<display-name>
+						<component variable="name" />
+						<component selector="tag.attribute.value.id" prepend="#" />
+						<component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+					</display-name>
+					<context behavior="start" group-by-name="true" unclosed="parent">
+						<auto-close string="&lt;/" completion="${name}&gt;" />
+					</context>
+				</symbol>
+				<starts-with>
+					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>article</string>
+						<string>aside</string>
+						<string>main</string>
+						<string>nav</string>
+						<string>section</string>
+					</strings>
+					<capture number="1" name="html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="vue-directives" />
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+			
+			<!-- Lists -->
+			<scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+				<symbol type="tag-ul">
+					<display-name>
+						<component variable="name" />
+						<component selector="tag.attribute.value.id" prepend="#" />
+						<component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+					</display-name>
+					<context behavior="start" group-by-name="true" unclosed="parent">
+						<auto-close string="&lt;/" completion="${name}&gt;" />
+					</context>
+				</symbol>
+				<starts-with>
+					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>ul</string>
+					</strings>
+					<capture number="1" name="html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="vue-directives" />
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+			<scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+				<symbol type="tag-ol">
+					<display-name>
+						<component variable="name" />
+						<component selector="tag.attribute.value.id" prepend="#" />
+						<component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+					</display-name>
+					<context behavior="start" group-by-name="true" unclosed="parent">
+						<auto-close string="&lt;/" completion="${name}&gt;" />
+					</context>
+				</symbol>
+				<starts-with>
+					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>ol</string>
+					</strings>
+					<capture number="1" name="html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="vue-directives" />
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+			<scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+				<symbol type="tag-li">
+					<display-name>
+						<component variable="name" />
+						<component selector="tag.attribute.value.id" prepend="#" />
+						<component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+					</display-name>
+					<context behavior="start" group-by-name="true" unclosed="parent">
+						<auto-close string="&lt;/" completion="${name}&gt;" />
+					</context>
+				</symbol>
+				<starts-with>
+					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>li</string>
+					</strings>
+					<capture number="1" name="html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="vue-directives" />
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+			<scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+				<symbol type="tag-form">
+					<display-name>
+						<component variable="name" />
+						<component selector="tag.attribute.value.id" prepend="#" />
+						<component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+					</display-name>
+					<context behavior="start" group-by-name="true" unclosed="parent">
+						<auto-close string="&lt;/" completion="${name}&gt;" />
+					</context>
+				</symbol>
+				<starts-with>
+					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>form</string>
+					</strings>
+					<capture number="1" name="html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="vue-directives" />
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+			
+			<!-- Anchors -->
+			<scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+				<symbol type="tag-anchor">
+					<display-name>
+						<component variable="name" />
+						<component selector="tag.attribute.value.id" prepend="#" />
+						<component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+						<component selector="html.tag.attribute.value.link" prepend=" – " />
+					</display-name>
+					<context behavior="start" group-by-name="true" unclosed="parent">
+						<auto-close string="&lt;/" completion="${name}&gt;" />
+					</context>
+				</symbol>
+				<starts-with>
+					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>a</string>
+					</strings>
+					<capture number="1" name="html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="vue-directives" />
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+			
+			<!-- Elements that are singular tags that should not capture other tags -->
+			<scope name="html.tag.open.single" spell-check="false" lookup="documentation">
+				<symbol type="tag-link">
+					<display-name>
+						<component variable="name" />
+						<component selector="html.tag.attribute.value.link" prepend=" – " />
+					</display-name>
+					<context behavior="subtree" group-by-name="true" unclosed="truncate" />
+				</symbol>
+				<starts-with>
+					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>link</string>
+					</strings>
+					<capture number="1" name="html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="vue-directives" />
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+			<scope name="html.tag.open.single" spell-check="false" lookup="documentation">
+				<symbol type="tag-image">
+					<context behavior="subtree" group-by-name="true" unclosed="truncate" />
+				</symbol>
+				<starts-with>
+					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>img</string>
+					</strings>
+					<capture number="1" name="html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="vue-directives" />
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+			<scope name="html.tag.open.single" spell-check="false" lookup="documentation">
+				<symbol type="tag-form-field">
+					<context behavior="subtree" group-by-name="true" unclosed="truncate" />
+				</symbol>
+				<starts-with>
+					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>input</string>
+					</strings>
+					<capture number="1" name="html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="vue-directives" />
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+			<scope name="html.tag.open.single" spell-check="false" lookup="documentation">
+				<symbol type="tag-meta">
+					<display-name>
+						<component variable="name" />
+						<component selector="tag.attribute.value.http-equiv" prepend=" – " />
+						<component selector="tag.attribute.value.name-attr" prepend=" – " />
+					</display-name>
+					<context behavior="subtree" group-by-name="true" unclosed="truncate" />
+				</symbol>
+				<starts-with>
+					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>meta</string>
+					</strings>
+					<capture number="1" name="html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="vue-directives" />
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+			
+			<!-- All other void elements (self-closing tags) -->
+			<scope name="html.tag.open.single" spell-check="false" lookup="documentation">
+				<symbol type="tag">
+					<context behavior="subtree" group-by-name="true" unclosed="truncate" />
+				</symbol>
+				<starts-with>
+					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>area</string>
+						<string>base</string>
+						<string>br</string>
+						<string>col</string>
+						<string>command</string>
+						<string>embed</string>
+						<string>hr</string>
+						<string>keygen</string>
+						<string>param</string>
+						<string>source</string>
+						<string>track</string>
+						<string>wbr</string>
+					</strings>
+					<capture number="1" name="html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="vue-directives" />
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+			
+			<!-- All other tags -->
+			<scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+				<symbol type="tag">
+					<display-name>
+						<component variable="name" />
+						<component selector="tag.attribute.value.id" prepend="#" />
+						<component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+					</display-name>
+					<context behavior="start" group-by-name="true" unclosed="parent">
+						<auto-close string="&lt;/" completion="${name}&gt;" />
+					</context>
+				</symbol>
+				<starts-with>
+					<expression>&lt;(?!/)([a-zA-Z_][a-zA-Z0-9_:-]*)?</expression>
+					<capture number="1" name="html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="vue-directives" />
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+		</collection>
+		
+		<!-- Vue Directives -->
+		<!-- This collection provides support for Vue Directives (v-for, :href, @onClick) -->
+		<collection name="vue-directives">
+			<scope name="vue.html.tag.attribute">
+				<starts-with>
+					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))*\s*(=)(&apos;|&quot;)</expression>
+					<capture number="1" name="vue.html.tag.attribute.name" />
+					<capture number="2" name="vue.html.tag.attribute.separator.key-value" />
+					<capture number="3" name="vue.html.tag.attribute.name" />
+					<capture number="4" name="vue.html.tag.attribute.name" />
+					<capture number="5" name="vue.html.tag.attribute.name" />
+					<capture number="6" name="vue.html.tag.attribute.equals-sign" />
+					<capture number="7" name="vue.html.tag.attribute.value.quote.left" />
+				</starts-with>
+				
+				<ends-with>
+					<expression>(&apos;|&quot;)</expression>
+					<capture number="0" name="vue.html.tag.attribute.value.quote.right" />
+				</ends-with>
+				
+				<subsyntax name="javascript">
+					<cut-off>
+						<expression>\\</expression>
+					</cut-off>
+				</subsyntax>
+			</scope>
+		</collection>
+		
+		<!-- Vue Interpolation -->
+		<collection name="vue-interpolation">
+			<scope name="vue.embedded.interpolation" spell-check="false" lookup="documentation">
+				<starts-with>
+					<expression>\{\{\{?</expression>
+					<capture number="0" name="vue.bracket" />
+				</starts-with>
+				
+				<ends-with>
+					<expression>\}\}\}?</expression>
+					<capture number="0" name="vue.bracket"/>
+				</ends-with>
+				
+				<subsyntax name="javascript">
+					<cut-off>
+						<expression>\\</expression>
+					</cut-off>
+				</subsyntax>
+			</scope>
+		</collection>
+	</collections>
+</syntax>

@@ -12,10 +12,18 @@
 	
 	<indentation>
 		<increase>
-			<expression>^\s*&lt;(([^!/?]|%)(?!.+?([/%]&gt;|&lt;/.+?&gt;))|[%!]--\s*$)</expression>
+			<expression>(?x)
+				(&lt;(?!\?|(?:area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)\b)
+				([-_\.A-Za-z0-9]+)(?=\s|&gt;)\b[^&gt;]*&gt;[^&lt;]*$)
+				|(&lt;!--\s*$)
+			</expression>
 		</increase>
 		<decrease>
-			<expression>^\s*(&lt;/[^&gt;]+&gt;|--&gt;|--%&gt;)</expression>
+			<expression>(?x)
+				^\s*
+				(&lt;/[-_\.A-Za-z0-9]+\b[^>]*&gt;
+					|--&gt;
+				)</expression>
 		</decrease>
 	</indentation>
 	
@@ -46,8 +54,16 @@
 		<pair open="`" close="`" />
 	</surrounding-pairs>
 	
-	<scopes>
-		<include syntax="self" collection="vue-comment"/>
+	<scopes spell-check="true" lookup="dictionary">
+		<!-- Comments -->
+		<scope name="vue.comment.block">
+			<starts-with>
+				<expression>&lt;!--</expression>
+			</starts-with>
+			<ends-with>
+				<expression>--&gt;</expression>
+			</ends-with>
+		</scope>
 		
 		<include syntax="self" collection="vue-template"/>
 		
@@ -56,22 +72,9 @@
 		<include syntax="self" collection="vue-script"/>
 		
 		<include syntax="self" collection="vue-generic"/>
-		
 	</scopes>
 	
-	<collections>
-		<!-- Comments -->
-		<collection name="vue-comment">
-			<scope name="vue.comment" spell-check="true" lookup="documentation">
-				<starts-with>
-					<expression>&lt;!--</expression>
-				</starts-with>
-				<ends-with>
-					<expression>--&gt;</expression>
-				</ends-with>
-			</scope>
-		</collection>
-		
+	<collections>		
 		<!-- Generic -->
 		<collection name="vue-generic">
 			<!-- Opening Tags -->
@@ -146,15 +149,12 @@
 						<ends-with>
 							<expression>(?=&lt;/(?i:template)\b)</expression>
 						</ends-with>
-						<subscopes>
-							<include syntax="self" collection="vue-comment"/>
-							<include syntax="self" collection="vue-interpolation" />
-							<include syntax="self" collection="tags" >
-								<cut-off>
-									<expression>(?=&lt;/(?i:template)\b)</expression>
-								</cut-off>
-							</include>
-						</subscopes>
+						
+						<subsyntax name="vue-html">
+							<cut-off>
+								<expression>(?=&lt;/(?i:template)\b)</expression>
+							</cut-off>
+						</subsyntax>
 					</scope>
 				</subscopes>
 			</scope>
@@ -249,82 +249,6 @@
 						</subsyntax>
 					</scope>
 				</subscopes>
-			</scope>
-		</collection>
-		
-		<!-- Vue HTML - Tags -->
-		<collection name="tags">
-			<scope name="vue.tag.close">
-				<symbol type="tag">
-					<context behavior="end" group-by-name="true" />
-				</symbol>
-				<expression>&lt;/((?:[a-zA-Z_][a-zA-Z0-9_-]*\:)?(?:[a-zA-Z_][a-zA-Z0-9_-]*)(?:\.[a-zA-Z_][a-zA-Z0-9-_]*)*)&gt;</expression>
-				<capture number="1" name="vue.tag.name" />
-			</scope>
-			<scope name="vue.tag-definition.open">
-				<symbol type="tag">
-					<context behavior="start" group-by-name="true" />
-				</symbol>
-				<starts-with>
-					<expression>&lt;((?:[a-zA-Z_][a-zA-Z0-9_-]*\:)?(?:[a-zA-Z_][a-zA-Z0-9_-]*)(?:\.[a-zA-Z_][a-zA-Z0-9-_]*)*)</expression>
-					<capture number="0" name="vue.tag.open" />
-					<capture number="1" name="vue.tag.name" />
-				</starts-with>
-				<ends-with>
-					<expression>/?&gt;</expression>
-					<capture number="0" name="vue.tag.close" />
-				</ends-with>
-				<subscopes>
-					<include syntax="self" collection="attributes" />
-				</subscopes>
-			</scope>
-		</collection>
-		
-		<!-- Vue HTML - Tag Attributes -->
-		<collection name="attributes">
-			<include syntax="self" collection="vue-directives" />
-			<include syntax="html" collection="attributes" />
-		</collection>
-		
-		<!-- Vue Directives -->
-		<collection name="vue-directives">
-			<scope name="vue.tag.attribute">
-				<starts-with>
-					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))*\s*(=)(&apos;|&quot;)</expression>
-					<capture number="1" name="vue.tag.attribute.name" />
-					<capture number="2" name="vue.tag.attribute.separator.key-value" />
-					<capture number="3" name="vue.tag.attribute.name" />
-					<capture number="4" name="vue.tag.attribute.name" />
-					<capture number="5" name="vue.tag.attribute.name" />
-					<capture number="6" name="vue.tag.attribute.equals-sign" />
-					<capture number="7" name="vue.tag.attribute.value.quote.left" />
-				</starts-with>
-				
-				<ends-with>
-					<expression>(&apos;|&quot;)</expression>
-					<capture number="0" name="vue.tag.attribute.value.quote.right" />
-				</ends-with>
-				
-				<subsyntax name="javascript">
-					<cut-off>
-						<expression>\\</expression>
-					</cut-off>
-				</subsyntax>
-			</scope>
-		</collection>
-		
-		<!-- Vue Interpolation -->
-		<collection name="vue-interpolation">
-			<scope name="vue.embedded.interpolation" spell-check="false" lookup="documentation">
-				<starts-with>
-					<expression>\{\{\{?</expression>
-					<capture number="0" name="vue.bracket" />
-				</starts-with>
-				<ends-with>
-					<expression>\}\}\}?</expression>
-					<capture number="0" name="vue.bracket"/>
-				</ends-with>
-				<subsyntax name="javascript"></subsyntax>
 			</scope>
 		</collection>
 	</collections>

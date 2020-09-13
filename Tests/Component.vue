@@ -5,9 +5,11 @@ comment -->
 
 <template>
     <div class="book-card">
+        <h1 v-for="console.log()"></h1>
         <a
             v-if="console.log()"
             :href="bookData.link"
+            @onClick="console.log"
             target="_blank"
             rel="nofollow noopener noreferrer"
         >
