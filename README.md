@@ -26,7 +26,7 @@ The extension is still under development and is **not** production ready.
 
 ## Contributing
 
-You are welcome to contribute in any way you can think off. Seriously, I'm not an expert in this stuff 😅.
+You are welcome to contribute in any way you can think of. Seriously, I am not an expert in these things 😅.
 
 Maybe take a look at the [CONTRIBUTING guidelines](./CONTRIBUTING.md). Nothing fancy don't worry.
 
