@@ -9,20 +9,20 @@ The extension is still under development and is **not** production ready.
 ### Features supported
 
 -   [x] Generic Vue Tags
--   [x] Basic Template Tag
--   [x] Basic Script Tag
--   [x] Basic Style Tag
+-   [x] Template Tag
+-   [x] Script Tag
+-   [x] Style Tag
 -   [x] Vue Directives
 -   [x] Vue Interpolation
+-   [x] Completions for HTML, CSS, JS and WebAPI
 -   [x] Completions for Vue API
 
-### Features missed
+### Features on their way
 
 -   [ ] Advanced Template Tag (jade, etc)
 -   [ ] Advanced Template Tag (TypeScript, etc)
 -   [ ] Advanced Style Tag (SCSS, etc)
--   [ ] HTML, JS and CSS Completions in specific tags (no clue on this 😥)
--   [ ] Vue specific Completions (based on [Vue VSCode Snippets](https://github.com/sdras/vue-vscode-snippets))
+-   [ ] Vue Directives Completions
 -   [ ] Vue Clips (based on [Vue VSCode Snippets](https://github.com/sdras/vue-vscode-snippets))
 
 ## Contributing
