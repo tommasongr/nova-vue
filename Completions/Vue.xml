@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <completions>
-	<!-- HTML -->
-	
-	
 	
 	<!-- <provider name="vue.snippets">
 		<syntax>vue</syntax>
@@ -10,17 +7,61 @@
 		
 		<set>vue.snippets</set>
 		<set>vue.directives</set>
-	</provider>
+	</provider> -->
 	
+	<!-- Directives -->
 	<provider name="vue.directives">
 		<syntax>vue</syntax>
-		<selector>vue</selector>
-		<expression>\b[a-zA-Z0-9-_]*</expression>
+		<selector>html.tag.open, html.tag.open html.tag.attribute:not(value)</selector>
+		<expression>(?&lt;=\s)[a-zA-Z0-9-_]*$</expression>
 		
-		<set>vue.directives</set>
+		<set>vue.directives.reactive</set>
+		<set>vue.directives.literal</set>
+		<set>vue.directives.empty</set>
 	</provider>
 	
-	<provider>
+	<!-- Reactive Directives -->
+	<set name="vue.directives.reactive" symbol="property">
+		<behavior complete-on-confirm="true">
+			<append>="$[]"</append>
+		</behavior>
+		<completion string="v-text" />
+		<completion string="v-html" />
+		<completion string="v-show" />
+		<completion string="v-class" />
+		<completion string="v-attr" />
+		<completion string="v-style" />
+		<!-- <completion string="v-on" /> -->
+		<completion string="v-on">
+			<behavior>
+				<append>:$[event]="$[statement]"</append>
+			</behavior>
+		</completion>
+		<completion string="v-model" />
+		<completion string="v-if" />
+		<completion string="v-repeat" />
+	</set>
+	
+	<!-- Literal Directives -->
+	<set name="vue.directives.literal" symbol="property">
+		<behavior complete-on-confirm="true">
+			<append>="$[]"</append>
+		</behavior>
+		<completion string="v-transition" />
+		<completion string="v-ref" />
+		<completion string="v-el" />
+	</set>
+	
+	<!-- Empty Directives -->
+	<set name="vue.directives.empty" symbol="property">
+		<behavior complete-on-confirm="true">
+			<append>="$[]"</append>
+		</behavior>
+		<completion string="v-pre" />
+		<completion string="v-cloak" />
+	</set>
+	
+	<!-- <provider>
 		<syntax>vue</syntax>
 		<selector>vue.embedded.block.template.content</selector>
 		<expression>.</expression>
