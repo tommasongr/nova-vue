@@ -3,7 +3,7 @@
 	<!-- At-Rules -->
 	<provider name="at-rules">
 		<syntax>vue</syntax>
-		<selector>*:not(style.value)</selector>
+		<selector>style:not(style.value)</selector>
 		<expression>@[a-zA-Z0-9-]*</expression>
 		
 		<set>css.at-rules</set>

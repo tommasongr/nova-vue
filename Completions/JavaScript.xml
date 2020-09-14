@@ -3,7 +3,7 @@
 	<!-- "foo" -->
 	<provider name="javascript.globals">
 		<syntax>vue</syntax>
-		<selector>*:not(string,comment)</selector>
+		<selector>javascript:not(string,comment)</selector>
 		<expression>(?&lt;!\.)\b[a-zA-Z_][a-zA-Z0-9_]*</expression>
 		
 		<symbols type="function">
@@ -23,7 +23,7 @@
 	<!-- ".foo" -->
 	<provider name="javascript.properties">
 		<syntax>vue</syntax>
-		<selector>*:not(string,comment)</selector>
+		<selector>javascript:not(string,comment)</selector>
 		<expression>(?&lt;=\.)@?@?([a-zA-Z_][a-zA-Z0-9_]*)?</expression>
 		
 		<symbols type="function">
