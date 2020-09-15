@@ -1,2 +1,3 @@
 .DS_Store
-.nova
+node_modules
+main.dist.js

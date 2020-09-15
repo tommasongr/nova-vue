@@ -9,5 +9,6 @@
     "keywords": ["vue", "vuejs", "nova", "syntax", "code-edito", "panic"],
     "activationEvents": ["onLanguage:Vue", "onWorkspaceContains:*.vue"],
     "repository": "https://github.com/tommasongr/nova-vue",
-    "bugs": "https://github.com/tommasongr/nova-vue/issues"
+    "bugs": "https://github.com/tommasongr/nova-vue/issues",
+    "main": "main.dist.js"
 }
