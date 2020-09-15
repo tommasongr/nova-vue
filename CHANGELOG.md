@@ -1,4 +1,4 @@
-## Version 0.6.1
+## Version 0.6.2
 
 -   Added support for npm packages
 -   Removed no longer needed completions thanks to a bug fix from Panic
