@@ -10,5 +10,8 @@
     "activationEvents": ["onLanguage:Vue", "onWorkspaceContains:*.vue"],
     "repository": "https://github.com/tommasongr/nova-vue",
     "bugs": "https://github.com/tommasongr/nova-vue/issues",
-    "main": "main.dist.js"
+    "main": "main.dist.js",
+    "entitlements": {
+        "process": true
+    }
 }

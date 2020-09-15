@@ -2,8 +2,8 @@
 <completions>
 	<!-- Vue API Snippets -->
 	<provider name="vue.instance.snippets">
-		<syntax>vue</syntax>
-		<selector>javascript</selector>
+		<syntax>javascript</syntax>
+		<selector>vue.embedded.block.script javascript</selector>
 		<expression>\b[a-zA-Z0-9-_]*</expression>
 		
 		<set>vue.instance.snippets.data</set>
