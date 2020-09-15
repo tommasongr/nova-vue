@@ -11,7 +11,7 @@
 	
 	<!-- Directives -->
 	<provider name="vue.directives">
-		<syntax>vue</syntax>
+		<syntax>vue-html</syntax>
 		<selector>html.tag.open, html.tag.open html.tag.attribute:not(value)</selector>
 		<expression>(?&lt;=\s)[a-zA-Z0-9-_]*$</expression>
 		
