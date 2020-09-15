@@ -5,7 +5,8 @@
     "main": "src/Scripts/main.js",
     "scripts": {
         "build": "npx rollup -c",
-        "watch": "onchange -i \"src/**/*.js\" -- npm run build"
+        "watch": "onchange -i \"src/**/*.js\" -- npm run build",
+        "publish": "npx rollup -v && cp CHANGELOG.md README.md LICENSE Vue.novaextension"
     },
     "repository": {
         "type": "git",
