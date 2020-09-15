@@ -1,28 +1,28 @@
 {
-  "name": "nova-vue",
-  "version": "1.0.0",
-  "description": "This is a plugin providing Vue language support for the new [Nova editor from Panic](https://panic.com/nova/). Inspired by [Vetur](https://github.com/vuejs/vetur) and many other great Vue tools.",
-  "main": "src/Scripts/main.js",
-  "scripts": {
-    "build": "npx rollup -c",
-    "watch": "onchange -i \"src/**/*.js\" -- npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tommasongr/nova-vue.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tommasongr/nova-vue/issues"
-  },
-  "homepage": "https://github.com/tommasongr/nova-vue#readme",
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^15.0.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "onchange": "^7.0.2",
-    "rollup": "^2.26.11"
-  },
-  "dependencies": {}
+    "name": "nova-vue",
+    "version": "0.6.2",
+    "description": "This is a plugin providing Vue language support for the new [Nova editor from Panic](https://panic.com/nova/). Inspired by [Vetur](https://github.com/vuejs/vetur) and many other great Vue tools.",
+    "main": "src/Scripts/main.js",
+    "scripts": {
+        "build": "npx rollup -c",
+        "watch": "onchange -i \"src/**/*.js\" -- npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tommasongr/nova-vue.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/tommasongr/nova-vue/issues"
+    },
+    "homepage": "https://github.com/tommasongr/nova-vue#readme",
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^15.0.0",
+        "@rollup/plugin-node-resolve": "^9.0.0",
+        "onchange": "^7.0.2",
+        "rollup": "^2.26.11"
+    },
+    "dependencies": {}
 }

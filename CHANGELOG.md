@@ -1,6 +1,11 @@
 ## Version 0.6.1
 
-Fix a minor bug that displayed html, css and js completions in every tag. The completions are now shown only in the corresponding vue tag.
+-   Added support for npm packages
+-   Removed no longer needed completions thanks to a bug fix from Panic
+
+## Version 0.6.1
+
+Fixed a minor bug that displayed html, css and js completions in every tag. The completions are now shown only in the corresponding vue tag.
 
 ## Version 0.6.0
 
