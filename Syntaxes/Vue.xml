@@ -196,7 +196,7 @@
 						</ends-with>
 						<subsyntax name="css">
 							<cut-off>
-								<expression>(?=&lt;/(?i:style|head|body|div)\b)</expression>
+								<expression>(?=&lt;/(?i:style)\b)</expression>
 							</cut-off>
 						</subsyntax>
 					</scope>
@@ -244,7 +244,7 @@
 						</ends-with>
 						<subsyntax name="javascript">
 							<cut-off>
-								<expression>(?=&lt;/(?i:script|head|body|div)\b)</expression>
+								<expression>(?=&lt;/(?i:script)\b)</expression>
 							</cut-off>
 						</subsyntax>
 					</scope>
