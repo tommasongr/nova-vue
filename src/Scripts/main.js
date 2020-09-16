@@ -7,32 +7,39 @@ async function reload() {
 }
 
 async function installWrappedDependencies() {
-  return new Promise((resolve, reject) => {
-    const process = new Process("/usr/bin/env", {
-      args: ["npm", "install"],
-      cwd: nova.extension.path,
-      stdio: ["ignore", "pipe", "pipe"],
-      env: {
-        NO_UPDATE_NOTIFIER: "true",
-      },
-    });
-    if (nova.inDevMode()) {
-      process.onStdout((o) => console.log("installing:", o.trimRight()));
-    }
-    process.onStderr((e) => console.warn("installing:", e.trimRight()));
-    process.onDidExit((status) => {
-      if (status === 0) {
-        resolve();
-      } else {
-        reject(new Error("failed to install"));
-      }
-    });
-    process.start();
-  });
+    return new Promise((resolve, reject) => {
+        const process = new Process('/usr/bin/env', {
+            args: ['npm', 'install'],
+            cwd: nova.extension.path,
+            stdio: ['ignore', 'pipe', 'pipe'],
+            env: {
+                NO_UPDATE_NOTIFIER: 'true',
+            },
+        })
+        if (nova.inDevMode()) {
+            process.onStdout((o) => console.log('installing:', o.trimRight()))
+        }
+        process.onStderr((e) => console.warn('installing:', e.trimRight()))
+        process.onDidExit((status) => {
+            if (status === 0) {
+                resolve()
+            } else {
+                reject(new Error('failed to install'))
+            }
+        })
+        process.start()
+    })
 }
 
 async function asyncActivate() {
-    await installWrappedDependencies(); 
+    await installWrappedDependencies()
+
+    try {
+        await installWrappedDependencies()
+    } catch (err) {
+        console.error('Failed to install')
+        throw err
+    }
 
     const pathToVls = nova.path.join(
         nova.extension.path,
