@@ -1,91 +1,59 @@
-console.info('main.js is being run')
-try {
-    console.info('Path:', nova.extension.path)
-} catch (err) {
-    console.error("Couldn't get path, error was:", err.message)
+let client
+
+async function reload() {
+    deactivate()
+    console.log('Reloading...')
+    await asyncActivate()
 }
 
-try {
-    var pathToVls = nova.path.join(
-        nova.extension.path,
-        'node_modules/vls/bin/vls'
-    )
-    console.info('Constructed path to vls:', pathToVls)
-    var serverOptions = {
-        path: pathToVls,
-        type: 'stdio',
-    }
-} catch (err) {
-    console.error(
-        'could not set path on serverOptions, error was:',
-        err.message
-    )
-}
+async function asyncActivate() {
+    let serviceArgs
 
-var clientOptions = {
-    syntaxes: ['Vue'],
-}
-var client = new LanguageClient(
-    'vls',
-    'Vue', // instructions say: The name parameter is the name of the server that can potentially be shown to the user
-    serverOptions,
-    clientOptions
-)
-
-try {
-    client.start()
-} catch (err) {
-    console.error("Couldn't start server, error was:", err.message)
-} finally {
-    console.info('Server was started')
-}
-
-client.onNotification('window/showMessage', (params) => {
-    console.log('window/showMessage', JSON.stringify(params))
-})
-
-// post checking:
-
-try {
-    if (client.running) {
-        console.info('gopls seems to be running')
-        console.info(
-            'Instance name:',
-            client.name,
-            'Language identifier:',
-            client.identifier
+    try {
+        var pathToVls = nova.path.join(
+            nova.extension.path,
+            'node_modules/vls/bin/vls'
+        )
+        serviceArgs = {
+            path: pathToVls,
+        }
+    } catch (err) {
+        console.error(
+            'Could not set path on serverOptions, error was:',
+            err.message
         )
     }
-} catch (err) {
-    console.error(
-        'No clue about why the client cannot communicate with gopls; error was: ',
-        err.message
+
+    client = new LanguageClient(
+        'tommasonegri.vue',
+        'Vue',
+        {
+            type: 'stdio',
+            ...serviceArgs,
+            env: {
+                WORKSPACE_DIR: nova.workspace.path ?? '',
+            },
+        },
+        {
+            syntaxes: ['vue'],
+        }
     )
+
+    client.start()
 }
 
-// Cleaning up the log file
-// exports.deactivate = function () {
-//     try {
-//         nova.fs.remove('/tmp/gopls.log')
-//     } catch (err) {
-//         console.error(
-//             'Attempt to remove the gopls log resulted in an error:',
-//             err
-//         )
-//     } finally {
-//         console.info('Logs cleaned; uninstall finished.')
-//     }
-// }
+export function activate() {
+    console.log('Activating...')
+    return asyncActivate()
+        .catch((err) => {
+            console.error('Failed to activate')
+            console.error(err)
+        })
+        .then(() => {
+            console.log('Activated')
+        })
+}
 
-// exports.activate = function () {
-//   // Do work when the extension is activated
-//   console.log("We have been activated!");
-//   try {
-//     client.start();
-//   } catch (err) {
-//     console.log(
-//       "Couldn't activate client inside callback, error was:",
-//       err.message
-//     );
-//   }
-// };
+export function deactivate() {
+    client?.stop()
+}
