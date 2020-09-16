@@ -22,10 +22,14 @@
     "devDependencies": {
         "@rollup/plugin-commonjs": "^15.0.0",
         "@rollup/plugin-node-resolve": "^9.0.0",
+        "@types/nova-editor-node": "^1.0.3",
+        "@typescript-eslint/eslint-plugin": "^4.1.1",
+        "@typescript-eslint/parser": "^4.1.1",
         "eslint": "^7.9.0",
         "eslint-plugin-nova": "^1.0.0",
         "onchange": "^7.0.2",
-        "rollup": "^2.26.11"
+        "rollup": "^2.26.11",
+        "typescript": "^4.0.2"
     },
     "dependencies": {}
 }
