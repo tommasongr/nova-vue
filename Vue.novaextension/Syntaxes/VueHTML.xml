@@ -409,7 +409,7 @@
 		<!-- Vue Directives -->
 		<!-- This collection provides support for Vue Directives (v-for, :href, @onClick) -->
 		<collection name="vue-directives">
-			<scope name="vue.html.tag.attribute">
+			<scope name="vue.html.tag.attribute" spell-check="false" lookup="documentation">
 				<starts-with>
 					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))*\s*(=)(&apos;|&quot;)</expression>
 					<capture number="1" name="vue.html.tag.attribute.name" />
@@ -420,17 +420,25 @@
 					<capture number="6" name="vue.html.tag.attribute.equals-sign" />
 					<capture number="7" name="vue.html.tag.attribute.value.quote.left" />
 				</starts-with>
-				
 				<ends-with>
 					<expression>(&apos;|&quot;)</expression>
-					<capture number="0" name="vue.html.tag.attribute.value.quote.right" />
+					<capture number="1" name="vue.html.tag.attribute.value.quote.right" />
 				</ends-with>
-				
-				<subsyntax name="javascript">
-					<cut-off>
-						<expression>\\</expression>
-					</cut-off>
-				</subsyntax>
+				<subscopes>
+					<scope name="vue.html.embedded.script.content">
+						<starts-with>
+							<expression>(?&lt;=(&apos;|&quot;))</expression>
+						</starts-with>
+						<ends-with>
+							<expression>(?=(&apos;|&quot;))</expression>
+						</ends-with>
+						<subsyntax name="javascript">
+							<cut-off>
+								<expression>\\</expression>
+							</cut-off>
+						</subsyntax>
+					</scope>
+				</subscopes>
 			</scope>
 		</collection>
 		
