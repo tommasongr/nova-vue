@@ -1,3 +1,9 @@
+## Version 0.7.1
+
+### Docs
+
+-   Updated README with current state of development
+
 ## Version 0.7.0
 
 ### Feature

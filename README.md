@@ -4,8 +4,6 @@ This is a plugin providing Vue language support for the new [Nova editor from Pa
 
 ## State of development
 
-The extension is still under development and is **not** production ready.
-
 ### Features supported
 
 -   [x] Generic Vue Tags
@@ -16,14 +14,16 @@ The extension is still under development and is **not** production ready.
 -   [x] Vue Interpolation
 -   [x] Completions for HTML, CSS, JS and WebAPI
 -   [x] Completions for Vue API
+-   [x] Completions for Vue Directives
+-   [x] Completions Vue Events (@click)
 
 ### Features on their way
 
 -   [ ] Advanced Template Tag (jade, etc)
 -   [ ] Advanced Template Tag (TypeScript, etc)
 -   [ ] Advanced Style Tag (SCSS, etc)
--   [ ] Vue Directives Completions
 -   [ ] Vue Clips (based on [Vue VSCode Snippets](https://github.com/sdras/vue-vscode-snippets))
+-   [ ] Support for Vetur LSP (it already works but right now the server goes conflict with some nova's manually implemented features)
 
 ## Contributing
 
