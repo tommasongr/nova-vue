@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<completions>
+	<!-- Directives -->
+	<provider name="vue.misc.directives">
+		<syntax>vue-html</syntax>
+		<selector>html.tag.open, html.tag.open html.tag.attribute:not(value)</selector>
+		<expression>(?&lt;=\s)[a-zA-Z0-9-_]*$</expression>
+		
+		<set>vue.misc.directives.empty</set>
+		<set>vue.misc.directives.standard</set>
+		<set>vue.misc.directives.complex</set>
+	</provider>
+	
+	<!-- Special Attributes -->
+	<provider name="vue.misc.special-attributes">
+		<syntax>vue-html</syntax>
+		<selector>html.tag.open, html.tag.open html.tag.attribute:not(value)</selector>
+		<expression>(?&lt;=\s)[a-zA-Z0-9-_]*$</expression>
+		
+		<set>vue.misc.special-attributes</set>
+	</provider>
+
+	<!-- SETS -->
+	
+	<!-- Empty Directives -->
+	<set name="vue.misc.directives.empty" symbol="property">
+		<completion string="v-else" />
+		<completion string="v-slot" />
+		<completion string="v-pre" />
+		<completion string="v-cloak" />
+		<completion string="v-once" />
+	</set>
+	
+	<!-- Standard Directives -->
+	<set name="vue.misc.directives.standard" symbol="property">
+		<behavior complete-on-confirm="true">
+			<append>="$[]"</append>
+		</behavior>
+		<completion string="v-text" />
+		<completion string="v-html" />
+		<completion string="v-show" />
+		<completion string="v-if" />
+		<completion string="v-else-if" />
+		<completion string="v-model" />
+	</set>
+	
+	<!-- Complex Directives -->
+	<set name="vue.misc.directives.complex" symbol="property">
+		<completion string="v-for">
+			<behavior>
+				<append>"$[item] in $[items]"</append>
+			</behavior>
+		</completion>
+		<completion string="v-on">
+			<behavior>
+				<append>:$[event]="$[statement]"</append>
+			</behavior>
+		</completion>
+		<completion string="v-bind">
+			<behavior>
+				<append>:$[attribute]="$[statement]"</append>
+			</behavior>
+		</completion>
+	</set>
+	
+	<!-- Special Attributes -->
+	<set name="vue.misc.special-attributes" symbol="property">
+		<!-- TODO: missing completions for :key -->
+		<completion string="ref">
+			<behavior>
+				<append>="$[]"</append>
+			</behavior>
+		</completion>
+		<completion string="is">
+			<behavior>
+				<append>="$[]"</append>
+			</behavior>
+		</completion>
+		<completion string="v-bind">
+			<behavior>
+				<append>:$[attribute]="$[statement]"</append>
+			</behavior>
+		</completion>
+	</set>
+</completions>

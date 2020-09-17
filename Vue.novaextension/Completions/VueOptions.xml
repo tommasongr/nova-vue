@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <completions>
 	<!-- Vue API Snippets -->
-	<provider name="vue.instance.snippets">
+	<provider name="vue.options">
 		<syntax>javascript</syntax>
 		<selector>vue.embedded.block.script javascript</selector>
 		<expression>\b[a-zA-Z0-9-_]*</expression>
 		
-		<set>vue.instance.snippets.data</set>
-		<set>vue.instance.snippets.lifecycle</set>
-		<set>vue.instance.snippets.assets</set>
-		<set>vue.instance.snippets.misc</set>
+		<set>vue.options.data</set>
+		<set>vue.options.lifecycle</set>
+		<set>vue.options.assets</set>
+		<set>vue.options.misc</set>
 	</provider>
 	
+	<!-- SETS -->
+	
 	<!-- DATA -->
-	<set name="vue.instance.snippets.data">
-		<completion string="data" symbol="property">
+	<set name="vue.options.data" symbol="property">
+		<completion string="data">
 			<behavior>
 				<append><![CDATA[: function() {
 					return {
@@ -23,12 +25,12 @@
 				},]]></append>
 			</behavior>
 		</completion>
-		<completion string="props" symbol="property">
+		<completion string="props">
 			<behavior>
 				<append><![CDATA[: ['$[name]'],]]></append>
 			</behavior>
 		</completion>
-		<completion string="props" symbol="property">
+		<completion string="props">
 			<behavior>
 				<append><![CDATA[: {
 					$[name]: {
@@ -39,14 +41,14 @@
 				},]]></append>
 			</behavior>
 		</completion>
-		<completion string="propsData" symbol="property">
+		<completion string="propsData">
 			<behavior>
 				<append><![CDATA[: {
 					$[name]: '$[value]',
 				},]]></append>
 			</behavior>
 		</completion>
-		<completion string="computed" symbol="property">
+		<completion string="computed">
 			<behavior>
 				<append><![CDATA[: {
 					$[name]($[argument, ...]) {
@@ -55,7 +57,7 @@
 				},]]></append>
 			</behavior>
 		</completion>
-		<completion string="methods" symbol="property">
+		<completion string="methods">
 			<behavior>
 				<append><![CDATA[: {
 					$[name]($[argument, ...]) {
@@ -64,7 +66,7 @@
 				},]]></append>
 			</behavior>
 		</completion>
-		<completion string="watch" symbol="property">
+		<completion string="watch">
 			<behavior>
 				<append><![CDATA[: {
 					$[name]: function(val, oldVal) {
@@ -76,7 +78,7 @@
 	</set>
 	
 	<!-- LIFECYCLE -->
-	<set name="vue.instance.snippets.lifecycle" symbol="method">
+	<set name="vue.options.lifecycle" symbol="method">
 		<completion string="beforeCreate">
 			<behavior>
 				<append><![CDATA[() {
@@ -157,7 +159,7 @@
 	</set>
 	
 	<!-- ASSETS -->
-	<set name="vue.instance.snippets.assets" symbol="property">
+	<set name="vue.options.assets" symbol="property">
 		<completion string="directives">
 			<behavior>
 				<append><![CDATA[: {
@@ -188,7 +190,7 @@
 	</set>
 	
 	<!-- MISC -->
-	<set name="vue.instance.snippets.misc">
+	<set name="vue.options.misc">
 		<completion string="name" symbol="property">
 			<behavior>
 				<append><![CDATA[: '$[Name]',]]></append>
