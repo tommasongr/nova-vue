@@ -1,7 +1,21 @@
+## Version 0.7.0
+
+### Feature
+
+-   Added Completions in vue-html for events, triggered by @ shorthand.
+
+### Fix
+
+-   Changed vue-html syntax to encapsulate javascript inside vue-directives quotes.
+
+### Refactor
+
+-   Changed Vue Completions structure to follow the Official API structure.
+
 ## Version 0.6.2
 
--   Added support for npm packages
--   Removed no longer needed completions thanks to a bug fix from Panic
+-   Added support for npm packages.
+-   Removed no longer needed completions thanks to a bug fix from Panic.
 
 ## Version 0.6.1
 

@@ -3,12 +3,13 @@
     "name": "Vue",
     "organization": "Tommaso Negri",
     "description": "Vue support for nova editor.",
-    "version": "0.6.2",
+    "version": "0.7.0",
     "categories": ["languages", "clips", "completions"],
     "license": "MIT",
     "keywords": ["vue", "vuejs", "nova", "syntax", "code-edito", "panic"],
     "activationEvents": ["onLanguage:Vue", "onWorkspaceContains:*.vue"],
     "repository": "https://github.com/tommasongr/nova-vue",
+    "homepage": "https://tommasonegri.com",
     "bugs": "https://github.com/tommasongr/nova-vue/issues",
     "main": "main.dist.js"
 }
