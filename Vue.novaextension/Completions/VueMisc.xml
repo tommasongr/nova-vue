@@ -19,6 +19,15 @@
 		
 		<set>vue.misc.special-attributes</set>
 	</provider>
+	
+	<!-- Events -->
+	<provider name="vue.misc.events">
+		<syntax>vue-html</syntax>
+		<selector>html.tag.open, html.tag.open html.tag.attribute:not(value)</selector>
+		<expression>@[a-zA-Z0-9-]*</expression>
+		
+		<set>vue.misc.events</set>
+	</provider>
 
 	<!-- SETS -->
 	
@@ -81,5 +90,70 @@
 				<append>:$[attribute]="$[statement]"</append>
 			</behavior>
 		</completion>
+	</set>
+	
+	<!-- Events -->
+	<set name="vue.misc.events" symbol="method">
+		<behavior complete-on-confirm="true">
+			<append>="$[]"</append>
+		</behavior>
+		<completion string="@abort" />
+		<completion string="@blur" />
+		<completion string="@canplay" />
+		<completion string="@canplaythrough" />
+		<completion string="@change" />
+		<completion string="@click" />
+		<completion string="@contextmenu" />
+		<completion string="@dblclick" />
+		<completion string="@drag" />
+		<completion string="@dragend" />
+		<completion string="@dragenter" />
+		<completion string="@dragleave" />
+		<completion string="@dragover" />
+		<completion string="@dragstart" />
+		<completion string="@drop" />
+		<completion string="@durationchange" />
+		<completion string="@emptied" />
+		<completion string="@ended" />
+		<completion string="@error" />
+		<completion string="@focus" />
+		<completion string="@formchange" />
+		<completion string="@forminput" />
+		<completion string="@input" />
+		<completion string="@invalid" />
+		<completion string="@keydown" />
+		<completion string="@keypress" />
+		<completion string="@keyup" />
+		<completion string="@load" />
+		<completion string="@loadeddata" />
+		<completion string="@loadedmetadata" />
+		<completion string="@loadstart" />
+		<completion string="@mousedown" />
+		<completion string="@mouseenter" />
+		<completion string="@mouseleave" />
+		<completion string="@mousemove" />
+		<completion string="@mouseout" />
+		<completion string="@mouseover" />
+		<completion string="@mouseup" />
+		<completion string="@mousewheel" />
+		<completion string="@pause" />
+		<completion string="@play" />
+		<completion string="@playing" />
+		<completion string="@progress" />
+		<completion string="@ratechange" />
+		<completion string="@readystatechange" />
+		<completion string="@reset" />
+		<completion string="@resize" />
+		<completion string="@scroll" />
+		<completion string="@seeked" />
+		<completion string="@seeking" />
+		<completion string="@select" />
+		<completion string="@show" />
+		<completion string="@stalled" />
+		<completion string="@submit" />
+		<completion string="@suspend" />
+		<completion string="@timeupdate" />
+		<completion string="@volumechange" />
+		<completion string="@waiting" />
 	</set>
 </completions>
