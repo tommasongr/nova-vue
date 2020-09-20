@@ -162,6 +162,133 @@
 		
 		<!-- Style -->
 		<collection name="vue-style">
+			<!-- SASS -->
+			<scope name="vue.embedded.block.style" spell-check="false" lookup="documentation">
+				<starts-with>
+					<expression>(?=&lt;(?i:style)\b)(?=[^&gt;]*lang=('sass'|\"sass\"))(?![^/&gt;]*/&gt;\s*$)</expression>
+				</starts-with>
+				<ends-with>
+					<expression>(?=&lt;/(?i:style)\b)</expression>
+				</ends-with>
+				<subscopes>
+					<scope name="vue.tag.style.open">
+						<symbol type="tag-style">
+							<context behavior="start" group-by-name="true">
+								<auto-close string="&lt;/" completion="${name}&gt;" />
+							</context>
+						</symbol>
+						<starts-with>
+							<expression>&lt;((?i:style))</expression>
+							<capture number="1" name="vue.tag.name" />
+						</starts-with>
+						<ends-with>
+							<expression>/?&gt;</expression>
+						</ends-with>
+						<subscopes>
+							<include syntax="html" collection="attributes" />
+						</subscopes>
+					</scope>
+					<scope name="vue.embedded.block.style.content">
+						<starts-with>
+							<expression>(?&lt;=&gt;)</expression>
+						</starts-with>
+						<ends-with>
+							<expression>(?=&lt;/(?i:style)\b)</expression>
+						</ends-with>
+						<subsyntax name="sass">
+							<cut-off>
+								<expression>(?=&lt;/(?i:style)\b)</expression>
+							</cut-off>
+						</subsyntax>
+					</scope>
+				</subscopes>
+			</scope>
+			
+			<!-- SCSS -->
+			<scope name="vue.embedded.block.style" spell-check="false" lookup="documentation">
+				<starts-with>
+					<expression>(?=&lt;(?i:style)\b)(?=[^&gt;]*lang=('scss'|\"scss\"))(?![^/&gt;]*/&gt;\s*$)</expression>
+				</starts-with>
+				<ends-with>
+					<expression>(?=&lt;/(?i:style)\b)</expression>
+				</ends-with>
+				<subscopes>
+					<scope name="vue.tag.style.open">
+						<symbol type="tag-style">
+							<context behavior="start" group-by-name="true">
+								<auto-close string="&lt;/" completion="${name}&gt;" />
+							</context>
+						</symbol>
+						<starts-with>
+							<expression>&lt;((?i:style))</expression>
+							<capture number="1" name="vue.tag.name" />
+						</starts-with>
+						<ends-with>
+							<expression>/?&gt;</expression>
+						</ends-with>
+						<subscopes>
+							<include syntax="html" collection="attributes" />
+						</subscopes>
+					</scope>
+					<scope name="vue.embedded.block.style.content">
+						<starts-with>
+							<expression>(?&lt;=&gt;)</expression>
+						</starts-with>
+						<ends-with>
+							<expression>(?=&lt;/(?i:style)\b)</expression>
+						</ends-with>
+						<subsyntax name="scss">
+							<cut-off>
+								<expression>(?=&lt;/(?i:style)\b)</expression>
+							</cut-off>
+						</subsyntax>
+					</scope>
+				</subscopes>
+			</scope>
+			
+			<!-- LESS -->
+			<scope name="vue.embedded.block.style" spell-check="false" lookup="documentation">
+				<starts-with>
+					<expression>(?=&lt;(?i:style)\b)(?=[^&gt;]*lang=('less'|\"less\"))(?![^/&gt;]*/&gt;\s*$)</expression>
+				</starts-with>
+				<ends-with>
+					<expression>(?=&lt;/(?i:style)\b)</expression>
+				</ends-with>
+				<subscopes>
+					<scope name="vue.tag.style.open">
+						<symbol type="tag-style">
+							<context behavior="start" group-by-name="true">
+								<auto-close string="&lt;/" completion="${name}&gt;" />
+							</context>
+						</symbol>
+						<starts-with>
+							<expression>&lt;((?i:style))</expression>
+							<capture number="1" name="vue.tag.name" />
+						</starts-with>
+						<ends-with>
+							<expression>/?&gt;</expression>
+						</ends-with>
+						<subscopes>
+							<include syntax="html" collection="attributes" />
+						</subscopes>
+					</scope>
+					<scope name="vue.embedded.block.style.content">
+						<starts-with>
+							<expression>(?&lt;=&gt;)</expression>
+						</starts-with>
+						<ends-with>
+							<expression>(?=&lt;/(?i:style)\b)</expression>
+						</ends-with>
+						<subsyntax name="less">
+							<cut-off>
+								<expression>(?=&lt;/(?i:style)\b)</expression>
+							</cut-off>
+						</subsyntax>
+					</scope>
+				</subscopes>
+			</scope>
+			
+			<!-- CSS -->
 			<scope name="vue.embedded.block.style" spell-check="false" lookup="documentation">
 				<starts-with>
 					<expression>(?=&lt;(?i:style)\b)</expression>
