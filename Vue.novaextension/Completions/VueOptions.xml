@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <completions>
 	<!-- Vue API Snippets -->
+	<!-- Javascript -->
 	<provider name="vue.options">
 		<syntax>javascript</syntax>
 		<selector>vue.embedded.block.script javascript</selector>
+		<expression>\b[a-zA-Z0-9-_]*</expression>
+		
+		<set>vue.options.data</set>
+		<set>vue.options.lifecycle</set>
+		<set>vue.options.assets</set>
+		<set>vue.options.misc</set>
+	</provider>
+	<!-- Typescript -->
+	<provider name="vue.options">
+		<syntax>typescript</syntax>
+		<selector>vue.embedded.block.script typescript</selector>
 		<expression>\b[a-zA-Z0-9-_]*</expression>
 		
 		<set>vue.options.data</set>

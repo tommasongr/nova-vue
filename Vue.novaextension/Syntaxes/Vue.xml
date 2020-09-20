@@ -113,6 +113,54 @@
 		
 		<!-- Template -->
 		<collection name="vue-template">
+			<!-- JADE -->
+			<!-- <scope name="vue.embedded.block.template" spell-check="false" lookup="documentation">
+				<starts-with>
+					<expression>(?=&lt;(?i:template)\b)(?=[^&gt;]*lang=('jade'|\"jade\"))(?![^/&gt;]*/&gt;\s*$)</expression>
+				</starts-with>
+				<ends-with>
+					<expression>(?=&lt;/(?i:template)\b)</expression>
+				</ends-with>
+				<subscopes>
+					<scope name="vue.tag.template.open">
+						<symbol type="tag-template">
+							<display-name>
+								<component variable="name" />
+								<component selector="vue.tag.attribute.value.link" prepend=" – " />
+							</display-name>
+							<context behavior="start" group-by-name="true">
+								<auto-close string="&lt;/" completion="${name}&gt;" />
+							</context>
+						</symbol>
+						<starts-with>
+							<expression>&lt;((?i:template))</expression>
+							<capture number="1" name="vue.tag.name" />
+						</starts-with>
+						<ends-with>
+							<expression>/?&gt;</expression>
+						</ends-with>
+						<subscopes>
+							<include syntax="html" collection="attributes" />
+						</subscopes>
+					</scope>
+					<scope name="vue.embedded.block.template.content">
+						<starts-with>
+							<expression>(?&lt;=&gt;)</expression>
+						</starts-with>
+						<ends-with>
+							<expression>(?=&lt;/(?i:template)\b)</expression>
+						</ends-with>
+						
+						<subsyntax name="haml">
+							<cut-off>
+								<expression>(?=&lt;/(?i:template)\b)</expression>
+							</cut-off>
+						</subsyntax>
+					</scope>
+				</subscopes>
+			</scope> -->
+			
+			<!-- HTML -->
 			<scope name="vue.embedded.block.template" spell-check="false" lookup="documentation">
 				<starts-with>
 					<expression>(?=&lt;(?i:template)\b)</expression>
@@ -333,6 +381,99 @@
 		
 		<!-- Script -->
 		<collection name="vue-script">
+			<!-- Typescript -->
+			<scope name="vue.embedded.block.script" spell-check="false" lookup="documentation">
+				<starts-with>
+					<expression>(?=&lt;(?i:script)\b)(?=[^&gt;]*lang=('ts'|\"ts\"))(?![^/&gt;]*/&gt;\s*$)</expression>
+				</starts-with>
+				<ends-with>
+					<expression>(?=&lt;/(?i:script)\b)</expression>
+				</ends-with>
+				<subscopes>
+					<scope name="vue.tag.script.open">
+						<symbol type="tag-script">
+							<display-name>
+								<component variable="name" />
+								<component selector="vue.tag.attribute.value.link" prepend=" – " />
+							</display-name>
+							<context behavior="start" group-by-name="true">
+								<auto-close string="&lt;/" completion="${name}&gt;" />
+							</context>
+						</symbol>
+						<starts-with>
+							<expression>&lt;((?i:script))</expression>
+							<capture number="1" name="vue.tag.name" />
+						</starts-with>
+						<ends-with>
+							<expression>/?&gt;</expression>
+						</ends-with>
+						<subscopes>
+							<include syntax="html" collection="attributes" />
+						</subscopes>
+					</scope>
+					<scope name="vue.embedded.block.script.content">
+						<starts-with>
+							<expression>(?&lt;=&gt;)</expression>
+						</starts-with>
+						<ends-with>
+							<expression>(?=&lt;/(?i:script)\b)</expression>
+						</ends-with>
+						<subsyntax name="typescript">
+							<cut-off>
+								<expression>(?=&lt;/(?i:script)\b)</expression>
+							</cut-off>
+						</subsyntax>
+					</scope>
+				</subscopes>
+			</scope>
+			
+			<!-- Coffescript -->
+			<scope name="vue.embedded.block.script" spell-check="false" lookup="documentation">
+				<starts-with>
+					<expression>(?=&lt;(?i:script)\b)(?=[^&gt;]*lang=('coffee'|\"coffee\"))(?![^/&gt;]*/&gt;\s*$)</expression>
+				</starts-with>
+				<ends-with>
+					<expression>(?=&lt;/(?i:script)\b)</expression>
+				</ends-with>
+				<subscopes>
+					<scope name="vue.tag.script.open">
+						<symbol type="tag-script">
+							<display-name>
+								<component variable="name" />
+								<component selector="vue.tag.attribute.value.link" prepend=" – " />
+							</display-name>
+							<context behavior="start" group-by-name="true">
+								<auto-close string="&lt;/" completion="${name}&gt;" />
+							</context>
+						</symbol>
+						<starts-with>
+							<expression>&lt;((?i:script))</expression>
+							<capture number="1" name="vue.tag.name" />
+						</starts-with>
+						<ends-with>
+							<expression>/?&gt;</expression>
+						</ends-with>
+						<subscopes>
+							<include syntax="html" collection="attributes" />
+						</subscopes>
+					</scope>
+					<scope name="vue.embedded.block.script.content">
+						<starts-with>
+							<expression>(?&lt;=&gt;)</expression>
+						</starts-with>
+						<ends-with>
+							<expression>(?=&lt;/(?i:script)\b)</expression>
+						</ends-with>
+						<subsyntax name="coffeescript">
+							<cut-off>
+								<expression>(?=&lt;/(?i:script)\b)</expression>
+							</cut-off>
+						</subsyntax>
+					</scope>
+				</subscopes>
+			</scope>
+			
+			<!-- Javascript -->
 			<scope name="vue.embedded.block.script" spell-check="false" lookup="documentation">
 				<starts-with>
 					<expression>(?=&lt;(?i:script)\b)</expression>
