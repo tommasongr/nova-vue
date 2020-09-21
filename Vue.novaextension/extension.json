@@ -11,5 +11,14 @@
     "repository": "https://github.com/tommasongr/nova-vue",
     "homepage": "https://tommasonegri.com/?ref=nova",
     "bugs": "https://github.com/tommasongr/nova-vue/issues",
-    "main": "main.dist.js"
+    "main": "main.dist.js",
+    "config": [
+        {
+            "key": "tommasonegri.vue.config.snippets",
+            "description": "Provide snippets based on Sarah Drasner VSCode Snippets. Require restart",
+            "title": "Snippets",
+            "type": "boolean",
+            "default": true
+        }
+    ],
 }
