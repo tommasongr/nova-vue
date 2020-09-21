@@ -57,7 +57,7 @@
 	<set name="vue.misc.directives.complex" symbol="property">
 		<completion string="v-for">
 			<behavior>
-				<append>"$[item] in $[items]"</append>
+				<append>="$[item] in $[items]"</append>
 			</behavior>
 		</completion>
 		<completion string="v-on">
