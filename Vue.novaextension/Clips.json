@@ -6,8 +6,7 @@
             "trigger": "usersig"
         },
         {
-            "name": "Vue",
-            "trigger": "vue",
+            "name": "Template",
             "children": [
                 {
                     "content": "<template>\n\t<div>\n\t\n\t</div>\n</template>\n\n<script>\nexport default {\n\n}\n</script>\n\n<style scoped>\n\n</style>",
