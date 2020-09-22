@@ -16,12 +16,13 @@ This is a plugin providing Vue language support for the new [Nova editor from Pa
 -   [x] Completions for Vue API
 -   [x] Completions for Vue Directives
 -   [x] Completions Vue Events (@click)
+-   [x] Support for typescript and coffeescript
+-   [x] Support for scss, sass and less
 
 ### Features on their way
 
--   [ ] Advanced Template Tag (jade, etc)
--   [ ] Advanced Template Tag (TypeScript, etc)
--   [ ] Advanced Style Tag (SCSS, etc)
+-   [ ] Support for jade and pug (waiting for syntaxes)
+-   [ ] Support for stylus and postcss (waiting for syntaxes)
 -   [ ] Vue Clips (based on [Vue VSCode Snippets](https://github.com/sdras/vue-vscode-snippets))
 -   [ ] Support for Vetur LSP (it already works but right now the server goes conflict with some nova's manually implemented features)
 

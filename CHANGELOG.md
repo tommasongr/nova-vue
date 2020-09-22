@@ -1,3 +1,14 @@
+## Version 0.8.0
+
+### Feature
+
+-   Added support for typescript and coffeescript
+-   Added support for scss, sass, less
+
+### Fix
+
+-   Added missing equal-sign to v-for completion
+
 ## Version 0.7.1
 
 ### Docs
