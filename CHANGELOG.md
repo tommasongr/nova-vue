@@ -1,3 +1,9 @@
+## Version 0.8.2
+
+### Fix
+
+-   Added different definitions for vue-directives single and double quoted in order to prevent errors with nested quotes
+
 ## Version 0.8.0
 
 ### Feature

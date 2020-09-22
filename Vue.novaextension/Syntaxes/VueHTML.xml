@@ -409,9 +409,9 @@
 		<!-- Vue Directives -->
 		<!-- This collection provides support for Vue Directives (v-for, :href, @onClick) -->
 		<collection name="vue-directives">
-			<scope name="vue.html.tag.attribute" spell-check="false" lookup="documentation">
+			<scope name="vue.html.tag.attribute.double-quoted" spell-check="false" lookup="documentation">
 				<starts-with>
-					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))*\s*(=)(&apos;|&quot;)</expression>
+					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))*\s*(=)(&quot;)</expression>
 					<capture number="1" name="vue.html.tag.attribute.name" />
 					<capture number="2" name="vue.html.tag.attribute.separator.key-value" />
 					<capture number="3" name="vue.html.tag.attribute.name" />
@@ -421,16 +421,48 @@
 					<capture number="7" name="vue.html.tag.attribute.value.quote.left" />
 				</starts-with>
 				<ends-with>
-					<expression>(&apos;|&quot;)</expression>
+					<expression>(&quot;)</expression>
 					<capture number="1" name="vue.html.tag.attribute.value.quote.right" />
 				</ends-with>
 				<subscopes>
 					<scope name="vue.html.embedded.script.content">
 						<starts-with>
-							<expression>(?&lt;=(&apos;|&quot;))</expression>
+							<expression>(?&lt;=(&quot;))</expression>
 						</starts-with>
 						<ends-with>
-							<expression>(?=(&apos;|&quot;))</expression>
+							<expression>(?=(&quot;))</expression>
+						</ends-with>
+						<subsyntax name="javascript">
+							<cut-off>
+								<expression>\\</expression>
+							</cut-off>
+						</subsyntax>
+					</scope>
+				</subscopes>
+			</scope>
+			
+			<scope name="vue.html.tag.attribute.single-quoted" spell-check="false" lookup="documentation">
+				<starts-with>
+					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))*\s*(=)(&apos;)</expression>
+					<capture number="1" name="vue.html.tag.attribute.name" />
+					<capture number="2" name="vue.html.tag.attribute.separator.key-value" />
+					<capture number="3" name="vue.html.tag.attribute.name" />
+					<capture number="4" name="vue.html.tag.attribute.name" />
+					<capture number="5" name="vue.html.tag.attribute.name" />
+					<capture number="6" name="vue.html.tag.attribute.equals-sign" />
+					<capture number="7" name="vue.html.tag.attribute.value.quote.left" />
+				</starts-with>
+				<ends-with>
+					<expression>(&apos;)</expression>
+					<capture number="1" name="vue.html.tag.attribute.value.quote.right" />
+				</ends-with>
+				<subscopes>
+					<scope name="vue.html.embedded.script.content">
+						<starts-with>
+							<expression>(?&lt;=(&apos;))</expression>
+						</starts-with>
+						<ends-with>
+							<expression>(?=(&apos;))</expression>
 						</ends-with>
 						<subsyntax name="javascript">
 							<cut-off>
