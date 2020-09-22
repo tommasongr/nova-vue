@@ -1,0 +1,122 @@
+{
+    "Vue v-for": {
+        "prefix": "vfor",
+        "body": [
+            "<￼ v-for=\"￼ in ￼s\" :key=\"￼.id\">",
+            "\t\t{{ ￼ }}",
+            "\t</￼>"
+        ],
+        "description": "vfor statement"
+    },
+    "Vue v-model Directive": {
+        "prefix": "vmodel",
+        "body": ["<input v-model=\"￼\" type=\"text\" />"],
+        "description": "v-model directive"
+    },
+    "Vue v-model Number Directive": {
+        "prefix": "vmodel-num",
+        "body": ["<input v-model.number=\"￼\" type=\"number\" step=\"1\" />"],
+        "description": "v-model directive number input"
+    },
+    "Vue v-on Shortcut Directive": {
+        "prefix": "von",
+        "body": ["@click=\"￼(￼, $event)\""],
+        "description": "v-on click handler with arguments"
+    },
+    "Vue Component with Props Binding": {
+        "prefix": "vel-props",
+        "body": ["<￼ :￼=\"\"></￼>"],
+        "description": "component element with props"
+    },
+    "Vue Named Slot": {
+        "prefix": "vslot-named",
+        "body": ["<template v-slot:￼>￼</template>"],
+        "description": "named slot"
+    },
+    "Vue Image Source Binding": {
+        "prefix": "vsrc",
+        "body": ["<img :src=\"'/path/to/images/' + ￼\" alt=\"￼\"/>"],
+        "description": "image source binding"
+    },
+    "Vue Style Binding": {
+        "prefix": "vstyle",
+        "body": ["<￼ :style=\"{ fontSize: ￼ + 'px' }\"></￼>"],
+        "description": "vue inline style binding"
+    },
+    "Vue Style Binding Object": {
+        "prefix": "vstyle-obj",
+        "body": ["<￼ :style=\"[styleObjectA, styleObjectB]\"></￼>"],
+        "description": "vue inline style binding, objects"
+    },
+    "Vue Class Binding": {
+        "prefix": "vclass",
+        "body": [
+            "<${1:div} :class=\"{ ${2:className}: ${3:data} }\"></${1:div}>"
+        ],
+        "description": "vue class binding"
+    },
+    "Vue Class Binding Object": {
+        "prefix": "vclass-obj",
+        "body": [
+            "<${1:div} :class=\"[${2:classNameA}, ${3:classNameB}]\"></${1:div}>"
+        ],
+        "description": "vue class binding"
+    },
+    "Vue Multiple Conditional Class Bindings": {
+        "prefix": "vclass-obj-mult",
+        "body": [
+            "<${1:div} :class=\"[${2:classNameA}, {${3:classNameB} : ${4:condition}}]\"></${1:div}>"
+        ],
+        "description": "vue multiple conditional class bindings"
+    },
+    "Vue Emit from Child": {
+        "prefix": "vemit-child",
+        "body": ["@change=\"$$emit('change', $$event.target.value)\""],
+        "description": "Vue Emit from Child Component"
+    },
+    "Vue Emit to Parent": {
+        "prefix": "vemit-parent",
+        "body": ["@change=\"${1:foo} = $$event\""],
+        "description": "Vue Emit to Parent Component"
+    },
+    "Vue Transition Component with JavaScript Hooks": {
+        "prefix": "vanim",
+        "body": [
+            "<transition",
+            "\tmode=\"out-in\"",
+            "\t@before-enter=\"beforeEnter\"",
+            "\t@enter=\"enter\"",
+            "",
+            "\t@before-leave=\"beforeLeave\"",
+            "\t@leave=\"leave\"",
+            "\t:css=\"false\">",
+            "",
+            "</transition>"
+        ],
+        "description": "transition component js hooks"
+    },
+    "Vue Nuxt Routing Link": {
+        "prefix": "vnuxtl",
+        "body": ["<nuxt-link to=\"/${1:page}\">${1:page}</nuxt-link>"],
+        "description": "nuxt routing link"
+    },
+    "Vue Named Routing Link": {
+        "prefix": "vroutename",
+        "body": [
+            "<router-link :to=\"{name: '${1:name}'}\">${2:LinkTitle}</router-link>"
+        ],
+        "description": "Named routing link"
+    },
+    "Vue Named Routing Link with Params": {
+        "prefix": "vroutenameparam",
+        "body": [
+            "<router-link :to=\"{name: '${1:name}', params:{${2:id}: '${3:value}'} }\">${4:LinkTitle}</router-link>"
+        ],
+        "description": "Named routing link w/ params"
+    },
+    "Vue Path Routing Link": {
+        "prefix": "vroutepath",
+        "body": ["<router-link to=\"${1:path}\">${2:LinkTitle}</router-link>"],
+        "description": "Path routing link"
+    }
+}
