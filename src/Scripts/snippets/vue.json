@@ -205,7 +205,7 @@
             "export default {",
             "\tsetup () {",
             "\t\tconst state = reactive({",
-            "\t\t\t${0:count}: ${1:0},",
+            "\t\t\t$[count]: $[0],",
             "\t\t})",
             "\t",
             "\t\treturn {",
