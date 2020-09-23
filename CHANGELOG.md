@@ -1,3 +1,9 @@
+## Version 0.9.1
+
+### Fix
+
+-   Removed forgotten preference in the extension definition.
+
 ## Version 0.9.0
 
 ### Feature

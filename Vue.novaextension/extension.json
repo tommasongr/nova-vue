@@ -3,7 +3,7 @@
     "name": "Vue",
     "organization": "Tommaso Negri",
     "description": "Vue support for nova editor.",
-    "version": "0.9.0",
+    "version": "0.9.1",
     "categories": ["languages", "clips", "completions"],
     "license": "MIT",
     "keywords": ["vue", "vuejs", "nova", "syntax", "code-edito", "panic"],
@@ -11,14 +11,5 @@
     "repository": "https://github.com/tommasongr/nova-vue",
     "homepage": "https://tommasonegri.com/?ref=nova",
     "bugs": "https://github.com/tommasongr/nova-vue/issues",
-    "main": "main.dist.js",
-    "config": [
-        {
-            "key": "tommasonegri.vue.config.snippets",
-            "description": "Provide snippets based on Sarah Drasner VSCode Snippets. Require restart",
-            "title": "Snippets",
-            "type": "boolean",
-            "default": true
-        }
-    ]
+    "main": "main.dist.js"
 }
