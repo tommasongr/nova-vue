@@ -1,31 +1,87 @@
 {
     "clips": [
         {
-            "content": "$AUTHOR_NAME",
-            "name": "User Signature",
-            "trigger": "usersig"
-        },
-        {
-            "name": "Template",
+            "name": "Scaffolding",
             "children": [
                 {
-                    "content": "<template>\n\t<div>\n\t\n\t</div>\n</template>\n\n<script>\nexport default {\n\n}\n</script>\n\n<style scoped>\n\n</style>",
-                    "name": "vbase",
+                    "content": "<template>\n\t<div>\n\n\t</div>\n</template>\n\n<script>\n\texport default {\n\t\t$0\n\t}\n</script>\n\n<style scoped>\n\n</style>",
+                    "name": "Vue",
                     "scope": "editor",
                     "syntax": "vue",
-                    "trigger": "vbase"
+                    "trigger": "vue"
+                },
+                {
+                    "content": "<template>\n\t<div>\n\n\t</div>\n</template>\n\n<script>\n\texport default {\n\t\t$0\n\t}\n</script>\n\n<style lang=\"scss\" scoped>\n\n</style>",
+                    "name": "Vue - SCSS",
+                    "scope": "editor",
+                    "syntax": "vue",
+                    "trigger": "Vue - SCSS"
+                },
+                {
+                    "content": "<template>\n\t<div>\n\n\t</div>\n</template>\n\n<script>\n\texport default {\n\t\t$0\n\t}\n</script>\n\n<style lang=\"sass\" scoped>\n\n</style>",
+                    "name": "Vue - SASS",
+                    "scope": "editor",
+                    "syntax": "vue",
+                    "trigger": "Vue - SASS"
+                },
+                {
+                    "content": "<template>\n\t<div>\n\n\t</div>\n</template>\n\n<script>\n\texport default {\n\t\t$0\n\t}\n</script>\n\n<style lang=\"less\" scoped>\n\n</style>",
+                    "name": "Vue - LESS",
+                    "scope": "editor",
+                    "syntax": "vue",
+                    "trigger": "Vue - LESS"
+                },
+                {
+                    "content": "<template>\n\t<div>\n\n\t</div>\n</template>\n\n<script>\n\texport default {\n\t\t$0\n\t}\n</script>",
+                    "name": "Vue - No Style",
+                    "scope": "editor",
+                    "syntax": "vue",
+                    "trigger": "Vue - No Style"
                 }
             ]
         },
         {
-            "name": "Template",
+            "name": "Scaffolding - Typescript",
             "children": [
                 {
-                    "content": "",
-                    "name": "vfor",
+                    "content": "<template>\n\t<div>\n\n\t</div>\n</template>\n\n<script lang=\"ts\">\n\timport Vue from 'vue'\n\n\texport default Vue.extend({\n\t\t$0\n\t})\n</script>\n\n<style scoped>\n\n</style>",
+                    "name": "Vue - Typescript",
                     "scope": "editor",
                     "syntax": "vue",
-                    "trigger": "vfor"
+                    "trigger": "Vue - Typescript"
+                },
+                {
+                    "content": "<template>\n\t<div>\n\n\t</div>\n</template>\n\n<script lang=\"ts\">\n\timport { Component, Vue } from 'vue-property-decorator';\n\n\t@Component\n\texport default class $0 extends Vue {\n\t\t\n\t}\n</script>\n\n<style scoped>\n\n</style>",
+                    "name": "Vue - Class based Typescript format",
+                    "scope": "editor",
+                    "syntax": "vue",
+                    "trigger": "Vue - Class based Typescript format"
+                }
+            ]
+        },
+        {
+            "name": "Scaffolding - Composition API",
+            "children": [
+                {
+                    "content": "<template>\n\t<div>\n\n\t</div>\n</template>\n\n<script>\nexport default {\n\tsetup () {\n\t\t$0\n\n\t\treturn {}\n\t}\n}\n</script>\n\n<style lang=\"scss\" scoped>\n\n</style>",
+                    "name": "Vue - Composition API",
+                    "scope": "editor",
+                    "syntax": "vue",
+                    "trigger": "Vue - Composition API"
+                },
+                {
+                    "content": "<template>\n\t<div>\n\n\t</div>\n</template>\n\n<script>\nimport { reactive, toRefs } from '@vue/composition-api'\n\nexport default {\n\tsetup () {\n\t\tconst state = reactive({\n\t\t\t${:count}: ${:0},\n\t\t})\n\t\n\t\treturn {\n\t\t\t...toRefs(state),\n\t\t}\n\t}\n}\n</script>\n\n<style lang=\"scss\" scoped>\n\n</style>",
+                    "name": "Vue - Composition API Reactive",
+                    "scope": "editor",
+                    "syntax": "vue",
+                    "trigger": "Vue - Composition API Reactive"
+                },
+                {
+                    "content": "<template>\n\t<div>\n\n\t</div>\n</template>\n\n<script lang=\"ts\">\nimport { defineComponent } from 'vue'\n\nexport default defineComponent({\n\tsetup () {\n\t\t$0\n\n\t\treturn {}\n\t}\n})\n</script>\n\n<style scoped>\n\n</style>",
+                    "name": "Vue - Composition API with Typescript",
+                    "scope": "editor",
+                    "syntax": "vue",
+                    "trigger": "Vue - Composition API with Typescript"
                 }
             ]
         }

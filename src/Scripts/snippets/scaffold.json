@@ -1,6 +1,27 @@
 {
     "Vue Single File Component": {
-        "prefix": "vbase",
+        "prefix": "vue",
+        "body": [
+            "<template>",
+            "\t<div>",
+            "",
+            "\t</div>",
+            "</template>",
+            "",
+            "<script>",
+            "\texport default {",
+            "\t\t$[]",
+            "\t}",
+            "</script>",
+            "",
+            "<style scoped>",
+            "",
+            "</style>"
+        ],
+        "description": "Base for Vue File"
+    },
+    "Vue Single File Component with SCSS": {
+        "prefix": "vue-scss",
         "body": [
             "<template>",
             "\t<div>",
@@ -21,7 +42,7 @@
         "description": "Base for Vue File with SCSS"
     },
     "Vue Single File Component with SASS": {
-        "prefix": "vbase-sass",
+        "prefix": "vue-sass",
         "body": [
             "<template>",
             "\t<div>",
@@ -39,10 +60,10 @@
             "",
             "</style>"
         ],
-        "description": "Base for Vue File with PostCSS"
+        "description": "Base for Vue File with SASS"
     },
     "Vue Single File Component with LESS": {
-        "prefix": "vbase-less",
+        "prefix": "vue-less",
         "body": [
             "<template>",
             "\t<div>",
@@ -60,10 +81,10 @@
             "",
             "</style>"
         ],
-        "description": "Base for Vue File with PostCSS"
+        "description": "Base for Vue File with LESS"
     },
     "Vue Single File Component with postcss": {
-        "prefix": "vbase-pcss",
+        "prefix": "vue-pcss",
         "body": [
             "<template>",
             "\t<div>",
@@ -83,29 +104,8 @@
         ],
         "description": "Base for Vue File with PostCSS"
     },
-    "Vue Single File Component with Css": {
-        "prefix": "vbase-css",
-        "body": [
-            "<template>",
-            "\t<div>",
-            "",
-            "\t</div>",
-            "</template>",
-            "",
-            "<script>",
-            "\texport default {",
-            "\t\t$[]",
-            "\t}",
-            "</script>",
-            "",
-            "<style scoped>",
-            "",
-            "</style>"
-        ],
-        "description": "Base for Vue File with CSS"
-    },
     "Vue Single File Component with Stylus": {
-        "prefix": "vbase-styl",
+        "prefix": "vue-styl",
         "body": [
             "<template>",
             "\t<div>",
@@ -126,7 +126,7 @@
         "description": "Base for Vue File with Stylus"
     },
     "Vue Single File Component with Typescript": {
-        "prefix": "vbase-ts",
+        "prefix": "vue-ts",
         "body": [
             "<template>",
             "\t<div>",
@@ -149,7 +149,7 @@
         "description": "Base for Vue File with Typescript"
     },
     "Vue Single File Component with No Style": {
-        "prefix": "vbase-ns",
+        "prefix": "vue-ns",
         "body": [
             "<template>",
             "\t<div>",
@@ -166,7 +166,7 @@
         "description": "Base for Vue File with no styles"
     },
     "Vue Single File Component Composition API": {
-        "prefix": "vbase-3",
+        "prefix": "vue-3",
         "body": [
             "<template>",
             "\t<div>",
@@ -191,7 +191,7 @@
         "description": "Base for Vue File Composition API with SCSS"
     },
     "Vue Single File Component Composition API Reactive": {
-        "prefix": "vbase-3-reactive",
+        "prefix": "vue-3-reactive",
         "body": [
             "<template>",
             "\t<div>",
@@ -222,7 +222,7 @@
         "description": "Base for Vue File Composition API with SCSS"
     },
     "Vue Single File Component Composition API with Typescript": {
-        "prefix": "vbase-3-ts",
+        "prefix": "vue-3-ts",
         "body": [
             "<template>",
             "\t<div>",
@@ -248,7 +248,7 @@
         "description": "Base for Vue File Composition API - Typescript"
     },
     "Vue Single File Component with Class based Typescript format": {
-        "prefix": "vbase-ts-class",
+        "prefix": "vue-ts-class",
         "body": [
             "<template>",
             "\t<div>",

@@ -1,3 +1,11 @@
+## Version 0.9.0
+
+### Feature
+
+-   Added scaffolding Clips based on Sarah Drasner VSCode snippets.
+
+WARNING: The Clips even if inspired by Sarah Drasner are not exactly the same. Triggers are different and the basic Vue scaffold has no longer scss but css.
+
 ## Version 0.8.2
 
 ### Fix

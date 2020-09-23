@@ -1,17 +1,17 @@
-const vueJson = require('../snippets/vue.json')
+const scaffoldJson = require('../snippets/scaffold.json')
 
 class VueRegistrar {
     provideCompletionItems(editor, context) {
         let snippets = []
 
-        for (let snippet in vueJson) {
+        for (let snippet in scaffoldJson) {
             let item = new CompletionItem(
-                vueJson[snippet].prefix,
+                scaffoldJson[snippet].prefix,
                 CompletionItemKind.Statement
             )
 
-            item.documentation = vueJson[snippet].description
-            item.insertText = vueJson[snippet].body.join('\n')
+            item.documentation = scaffoldJson[snippet].description
+            item.insertText = scaffoldJson[snippet].body.join('\n')
             item.tokenize = true
 
             snippets.push(item)

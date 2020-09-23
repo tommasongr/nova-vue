@@ -1,4 +1,4 @@
-import './registrars/vueRegistrar.js'
+// import './registrars/vueRegistrar.js'
 // require('./registrars/vueTemplateRegistrar.js');
 // require('./registrars/vueScriptRegistrar.js');
 
