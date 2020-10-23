@@ -11,5 +11,17 @@
     "repository": "https://github.com/tommasongr/nova-vue",
     "homepage": "https://tommasonegri.com/?ref=nova",
     "bugs": "https://github.com/tommasongr/nova-vue/issues",
-    "main": "main.dist.js"
+    "main": "main.dist.js",
+    "entitlements": {
+        "process": true,
+        "filesystem": "readonly"
+    },
+    "config": [
+        {
+            "key": "example.language-server-path",
+            "title": "Language Server Path",
+            "type": "path",
+            "placeholder": "/usr/local/bin/example"
+        }
+    ]
 }
