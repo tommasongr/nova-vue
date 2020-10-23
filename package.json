@@ -26,5 +26,7 @@
         "onchange": "^7.0.2",
         "rollup": "^2.26.11"
     },
-    "dependencies": {}
+    "dependencies": {
+        "nova-npm-executable": "^0.1.1"
+    }
 }
