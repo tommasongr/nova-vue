@@ -1,23 +1,22 @@
-// import './registrars/vueRegistrar.js'
-// require('./registrars/vueTemplateRegistrar.js');
-// require('./registrars/vueScriptRegistrar.js');
-
-// const ensureInstalled = require('./install.js')
 import ensureInstalled from './install'
-import {
-    showError,
-    showActionableError,
-    log,
-    getConfigWithWorkspaceOverride,
-} from './helpers'
+import { showNotification, wrapCommand } from './helpers'
+import isVeturModeEnabled from './isVeturModeEnabled'
 
 let langserver = null
+
+nova.commands.register(
+    'tommasonegri.vue.openWorkspaceConfig',
+    wrapCommand(function openWorkspaceConfig(workspace) {
+        workspace.openConfig()
+    })
+)
+nova.commands.register('tommasonegri.vue.commands.reload', reload)
 
 class VueLanguageServer {
     constructor() {
         // Observe the configuration setting for the server's location, and restart the server on change
         nova.config.observe(
-            'example.language-server-path',
+            'tommasonegri.vue.config.vls-path',
             function (path) {
                 this.start(path)
             },
@@ -83,60 +82,43 @@ class VueLanguageServer {
     }
 }
 
-exports.activate = async function () {
-    // Do work when the extension is activated
-    try {
-        await ensureInstalled()
+async function reload() {
+    deactivate()
+    console.log('Reloading...')
+    await asyncActivate()
+}
 
-        langserver = new VueLanguageServer()
+async function asyncActivate() {
+    try {
+        if (isVeturModeEnabled()) {
+            await ensureInstalled()
+
+            langserver = new VueLanguageServer()
+        }
 
         console.log('Hello from Vue!')
-
-        //         const { modulePath, prettier, parsers } = await require('./prettier.js')()
-        //
-        //         const extension = new PrettierExtension(modulePath, prettier, parsers)
-        //
-        //         if (nova.config.get('prettier.use-compatibility-mode')) {
-        //             showActionableError(
-        //                 'prettier-compatibility-mode-warning',
-        //                 `Compatibility mode will soon disappear`,
-        //                 `Please create an issue on Github with information about what version of macOS and Node you're using so we can make sure Prettier keeps working for you.`,
-        //                 ['Create issue'],
-        //                 (action) => {
-        //                     if (!action) return
-        //                     nova.openURL(
-        //                         'https://github.com/alexanderweiss/nova-prettier/issues/new'
-        //                     )
-        //                 }
-        //             )
-        //         }
     } catch (err) {
-        console.error('Unable to set up prettier service', err, err.stack)
+        console.error('Unable to set up Vue service', err, err.stack)
 
         if (err.status === 127) {
-            return showError(
-                'prettier-resolution-error',
-                `Can't find npm and Prettier`,
-                `Prettier couldn't be found because npm isn't available. Please make sure you have Node installed. If you've only installed Node through NVM, you'll need to change your shell configuration to work with Nova. See https://library.panic.com/nova/environment-variables/`
+            return showNotification(
+                'vue-resolution-error',
+                `Can't find npm and Vue`,
+                `Vue couldn't be found because npm isn't available. Please make sure you have Node installed. If you've only installed Node through NVM, you'll need to change your shell configuration to work with Nova. See https://library.panic.com/nova/environment-variables/`
             )
         }
 
-        return showError(
-            'prettier-resolution-error',
-            `Unable to start Prettier`,
+        return showNotification(
+            'vue-resolution-error',
+            `Unable to start Vue`,
             `Please check the extension console for additional logs.`
         )
     }
+}
 
-    // langserver.sendNotification('workspace/didChangeConfiguration', {
-    //     settings: {
-    //         vetur: {
-    //             completions: {
-    //                 scaffoldSnippetSources: false,
-    //             },
-    //         },
-    //     },
-    // })
+exports.activate = function () {
+    // Do work when the extension is activated
+    return asyncActivate()
 }
 
 export function deactivate() {
@@ -145,5 +127,6 @@ export function deactivate() {
         langserver.deactivate()
         langserver = null
     }
+
     console.log('Goodbye from Vue!')
 }
