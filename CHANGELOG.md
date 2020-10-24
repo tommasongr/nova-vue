@@ -1,3 +1,9 @@
+## Version 1.0
+
+### Feature
+
+-   Add the Vetur mode 🔥
+
 ## Version 0.9.1
 
 ### Fix
