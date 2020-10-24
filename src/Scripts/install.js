@@ -1,5 +1,4 @@
 const { NPMExecutable } = require('nova-npm-executable')
-const { log } = require('./helpers.js')
 
 // TODO: Duplicate code in ./prettier.js (except onStdout handler)
 // async function checkPrettierVersion() {
@@ -42,7 +41,6 @@ module.exports = async () => {
     try {
         const vls = new NPMExecutable('vls')
         if (!vls.isInstalled) {
-            log.info('Extension not installed, installing')
             await vls.install()
         }
         // } else if (!(await checkPrettierVersion())) {

@@ -18,10 +18,42 @@
     },
     "config": [
         {
-            "key": "example.language-server-path",
-            "title": "Language Server Path",
+            "key": "tommasonegri.vue.config.mode",
+            "title": "Mode",
+            "description": "Choose the working mode for the plugin",
+            "type": "enum",
+            "values": ["Classic", "Vetur"],
+            "default": "Classic",
+            "link": "https://github.com/tommasongr/nova-vue/blob/master/README.md#features-supported"
+        },
+        {
+            "key": "tommasonegri.vue.config.vls-path",
+            "title": "VLS Path",
             "type": "path",
             "placeholder": "/usr/local/bin/example"
         }
-    ]
+    ],
+    "configWorkspace": [
+        {
+            "key": "tommasonegri.vue.config.mode",
+            "title": "Mode",
+            "description": "Choose the working mode for the plugin",
+            "type": "enum",
+            "values": ["Global Default", "Classic", "Vetur"],
+            "default": "Global Default",
+            "link": "nova://extension/?id=com.tommasonegri.Vue&name=Vue"
+        }
+    ],
+    "commands": {
+        "extensions": [
+            {
+                "title": "Preferences",
+                "command": "tommasonegri.vue.openWorkspaceConfig"
+            },
+            {
+                "title": "Reload extension",
+                "command": "tommasonegri.vue.commands.reload"
+            }
+        ]
+    }
 }
