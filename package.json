@@ -4,9 +4,10 @@
     "description": "Vue support for nova editor.",
     "main": "src/Scripts/main.js",
     "scripts": {
-        "build": "npx rollup -c && rm -rf Vue.novaextension/node_modules && cp CHANGELOG.md README.md LICENSE Vue.novaextension",
+        "build": "npx rollup -c && cp CHANGELOG.md README.md LICENSE Vue.novaextension",
         "watch": "onchange -i \"src/**/*.js\" \"src/**/*.json\" -- npm run build",
-        "publish": "npx rollup -v && cp CHANGELOG.md README.md LICENSE Vue.novaextension"
+        "publish": "npx rollup -v && cp CHANGELOG.md README.md LICENSE Vue.novaextension",
+        "develop": "rollup -c"
     },
     "repository": {
         "type": "git",

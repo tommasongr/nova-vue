@@ -10,6 +10,6 @@
     }
   },
   "identifier" : "DF5109AA-54AA-4C0B-83B6-C2765891BEAA",
-  "openLogOnRun" : "finish",
+  "openLogOnRun" : "start",
   "persistent" : true
 }
