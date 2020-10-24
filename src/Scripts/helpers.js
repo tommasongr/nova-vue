@@ -10,19 +10,6 @@ function showNotification(id, title, body) {
         .catch((err) => console.error(err, err.stack))
 }
 
-function showActionableError(id, title, body, actions, callback) {
-    let request = new NotificationRequest(id)
-
-    request.title = nova.localize(title)
-    request.body = nova.localize(body)
-    request.actions = actions.map((action) => nova.localize(action))
-
-    nova.notifications
-        .add(request)
-        .then((response) => callback(response.actionIdx))
-        .catch((err) => console.error(err, err.stack))
-}
-
 function wrapCommand(command) {
     return async function wrapped(...args) {
         try {
@@ -35,6 +22,5 @@ function wrapCommand(command) {
 
 module.exports = {
     showNotification,
-    showActionableError,
     wrapCommand,
 }

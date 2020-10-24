@@ -31,6 +31,6 @@
         "rollup": "^2.26.11"
     },
     "dependencies": {
-        "nova-npm-executable": "^0.1.1"
+        "nova-extension-utils": "^1.2.1"
     }
 }
