@@ -1,16 +1,21 @@
-import ensureInstalled from './install'
+import ensureInstallation from './install'
 import { showNotification, wrapCommand } from './helpers'
 import isVeturModeEnabled from './isVeturModeEnabled'
-
-let langserver = null
+import { dependencyManagement } from 'nova-extension-utils'
 
 nova.commands.register(
-    'tommasonegri.vue.openWorkspaceConfig',
+    'tommasonegri.vue.commands.openWorkspaceConfig',
     wrapCommand(function openWorkspaceConfig(workspace) {
         workspace.openConfig()
     })
 )
 nova.commands.register('tommasonegri.vue.commands.reload', reload)
+dependencyManagement.registerDependencyUnlockCommand(
+    'tommasonegri.vue.commands.forceClearLock'
+)
+
+let langserver = null
+const compositeDisposable = new CompositeDisposable()
 
 class VueLanguageServer {
     constructor() {
@@ -37,8 +42,10 @@ class VueLanguageServer {
         // Use the default server path
         if (!path) {
             path = nova.path.join(
-                nova.extension.path,
-                'node_modules/vls/bin/vls'
+                dependencyManagement.getDependencyDirectory(),
+                'node_modules',
+                '.bin',
+                'vls'
             )
         }
 
@@ -65,8 +72,6 @@ class VueLanguageServer {
             nova.subscriptions.add(client)
             this.languageClient = client
         } catch (err) {
-            // If the .start() method throws, it's likely because the path to the language server is invalid
-
             if (nova.inDevMode()) {
                 console.error(err)
             }
@@ -91,7 +96,7 @@ async function reload() {
 async function asyncActivate() {
     try {
         if (isVeturModeEnabled()) {
-            await ensureInstalled()
+            await ensureInstallation(compositeDisposable)
 
             langserver = new VueLanguageServer()
         }
@@ -127,6 +132,8 @@ export function deactivate() {
         langserver.deactivate()
         langserver = null
     }
+
+    compositeDisposable.dispose()
 
     console.log('Goodbye from Vue!')
 }

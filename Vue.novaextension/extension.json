@@ -14,7 +14,7 @@
     "main": "main.dist.js",
     "entitlements": {
         "process": true,
-        "filesystem": "readonly"
+        "filesystem": "readwrite"
     },
     "config": [
         {
@@ -30,7 +30,7 @@
             "key": "tommasonegri.vue.config.vls-path",
             "title": "VLS Path",
             "type": "path",
-            "placeholder": "/usr/local/bin/example"
+            "placeholder": "/usr/local/bin/vls"
         }
     ],
     "configWorkspace": [
@@ -48,11 +48,15 @@
         "extensions": [
             {
                 "title": "Preferences",
-                "command": "tommasonegri.vue.openWorkspaceConfig"
+                "command": "tommasonegri.vue.commands.openWorkspaceConfig"
             },
             {
                 "title": "Reload extension",
                 "command": "tommasonegri.vue.commands.reload"
+            },
+            {
+                "title": "Force Unlock Dependency Installation",
+                "command": "tommasonegri.vue.commands.forceClearLock"
             }
         ]
     }
