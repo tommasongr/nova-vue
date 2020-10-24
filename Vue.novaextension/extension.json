@@ -3,7 +3,7 @@
     "name": "Vue",
     "organization": "Tommaso Negri",
     "description": "Vue support for nova editor.",
-    "version": "1.1",
+    "version": "1.2",
     "categories": ["languages", "clips", "completions"],
     "license": "MIT",
     "keywords": ["vue", "vuejs", "nova", "syntax", "code-edito", "panic"],
@@ -22,9 +22,9 @@
             "title": "Mode",
             "description": "Choose the working mode for the plugin",
             "type": "enum",
-            "values": ["Classic", "Vetur"],
-            "default": "Classic",
-            "link": "https://github.com/tommasongr/nova-vue/blob/master/README.md#features-supported"
+            "values": ["Vetur", "Classic"],
+            "default": "Vetur",
+            "link": "https://github.com/tommasongr/nova-vue#modes-"
         },
         {
             "key": "tommasonegri.vue.config.vls-path",
@@ -39,9 +39,9 @@
             "title": "Mode",
             "description": "Choose the working mode for the plugin",
             "type": "enum",
-            "values": ["Global Default", "Classic", "Vetur"],
+            "values": ["Global Default", "Vetur", "Classic"],
             "default": "Global Default",
-            "link": "nova://extension/?id=com.tommasonegri.Vue&name=Vue"
+            "link": "https://github.com/tommasongr/nova-vue#modes-"
         }
     ],
     "commands": {

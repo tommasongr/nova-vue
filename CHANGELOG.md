@@ -1,3 +1,10 @@
+## Version 1.2
+
+### Chore
+
+-   Changed default mode for the extension
+-   Updated the help link for mode config
+
 ## Version 1.1
 
 ### Fix

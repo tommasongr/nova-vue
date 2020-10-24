@@ -8,13 +8,13 @@ The extension now support two different mode: **Classic** and **Vetur**! You can
 
 In the future I'll look into a way of combining the best of both worlds, in the meantime which one should you use? Of course is up to you 😉
 
-### Classic (default)
-
-Ad hoc completions for Nova and great snippets for faster development.
-
-### Vetur
+### Vetur (default)
 
 A complete Vetur like mode with all the great features you are already used to.
+
+### Classic
+
+Ad hoc completions for Nova and great snippets for faster development.
 
 ## State of development
 
