@@ -1,3 +1,9 @@
+## Version 1.1
+
+### Fix
+
+-   Upload the DOCS changes
+
 ## Version 1.0
 
 ### Feature
