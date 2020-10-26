@@ -187,6 +187,7 @@
 							<expression>/?&gt;</expression>
 						</ends-with>
 						<subscopes>
+							<include syntax="vue-html" collection="vue-directives" />
 							<include syntax="html" collection="attributes" />
 						</subscopes>
 					</scope>

@@ -61,6 +61,8 @@
 		<include syntax="self" collection="vue-directives" />
 		
 		<!-- Tags -->
+		<include syntax="self" collection="vue-special" />
+		
 		<include syntax="self" collection="custom-html-tags" />
 		
 		<include syntax="html" collection="tags" />
@@ -406,19 +408,92 @@
 			</scope>
 		</collection>
 		
+		<!-- Vue Special Tags -->
+		<collection name="vue-special">
+			<scope name="vue.html.tag.open.paired" spell-check="false" lookup="documentation">
+				<!-- <symbol type="tag-heading">
+					<display-name>
+						<component variable="name" />
+						<component selector="tag.attribute.value.id" prepend="#" />
+						<component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+					</display-name>
+					<context behavior="start" group-by-name="true" unclosed="parent">
+						<auto-close string="&lt;/" completion="${name}&gt;" />
+					</context>
+				</symbol> -->
+				<starts-with>
+					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>component</string>
+						<string>transition</string>
+						<string>transition-group</string>
+						<string>keep-alive</string>
+						<string>slot</string>
+						
+						<!-- Nuxt unique -->
+						<string>Nuxt</string>
+						<string>NuxtChild</string>
+						<string>client-only</string>
+						
+						<!-- Gridsome unique -->
+						<string>g-link</string>
+						<string>g-image</string>
+						<string>Pager</string>
+					</strings>
+					<capture number="1" name="vue.html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="vue-directives" />
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+			
+			<scope name="vue.html.tag.close" spell-check="false" lookup="documentation">
+				<!-- <symbol type="tag">
+					<context behavior="end" group-by-name="true" unclosed="truncate" />
+				</symbol> -->
+				<starts-with>
+					<strings prefix="&lt;/" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>component</string>
+						<string>transition</string>
+						<string>transition-group</string>
+						<string>keep-alive</string>
+						<string>slot</string>
+						
+						<!-- Nuxt unique -->
+						<string>Nuxt</string>
+						<string>NuxtChild</string>
+						<string>client-only</string>
+						
+						<!-- Gridsome unique -->
+						<string>g-link</string>
+						<string>g-image</string>
+						<string>Pager</string>
+					</strings>
+					<capture number="1" name="vue.html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>&gt;</expression>
+				</ends-with>
+			</scope>
+		</collection>
+		
 		<!-- Vue Directives -->
 		<!-- This collection provides support for Vue Directives (v-for, :href, @onClick) -->
 		<collection name="vue-directives">
 			<scope name="vue.html.tag.attribute.double-quoted" spell-check="false" lookup="documentation">
 				<starts-with>
-					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))*\s*(=)(&quot;)</expression>
+					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))?\s*(=)(&quot;)</expression>
 					<capture number="1" name="vue.html.tag.attribute.name" />
-					<capture number="2" name="vue.html.tag.attribute.separator.key-value" />
+					<capture number="2" name="vue.html.tag.attribute.shorthand-key" />
 					<capture number="3" name="vue.html.tag.attribute.name" />
-					<capture number="4" name="vue.html.tag.attribute.name" />
-					<capture number="5" name="vue.html.tag.attribute.name" />
-					<capture number="6" name="vue.html.tag.attribute.equals-sign" />
-					<capture number="7" name="vue.html.tag.attribute.value.quote.left" />
+					<capture number="4" name="vue.html.tag.attribute.argument" />
+					<capture number="5" name="vue.html.tag.attribute.modifier" />
+					<capture number="6" name="vue.html.tag.attribute.modifier" />
+					<capture number="7" name="vue.html.tag.attribute.equals-sign" />
+					<capture number="8" name="vue.html.tag.attribute.value.quote.left" />
 				</starts-with>
 				<ends-with>
 					<expression>(&quot;)</expression>
@@ -443,14 +518,15 @@
 			
 			<scope name="vue.html.tag.attribute.single-quoted" spell-check="false" lookup="documentation">
 				<starts-with>
-					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))*\s*(=)(&apos;)</expression>
+					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))?\s*(=)(&apos;)</expression>
 					<capture number="1" name="vue.html.tag.attribute.name" />
-					<capture number="2" name="vue.html.tag.attribute.separator.key-value" />
+					<capture number="2" name="vue.html.tag.attribute.shorthand-key" />
 					<capture number="3" name="vue.html.tag.attribute.name" />
-					<capture number="4" name="vue.html.tag.attribute.name" />
-					<capture number="5" name="vue.html.tag.attribute.name" />
-					<capture number="6" name="vue.html.tag.attribute.equals-sign" />
-					<capture number="7" name="vue.html.tag.attribute.value.quote.left" />
+					<capture number="4" name="vue.html.tag.attribute.argument" />
+					<capture number="5" name="vue.html.tag.attribute.modifier" />
+					<capture number="6" name="vue.html.tag.attribute.modifier" />
+					<capture number="7" name="vue.html.tag.attribute.equals-sign" />
+					<capture number="8" name="vue.html.tag.attribute.value.quote.left" />
 				</starts-with>
 				<ends-with>
 					<expression>(&apos;)</expression>
@@ -472,19 +548,38 @@
 					</scope>
 				</subscopes>
 			</scope>
+			
+			<scope name="vue.html.tag.attribute.unquoted">
+				<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?</expression>
+				<capture number="1" name="vue.html.tag.attribute.name" />
+				<capture number="2" name="vue.html.tag.attribute.shorthand-key" />
+				<capture number="3" name="vue.html.tag.attribute.name" />
+				<capture number="4" name="vue.html.tag.attribute.argument" />
+			</scope>
+			
+			<scope name="vue.html.tag.attribute.bare">
+				<expression>(v-[a-zA-Z\-]+)(?:(?=\s)|(?=&gt;))</expression>
+				<capture number="1" name="vue.html.tag.attribute.name" />
+			</scope>
+			
+			<scope name="vue.html.tag.attribute.slot-shorthand">
+				<expression>(\#)([a-zA-Z\-]+)(?:(?=\s)|(?=&gt;))</expression>
+				<capture number="1" name="vue.html.tag.attribute.shorthand-key" />
+				<capture number="2" name="vue.html.tag.attribute.name" />
+			</scope>
 		</collection>
 		
 		<!-- Vue Interpolation -->
 		<collection name="vue-interpolation">
-			<scope name="vue.embedded.interpolation" spell-check="false" lookup="documentation">
+			<scope name="vue.html.embedded.interpolation" spell-check="false" lookup="documentation">
 				<starts-with>
 					<expression>\{\{\{?</expression>
-					<capture number="0" name="vue.bracket" />
+					<capture number="0" name="vue.html.embedded.interpolation.bracket" />
 				</starts-with>
 				
 				<ends-with>
 					<expression>\}\}\}?</expression>
-					<capture number="0" name="vue.bracket"/>
+					<capture number="0" name="vue.html.embedded.interpolation.bracket"/>
 				</ends-with>
 				
 				<subsyntax name="javascript">
