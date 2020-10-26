@@ -6,7 +6,7 @@ The extension offers an easy way to improve the highlighting in Vue files.
 
 ### Hooks
 
-If you are a theme curator these are all the available styling hooks:
+This is an example of implementation with all the available hooks:
 
 ```css
 /* Vue */
@@ -48,3 +48,5 @@ vue.html.tag.attribute.modifier {
 ### Add you theme
 
 Feel free to open a pull request if you have implemented the feature in you theme and is not already listed.
+
+**WARNING**: Use a web capable link from [extensions.panic.com](https://extensions.panic.com) since GitHub doesn't recognize Mac App's URIs
