@@ -3,17 +3,18 @@
 <!-- This is a multiline
 comment -->
 
-<template>
+<template #slotname v-slot:content>
     <div class="book-card">
-        <h1 v-for="console.log()"></h1>
+        <transition></transition>
         <a
             v-if="console.log()"
             :href="bookData.link"
-            @onClick="console.log"
+            @click="console.log"
+            @click:native="console.log"
             target="_blank"
             rel="nofollow noopener noreferrer"
         >
-            <div class="book-cover">
+            <div class="book-cover" v-on:click.ctrl.native="onCtrlClick">
                 <g-image
                     :src="bookData.cover"
                     style="width: 100%; height: min-intrinsic"
@@ -26,6 +27,7 @@ comment -->
                 style="width: 100%; height: min-intrinsic"
             />
         </div>
+        <NuxtChild></NuxtChild>
         <div class="book-info">
             <span>{{ bookData.title }}</span>
             <span>{{ catagoriesLabel }}</span>
