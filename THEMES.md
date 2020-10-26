@@ -43,7 +43,7 @@ vue.html.tag.attribute.modifier {
 
 ## Supported themes
 
--   [Handcrafted](nova://extension/?id=handengineering.Handcrafted&name=Handcrafted) by Hand Engineering
+-   [Handcrafted](https://extensions.panic.com/extensions/handengineering/handengineering.Handcrafted/) by Hand Engineering
 
 ### Add you theme
 
