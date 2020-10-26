@@ -10,6 +10,7 @@
     "activationEvents": ["onLanguage:Vue", "onWorkspaceContains:*.vue"],
     "repository": "https://github.com/tommasongr/nova-vue",
     "homepage": "https://tommasonegri.com/?ref=nova",
+    "funding": "https://www.paypal.com/paypalme/tommasonegri/5EUR",
     "bugs": "https://github.com/tommasongr/nova-vue/issues",
     "main": "main.dist.js",
     "entitlements": {
