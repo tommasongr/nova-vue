@@ -1,3 +1,13 @@
+## Version 1.3
+
+### FEATURE
+
+-   Added Vue specific styling hooks for Nova themes
+
+### DOCS
+
+-   Added funding link in Extension Settings
+
 ## Version 1.2
 
 ### Chore

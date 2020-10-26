@@ -432,6 +432,7 @@
 						<!-- Nuxt unique -->
 						<string>Nuxt</string>
 						<string>NuxtChild</string>
+						<string>NuxtLink</string>
 						<string>client-only</string>
 						
 						<!-- Gridsome unique -->
@@ -465,6 +466,7 @@
 						<!-- Nuxt unique -->
 						<string>Nuxt</string>
 						<string>NuxtChild</string>
+						<string>NuxtLink</string>
 						<string>client-only</string>
 						
 						<!-- Gridsome unique -->
