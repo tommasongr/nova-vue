@@ -170,11 +170,7 @@
 				</ends-with>
 				<subscopes>
 					<scope name="vue.tag.template.open">
-						<symbol type="tag-template">
-							<display-name>
-								<component variable="name" />
-								<component selector="vue.tag.attribute.value.link" prepend=" – " />
-							</display-name>
+						<symbol type="tag-style">
 							<context behavior="start" group-by-name="true">
 								<auto-close string="&lt;/" completion="${name}&gt;" />
 							</context>
@@ -199,7 +195,7 @@
 							<expression>(?=&lt;/(?i:template)\b)</expression>
 						</ends-with>
 						
-						<subsyntax name="vue-html">
+						<subsyntax name="vue-html" noncontiguous="true" export-symbols="true">
 							<cut-off>
 								<expression>(?=&lt;/(?i:template)\b)</expression>
 							</cut-off>

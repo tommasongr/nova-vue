@@ -411,7 +411,7 @@
 		<!-- Vue Special Tags -->
 		<collection name="vue-special">
 			<scope name="vue.html.tag.open.paired" spell-check="false" lookup="documentation">
-				<!-- <symbol type="tag-heading">
+				<symbol type="tag">
 					<display-name>
 						<component variable="name" />
 						<component selector="tag.attribute.value.id" prepend="#" />
@@ -420,7 +420,7 @@
 					<context behavior="start" group-by-name="true" unclosed="parent">
 						<auto-close string="&lt;/" completion="${name}&gt;" />
 					</context>
-				</symbol> -->
+				</symbol>
 				<starts-with>
 					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
 						<string>component</string>
@@ -452,9 +452,9 @@
 			</scope>
 			
 			<scope name="vue.html.tag.close" spell-check="false" lookup="documentation">
-				<!-- <symbol type="tag">
+				<symbol type="tag">
 					<context behavior="end" group-by-name="true" unclosed="truncate" />
-				</symbol> -->
+				</symbol>
 				<starts-with>
 					<strings prefix="&lt;/" suffix="\b" word-boundary="false" case-insensitive="true">
 						<string>component</string>
