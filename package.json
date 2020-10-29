@@ -1,7 +1,7 @@
 {
     "name": "nova-vue",
-    "version": "1.3.0",
-    "description": "Vue support for nova editor.",
+    "version": "1.4.0",
+    "description": "Vue support for Nova editor.",
     "main": "src/Scripts/main.js",
     "scripts": {
         "build": "npx rollup -c && cp CHANGELOG.md README.md LICENSE Vue.novaextension",

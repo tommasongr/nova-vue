@@ -1,3 +1,14 @@
+## Version 1.4
+
+### REFACTOR
+
+-   Changed how template tag is parsed
+-   Improved symbols definition for vue elements
+
+### FIX
+
+-   Supported nested template tags
+
 ## Version 1.3
 
 ### FEATURE
