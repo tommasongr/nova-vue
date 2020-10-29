@@ -61,7 +61,7 @@ vue.html.tag.attribute.modifier {
 
 ### Supported themes
 
-All themes which support this feature are listed [here](https://github.com/tommasongr/nova-vue/blob/master/THEMES.md).
+All themes which support this feature are listed [here](https://github.com/tommasongr/nova-vue/blob/master/THEMES.md#supported-themes).
 
 ## State of development
 
@@ -81,6 +81,7 @@ All themes which support this feature are listed [here](https://github.com/tomma
 -   [x] Support for scss, sass and less
 -   [x] Vue Clips (based on [Vue VSCode Snippets](https://github.com/sdras/vue-vscode-snippets))
 -   [x] Support for Vetur LSP
+-   [x] Refined class selectors for improved highlighting
 
 ### Features on their way
 

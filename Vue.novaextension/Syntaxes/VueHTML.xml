@@ -410,6 +410,49 @@
 		
 		<!-- Vue Special Tags -->
 		<collection name="vue-special">
+			<!-- Template -->
+			<scope name="vue.html.tag.open.paired.template" spell-check="false" lookup="documentation">
+				<symbol type="tag-style">
+					<display-name>
+						<component variable="name" />
+						<component selector="tag.attribute.value.id" prepend="#" />
+						<component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+					</display-name>
+					<context behavior="start" group-by-name="true" unclosed="parent">
+						<auto-close string="&lt;/" completion="${name}&gt;" />
+					</context>
+				</symbol>
+				<starts-with>
+					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>template</string>
+					</strings>
+					<capture number="1" name="vue.html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>/?&gt;</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="vue-directives" />
+					<include syntax="html" collection="attributes" />
+				</subscopes>
+			</scope>
+			
+			<scope name="vue.html.tag.close.template" spell-check="false" lookup="documentation">
+				<symbol type="tag-style">
+					<context behavior="end" group-by-name="true" unclosed="truncate" />
+				</symbol>
+				<starts-with>
+					<strings prefix="&lt;/" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>template</string>
+					</strings>
+					<capture number="1" name="vue.html.tag.name" />
+				</starts-with>
+				<ends-with>
+					<expression>&gt;</expression>
+				</ends-with>
+			</scope>
+			
+			<!-- Other Vue Built-ins -->
 			<scope name="vue.html.tag.open.paired" spell-check="false" lookup="documentation">
 				<symbol type="tag">
 					<display-name>

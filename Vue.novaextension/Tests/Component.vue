@@ -3,8 +3,32 @@
 <!-- This is a multiline
 comment -->
 
+<!-- <template #slotname>
+    <template>
+        <template>
+            <div></div>
+        </template>
+        <a
+            v-if="console.log()"
+            :href="bookData.link"
+            @click="console.log"
+            @click:native="console.log"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+        >
+            Hello
+        </a>
+    </template>
+</template> -->
+
 <template #slotname v-slot:content>
     <div class="book-card">
+        <transition></transition>
+        <hello-world></hello-world>
+        <template #slotname>
+            <div></div>
+            <transition></transition>
+        </template>
         <transition></transition>
         <a
             v-if="console.log()"
@@ -44,11 +68,17 @@ export default {
         },
     },
 
-    computed: {
-        catagoriesLabel() {
-            let tmpString = ''
+    data() {
+        return {
+            show: false,
+        }
+    },
 
-            this.bookData.categories
+    computed: {
+        catagoriesLabel({ params, $http }) {
+            let tmpString = `hello world ${ciaone}`
+            let tmpString = 90 + 23
+            let tmpString = this.bookData.categories
                 .map((cat) => {
                     return cat.id
                 })
