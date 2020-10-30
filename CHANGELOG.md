@@ -1,3 +1,9 @@
+## Version 1.5
+
+### FIX
+
+-   Changed cut-off expression for v-directives that could cause the js block to not end correctly
+
 ## Version 1.4
 
 ### REFACTOR
