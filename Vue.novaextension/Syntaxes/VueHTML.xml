@@ -541,24 +541,14 @@
 					<capture number="8" name="vue.html.tag.attribute.value.quote.left" />
 				</starts-with>
 				<ends-with>
-					<expression>(&quot;)</expression>
-					<capture number="1" name="vue.html.tag.attribute.value.quote.right" />
+					<expression>&quot;</expression>
+					<capture number="0" name="vue.html.tag.attribute.value.quote.right" />
 				</ends-with>
-				<subscopes>
-					<scope name="vue.html.embedded.script.content">
-						<starts-with>
-							<expression>(?&lt;=(&quot;))</expression>
-						</starts-with>
-						<ends-with>
-							<expression>(?=(&quot;))</expression>
-						</ends-with>
-						<subsyntax name="javascript">
-							<cut-off>
-								<expression>\\</expression>
-							</cut-off>
-						</subsyntax>
-					</scope>
-				</subscopes>
+				<subsyntax name="javascript">
+					<cut-off>
+						<expression>(?=(?!\\)&quot;)|$</expression>
+					</cut-off>
+				</subsyntax>
 			</scope>
 			
 			<scope name="vue.html.tag.attribute.single-quoted" spell-check="false" lookup="documentation">
@@ -574,24 +564,14 @@
 					<capture number="8" name="vue.html.tag.attribute.value.quote.left" />
 				</starts-with>
 				<ends-with>
-					<expression>(&apos;)</expression>
-					<capture number="1" name="vue.html.tag.attribute.value.quote.right" />
+					<expression>&apos;</expression>
+					<capture number="0" name="vue.html.tag.attribute.value.quote.right" />
 				</ends-with>
-				<subscopes>
-					<scope name="vue.html.embedded.script.content">
-						<starts-with>
-							<expression>(?&lt;=(&apos;))</expression>
-						</starts-with>
-						<ends-with>
-							<expression>(?=(&apos;))</expression>
-						</ends-with>
-						<subsyntax name="javascript">
-							<cut-off>
-								<expression>\\</expression>
-							</cut-off>
-						</subsyntax>
-					</scope>
-				</subscopes>
+				<subsyntax name="javascript">
+					<cut-off>
+						<expression>(?=(?!\\)&apos;)|$</expression>
+					</cut-off>
+				</subsyntax>
 			</scope>
 			
 			<scope name="vue.html.tag.attribute.unquoted">
@@ -629,7 +609,7 @@
 				
 				<subsyntax name="javascript">
 					<cut-off>
-						<expression>\\</expression>
+						<expression>(?=(?!\\)\}\}\}?)|$</expression>
 					</cut-off>
 				</subsyntax>
 			</scope>

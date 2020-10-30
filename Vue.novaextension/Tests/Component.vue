@@ -3,33 +3,12 @@
 <!-- This is a multiline
 comment -->
 
-<!-- <template #slotname>
-    <template>
-        <template>
-            <div></div>
-        </template>
-        <a
-            v-if="console.log()"
-            :href="bookData.link"
-            @click="console.log"
-            @click:native="console.log"
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-        >
-            Hello
-        </a>
-    </template>
-</template> -->
-
 <template #slotname v-slot:content>
     <div class="book-card">
         <transition></transition>
-        <hello-world></hello-world>
-        <template #slotname>
-            <div></div>
-            <transition></transition>
-        </template>
-        <transition></transition>
+        <hello-world />
+        <div @click="() => console.log(hello)"></div>
+        <transition @click=""></transition>
         <a
             v-if="console.log()"
             :href="bookData.link"
@@ -53,11 +32,15 @@ comment -->
         </div>
         <NuxtChild></NuxtChild>
         <div class="book-info">
-            <span>{{ bookData.title }}</span>
+            <span>{{ bookData.title () => console.log(hello) }}</span>
             <span>{{ catagoriesLabel }}</span>
         </div>
     </div>
 </template>
+
+<script>
+;() => console.log(hello)
+</script>
 
 <script>
 export default {
