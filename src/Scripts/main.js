@@ -64,6 +64,9 @@ class VueLanguageServer {
                         },
                         experimental: {
                             templateInterpolationService: true
+                        },
+                        completion: {
+                            autoImport: true
                         }
                     }
                 }
