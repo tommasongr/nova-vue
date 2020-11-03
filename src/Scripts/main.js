@@ -67,7 +67,8 @@ class VueLanguageServer {
                         },
                         completion: {
                             autoImport: true
-                        }
+                        },
+                        useWorkspaceDependencies: true
                     }
                 }
             }
