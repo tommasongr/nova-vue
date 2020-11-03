@@ -61,6 +61,9 @@ class VueLanguageServer {
                     vetur: {
                         format: {
                             enable: false
+                        },
+                        experimental: {
+                            templateInterpolationService: true
                         }
                     }
                 }
