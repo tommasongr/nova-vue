@@ -56,6 +56,15 @@ class VueLanguageServer {
         var clientOptions = {
             // The set of document syntaxes for which the server is valid
             syntaxes: ['vue'],
+            initializationOptions: {
+                config: {
+                    vetur: {
+                        format: {
+                            enable: false
+                        }
+                    }
+                }
+            }
         }
         var client = new LanguageClient(
             'tommasonegri.vue',
