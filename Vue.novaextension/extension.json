@@ -3,7 +3,7 @@
     "name": "Vue",
     "organization": "Tommaso Negri",
     "description": "Vue support for Nova editor.",
-    "version": "1.5",
+    "version": "2.0",
     "categories": ["languages", "clips", "completions"],
     "license": "MIT",
     "keywords": ["vue", "vuejs", "nova", "syntax", "code-edito", "panic"],

@@ -1,6 +1,6 @@
 {
     "name": "nova-vue",
-    "version": "1.5.0",
+    "version": "2.0.0",
     "description": "Vue support for Nova editor.",
     "main": "src/Scripts/main.js",
     "scripts": {

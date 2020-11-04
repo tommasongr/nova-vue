@@ -1,3 +1,20 @@
+## Version 2.0
+
+### FEATURE
+
+-   Added support for template interpolation suggestions
+-   Configured Vetur for using workspace dependencies
+-   Typescript: Auto import completions
+
+### CHORE
+
+-   Upgrade VLS to v0.5.5
+
+### FIX
+
+-   Closed Vetur format until Nova will support it
+-   Closed Vetur validation for preventing xxx errors to show up
+
 ## Version 1.5
 
 ### FIX
