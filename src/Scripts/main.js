@@ -60,18 +60,23 @@ class VueLanguageServer {
                 config: {
                     vetur: {
                         format: {
-                            enable: false
+                            enable: false,
+                        },
+                        // Disabled for preventing xxx errors to show up
+                        // TODO: Add a setting for opening it
+                        validation: {
+                            interpolation: false,
                         },
                         experimental: {
-                            templateInterpolationService: true
+                            templateInterpolationService: true,
                         },
                         completion: {
-                            autoImport: true
+                            autoImport: true,
                         },
-                        useWorkspaceDependencies: true
-                    }
-                }
-            }
+                        useWorkspaceDependencies: true,
+                    },
+                },
+            },
         }
         var client = new LanguageClient(
             'tommasonegri.vue',
