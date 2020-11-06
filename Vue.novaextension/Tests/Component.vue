@@ -32,7 +32,7 @@ comment -->
         </div>
         <NuxtChild></NuxtChild>
         <div class="book-info">
-            <span>{{ bookData.title () => console.log(hello) }}</span>
+            <span>{{ bookData.title }}</span>
             <span>{{ catagoriesLabel }}</span>
         </div>
     </div>

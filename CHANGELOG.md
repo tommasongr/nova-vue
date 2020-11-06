@@ -1,3 +1,9 @@
+## Version 2.1
+
+### FIX
+
+-   Fixed syntax error with v-directives cut-off
+
 ## Version 2.0
 
 ### FEATURE

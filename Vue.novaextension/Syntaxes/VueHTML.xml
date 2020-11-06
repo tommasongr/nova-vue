@@ -546,7 +546,7 @@
 				</ends-with>
 				<subsyntax name="javascript">
 					<cut-off>
-						<expression>(?=(?!\\)&quot;)|$</expression>
+						<expression>(?=(?!\\)&quot;)</expression>
 					</cut-off>
 				</subsyntax>
 			</scope>
@@ -569,7 +569,7 @@
 				</ends-with>
 				<subsyntax name="javascript">
 					<cut-off>
-						<expression>(?=(?!\\)&apos;)|$</expression>
+						<expression>(?=(?!\\)&apos;)</expression>
 					</cut-off>
 				</subsyntax>
 			</scope>
@@ -609,7 +609,9 @@
 				
 				<subsyntax name="javascript">
 					<cut-off>
-						<expression>(?=(?!\\)\}\}\}?)|$</expression>
+						<expression>(?=(?!\\)\}\}\}?)</expression>
+						<!-- TODO: Verify |$ --> 
+						<!-- <expression>(?=(?!\\)\}\}\}?)|$</expression> -->
 					</cut-off>
 				</subsyntax>
 			</scope>
