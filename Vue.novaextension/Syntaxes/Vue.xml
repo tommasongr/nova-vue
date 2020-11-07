@@ -2,8 +2,9 @@
 <syntax name="vue">
 	<meta>
 		<name>Vue</name>
-		<type>structured</type>
+		<type>markup</type>
 		<preferred-file-extension>vue</preferred-file-extension>
+		<default-extension>vue</default-extension>
 	</meta>
 	
 	<detectors>
