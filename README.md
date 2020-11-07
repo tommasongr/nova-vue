@@ -1,3 +1,5 @@
+![](https://raw.githubusercontent.com/tommasongr/nova-vue/master/assets/nova-vue.png)
+
 # Vue for Nova editor
 
 This is a plugin providing Vue language support for the new [Nova editor from Panic](https://panic.com/nova/). Inspired by [Vetur](https://github.com/vuejs/vetur) and many other great Vue tools.
