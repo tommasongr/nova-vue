@@ -1,3 +1,9 @@
+## Version 2.2
+
+### FEATURE
+
+-   Added the extension icon
+
 ## Version 2.1
 
 ### FIX

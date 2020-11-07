@@ -65,7 +65,7 @@ vue.html.tag.attribute.modifier {
 
 All themes which support this feature are listed [here](https://github.com/tommasongr/nova-vue/blob/master/THEMES.md#supported-themes).
 
-## State of development
+## State of development 🧑‍💻
 
 ### Features supported
 
@@ -90,7 +90,7 @@ All themes which support this feature are listed [here](https://github.com/tomma
 -   [ ] Support for jade and pug (waiting for syntaxes)
 -   [ ] Support for stylus and postcss (waiting for syntaxes)
 
-## Contributing
+## Contributing 🤝
 
 You are welcome to contribute in any way you can think of. Seriously, I am not an expert in these things 😅.
 
