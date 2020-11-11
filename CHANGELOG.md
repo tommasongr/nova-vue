@@ -1,3 +1,9 @@
+## Version 2.3
+
+### CHORE
+
+-   Upgrade VLS to v0.5.7
+
 ## Version 2.2
 
 ### FEATURE
