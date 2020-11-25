@@ -224,6 +224,49 @@
 			
 			<scope name="vue.tag.open.paired.template" spell-check="false" lookup="documentation">
 				<starts-with>
+					<expression>(?=&lt;(?i:template)\b)(?=[^&gt;]*lang=('pug'|\"pug\"))(?![^/&gt;]*/&gt;\s*$)(?![^\/&gt;]*\/&gt;\\s*$)</expression>
+				</starts-with>
+				<ends-with>
+					<expression>^(?=&lt;/(?i:template)\b)</expression>
+				</ends-with>
+				<subscopes>
+					<scope name="vue.tag.template.open">
+						<symbol type="tag-style">
+							<context behavior="start" group-by-name="true">
+								<auto-close string="&lt;/" completion="${name}&gt;" />
+							</context>
+						</symbol>
+						<starts-with>
+							<expression>&lt;((?i:template))</expression>
+							<capture number="1" name="vue.tag.name" />
+						</starts-with>
+						<ends-with>
+							<expression>/?&gt;</expression>
+						</ends-with>
+						<subscopes>
+							<include syntax="vue-html" collection="vue-directives" />
+							<include syntax="html" collection="attributes" />
+						</subscopes>
+					</scope>
+					<scope name="vue.embedded.block.template.content">
+						<starts-with>
+							<expression>(?&lt;=&gt;)</expression>
+						</starts-with>
+						<ends-with>
+							<expression>^(?=&lt;/(?i:template)\b)</expression>
+						</ends-with>
+						
+						<subsyntax name="pug" noncontiguous="true" export-symbols="true">
+							<cut-off>
+								<expression>^(?=&lt;/(?i:template)\b)</expression>
+							</cut-off>
+						</subsyntax>
+					</scope>
+				</subscopes>
+			</scope>
+			
+			<scope name="vue.tag.open.paired.template" spell-check="false" lookup="documentation">
+				<starts-with>
 					<!-- <expression>&lt;(template)(?![^\/&gt;]*\/&gt;\\s*$)</expression> -->
 					<expression>(?=&lt;(?i:template)\b)(?![^\/&gt;]*\/&gt;\\s*$)</expression>
 				</starts-with>
