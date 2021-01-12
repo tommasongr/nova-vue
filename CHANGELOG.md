@@ -1,3 +1,15 @@
+## Version 3.1
+
+### DOCS
+
+-   Added warning for Nova crash without pug extension
+
+## Version 3.0
+
+### FEATURE
+
+-   Added support for PUG syntax
+
 ## Version 2.3
 
 ### CHORE

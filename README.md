@@ -4,6 +4,8 @@
 
 This is a plugin providing Vue language support for the new [Nova editor from Panic](https://panic.com/nova/). Inspired by [Vetur](https://github.com/vuejs/vetur) and many other great Vue tools.
 
+> WARNING: If you want to use PUG in your template you first have to install an extension that provides you PUG syntax, otherwise Nova will crash. Panic has been notified of this issue.
+
 ## Modes 🔥
 
 The extension now support two different mode: **Classic** and **Vetur**! You can set it in the global extension preferences and also on a project based.
@@ -84,10 +86,11 @@ All themes which support this feature are listed [here](https://github.com/tomma
 -   [x] Vue Clips (based on [Vue VSCode Snippets](https://github.com/sdras/vue-vscode-snippets))
 -   [x] Support for Vetur LSP
 -   [x] Refined class selectors for improved highlighting
+-   [x] Support for PUG Syntax
 
 ### Features on their way
 
--   [ ] Support for jade and pug (waiting for syntaxes)
+-   [ ] Support for jade (waiting for syntaxes)
 -   [ ] Support for stylus and postcss (waiting for syntaxes)
 
 ## Contributing 🤝
