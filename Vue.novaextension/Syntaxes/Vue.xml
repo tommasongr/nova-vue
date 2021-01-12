@@ -222,14 +222,13 @@
 				</subscopes>
 			</scope>
 			
+			<!-- PUG -->
 			<scope name="vue.tag.open.paired.template" spell-check="false" lookup="documentation">
 				<starts-with>
 					<expression>(?=&lt;(?i:template)\b)(?=[^&gt;]*lang=('pug'|\"pug\"))(?![^/&gt;]*/&gt;\s*$)(?![^\/&gt;]*\/&gt;\\s*$)</expression>
 				</starts-with>
-				<ends-with>
-					<expression>^(?=&lt;/(?i:template)\b)</expression>
-				</ends-with>
-				<subscopes>
+				<ends-with />
+				<subscopes anchored="true" skip-whitespace="false">
 					<scope name="vue.tag.template.open">
 						<symbol type="tag-style">
 							<context behavior="start" group-by-name="true">
@@ -265,15 +264,14 @@
 				</subscopes>
 			</scope>
 			
+			<!-- HTML -->
 			<scope name="vue.tag.open.paired.template" spell-check="false" lookup="documentation">
 				<starts-with>
 					<!-- <expression>&lt;(template)(?![^\/&gt;]*\/&gt;\\s*$)</expression> -->
 					<expression>(?=&lt;(?i:template)\b)(?![^\/&gt;]*\/&gt;\\s*$)</expression>
 				</starts-with>
-				<ends-with>
-					<expression>^(?=&lt;/(?i:template)\b)</expression>
-				</ends-with>
-				<subscopes>
+				<ends-with />
+				<subscopes anchored="true" skip-whitespace="false">
 					<scope name="vue.tag.template.open">
 						<symbol type="tag-style">
 							<context behavior="start" group-by-name="true">
@@ -372,10 +370,8 @@
 				<starts-with>
 					<expression>(?=&lt;(?i:style)\b)(?=[^&gt;]*lang=('sass'|\"sass\"))(?![^/&gt;]*/&gt;\s*$)</expression>
 				</starts-with>
-				<ends-with>
-					<expression>(?=&lt;/(?i:style)\b)</expression>
-				</ends-with>
-				<subscopes>
+				<ends-with />
+				<subscopes anchored="true" skip-whitespace="false">
 					<scope name="vue.tag.style.open">
 						<symbol type="tag-style">
 							<context behavior="start" group-by-name="true">
@@ -414,10 +410,8 @@
 				<starts-with>
 					<expression>(?=&lt;(?i:style)\b)(?=[^&gt;]*lang=('scss'|\"scss\"))(?![^/&gt;]*/&gt;\s*$)</expression>
 				</starts-with>
-				<ends-with>
-					<expression>(?=&lt;/(?i:style)\b)</expression>
-				</ends-with>
-				<subscopes>
+				<ends-with />
+				<subscopes anchored="true" skip-whitespace="false">
 					<scope name="vue.tag.style.open">
 						<symbol type="tag-style">
 							<context behavior="start" group-by-name="true">
@@ -456,10 +450,8 @@
 				<starts-with>
 					<expression>(?=&lt;(?i:style)\b)(?=[^&gt;]*lang=('less'|\"less\"))(?![^/&gt;]*/&gt;\s*$)</expression>
 				</starts-with>
-				<ends-with>
-					<expression>(?=&lt;/(?i:style)\b)</expression>
-				</ends-with>
-				<subscopes>
+				<ends-with />
+				<subscopes anchored="true" skip-whitespace="false">
 					<scope name="vue.tag.style.open">
 						<symbol type="tag-style">
 							<context behavior="start" group-by-name="true">
@@ -498,10 +490,8 @@
 				<starts-with>
 					<expression>(?=&lt;(?i:style)\b)</expression>
 				</starts-with>
-				<ends-with>
-					<expression>(?=&lt;/(?i:style)\b)</expression>
-				</ends-with>
-				<subscopes>
+				<ends-with />
+				<subscopes anchored="true" skip-whitespace="false">
 					<scope name="vue.tag.style.open">
 						<symbol type="tag-style">
 							<context behavior="start" group-by-name="true">
@@ -543,10 +533,8 @@
 				<starts-with>
 					<expression>(?=&lt;(?i:script)\b)(?=[^&gt;]*lang=('ts'|\"ts\"))(?![^/&gt;]*/&gt;\s*$)</expression>
 				</starts-with>
-				<ends-with>
-					<expression>(?=&lt;/(?i:script)\b)</expression>
-				</ends-with>
-				<subscopes>
+				<ends-with />
+				<subscopes anchored="true" skip-whitespace="false">
 					<scope name="vue.tag.script.open">
 						<symbol type="tag-script">
 							<display-name>
@@ -589,10 +577,8 @@
 				<starts-with>
 					<expression>(?=&lt;(?i:script)\b)(?=[^&gt;]*lang=('coffee'|\"coffee\"))(?![^/&gt;]*/&gt;\s*$)</expression>
 				</starts-with>
-				<ends-with>
-					<expression>(?=&lt;/(?i:script)\b)</expression>
-				</ends-with>
-				<subscopes>
+				<ends-with />
+				<subscopes anchored="true" skip-whitespace="false">
 					<scope name="vue.tag.script.open">
 						<symbol type="tag-script">
 							<display-name>
@@ -635,10 +621,8 @@
 				<starts-with>
 					<expression>(?=&lt;(?i:script)\b)</expression>
 				</starts-with>
-				<ends-with>
-					<expression>(?=&lt;/(?i:script)\b)</expression>
-				</ends-with>
-				<subscopes>
+				<ends-with />
+				<subscopes anchored="true" skip-whitespace="false">
 					<scope name="vue.tag.script.open">
 						<symbol type="tag-script">
 							<display-name>
@@ -675,6 +659,7 @@
 					</scope>
 				</subscopes>
 			</scope>
+			
 		</collection>
 	</collections>
 </syntax>
