@@ -204,26 +204,7 @@
 					</scope>
 				</subscopes>
 			</scope> -->
-			
-			<scope name="vue.tag.open.single.template" spell-check="false" lookup="documentation">
-				<symbol type="tag-style">
-					<context behavior="subtree" group-by-name="true" unclosed="truncate" />
-				</symbol>
-				<starts-with>
-					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
-						<string>template</string>
-					</strings>
-					<capture number="1" name="html.tag.name" />
-				</starts-with>
-				<ends-with>
-					<expression>/?&gt;</expression>
-				</ends-with>
-				<subscopes>
-				<include syntax="vue-html" collection="vue-directives" />
-					<include syntax="html" collection="attributes" />
-				</subscopes>
-			</scope>
-			
+
 			<!-- PUG -->
 			<scope name="vue.tag.open.paired.template" spell-check="false" lookup="documentation">
 				<starts-with>

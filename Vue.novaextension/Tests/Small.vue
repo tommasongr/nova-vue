@@ -1,6 +1,6 @@
 <template>
-    <input id="ciao" class="ciao" />
-    <p>{{ greeting }} World!</p>
+    <input id="ciao" class="ciao" v-for="" />
+    <p v-for="ciao">{{ greeting }} World!</p>
 </template>
 
 <script>

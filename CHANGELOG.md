@@ -1,3 +1,9 @@
+## Version 3.4
+
+### FIX
+
+-   Removed single template block syntax which causes problems in Nova 4
+
 ## Version 3.3
 
 ### FIX
