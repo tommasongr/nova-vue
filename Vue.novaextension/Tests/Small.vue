@@ -1,4 +1,5 @@
 <template>
+    <input id="ciao" class="ciao" />
     <p>{{ greeting }} World!</p>
 </template>
 

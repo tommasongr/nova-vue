@@ -210,14 +210,16 @@
 					<context behavior="subtree" group-by-name="true" unclosed="truncate" />
 				</symbol>
 				<starts-with>
-					<expression>(?:&lt;)(template)(?=.*[^/&gt;]*/&gt;\s*$)</expression>
-					<capture number="1" name="vue.tag.name" />
+					<strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+						<string>template</string>
+					</strings>
+					<capture number="1" name="html.tag.name" />
 				</starts-with>
 				<ends-with>
-					<expression>/&gt;</expression>
+					<expression>/?&gt;</expression>
 				</ends-with>
 				<subscopes>
-					<include syntax="vue-html" collection="vue-directives" />
+				<include syntax="vue-html" collection="vue-directives" />
 					<include syntax="html" collection="attributes" />
 				</subscopes>
 			</scope>
