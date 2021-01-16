@@ -1,3 +1,15 @@
+## Version 3.3
+
+### FIX
+
+-   Fixed broken single template block syntax in Nova 4
+
+## Version 3.2
+
+### FIX
+
+-   Fixed broken script and style blocks syntax in Nova 4
+
 ## Version 3.1
 
 ### DOCS
