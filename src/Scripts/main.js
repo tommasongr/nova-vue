@@ -28,7 +28,7 @@ const compositeDisposable = new CompositeDisposable()
 
 async function reload() {
     deactivate()
-    console.log('Reloading...')
+    console.log('Reloading Vue Server...')
     await asyncActivate()
 }
 
