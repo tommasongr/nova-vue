@@ -26,12 +26,6 @@ let langserver = null
 // Read more: https://docs.nova.app/api-reference/disposable/
 const compositeDisposable = new CompositeDisposable()
 
-async function reload() {
-    deactivate()
-    console.log('Reloading Vue Server...')
-    await asyncActivate()
-}
-
 async function asyncActivate() {
     try {
         if (isVeturModeEnabled()) {
@@ -75,4 +69,10 @@ export function deactivate() {
     compositeDisposable.dispose()
 
     console.log('Goodbye from Vue!')
+}
+
+async function reload() {
+    deactivate()
+    console.log('Reloading Vue Server...')
+    await asyncActivate()
 }
