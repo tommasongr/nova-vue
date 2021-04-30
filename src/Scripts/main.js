@@ -3,6 +3,7 @@ import { showNotification, wrapCommand } from './helpers'
 import isVeturModeEnabled from './isVeturModeEnabled'
 import { dependencyManagement } from 'nova-extension-utils'
 
+// Register a Nova command for opening project preferences
 nova.commands.register(
     'tommasonegri.vue.commands.openWorkspaceConfig',
     wrapCommand(function openWorkspaceConfig(workspace) {

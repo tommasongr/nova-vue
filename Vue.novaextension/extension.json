@@ -48,7 +48,7 @@
     "commands": {
         "extensions": [
             {
-                "title": "Preferences",
+                "title": "Open Project Preferences",
                 "command": "tommasonegri.vue.commands.openWorkspaceConfig"
             },
             {
