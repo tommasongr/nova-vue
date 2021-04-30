@@ -28,11 +28,9 @@ const compositeDisposable = new CompositeDisposable()
 
 async function asyncActivate() {
     try {
-        if (isVeturModeEnabled()) {
-            await ensureInstallation(compositeDisposable)
+        await ensureInstallation(compositeDisposable)
 
-            langserver = new VueLanguageServer()
-        }
+        langserver = new VueLanguageServer()
 
         console.log('Hello from Vue!')
     } catch (err) {
