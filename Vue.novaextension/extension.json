@@ -17,14 +17,7 @@
         "process": true,
         "filesystem": "readwrite"
     },
-    "config": [
-        {
-            "key": "tommasonegri.vue.config.vls-path",
-            "title": "VLS Path",
-            "type": "path",
-            "placeholder": "/usr/local/bin/vls"
-        }
-    ],
+    "config": [],
     "configWorkspace": [],
     "commands": {
         "extensions": [
@@ -46,6 +39,8 @@
         {
             "id": "tommasonegri.vue.sidebar",
             "name": "Vue",
+            "smallImage": "VueSidebarSmall",
+            "largeImage": "VueSidebarLarge",
             "sections": [
                 {
                     "id": "tommasonegri.vue.sidebar.info",
