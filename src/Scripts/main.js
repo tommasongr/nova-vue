@@ -181,8 +181,6 @@ async function asyncActivate() {
 export function activate() {
     console.log('Activating Vue Language Server...')
 
-    console.log('hello', nova.workspace.config.get('vueServerRunning'))
-
     return asyncActivate()
         .then(() => {
             console.log('Hello from Vue 💎')
