@@ -41,5 +41,25 @@
                 "command": "tommasonegri.vue.commands.forceClearLock"
             }
         ]
-    }
+    },
+    "sidebars": [
+        {
+            "id": "tommasonegri.vue.sidebar",
+            "name": "Vue",
+            "sections": [
+                {
+                    "id": "tommasonegri.vue.sidebar.info",
+                    "name": "Information",
+                    "placeholderText": "Vue Extension Information",
+                    "headerCommands": [
+                        {
+                            "title": "Refresh",
+                            "image": "__builtin.refresh",
+                            "command": "tommasonegri.vue.commands.reload"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
