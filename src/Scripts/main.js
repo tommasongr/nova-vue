@@ -20,6 +20,9 @@ dependencyManagement.registerDependencyUnlockCommand(
 )
 
 let langserver = null
+
+// Initialize a new Nova Disposable object
+// Read more: https://docs.nova.app/api-reference/disposable/
 const compositeDisposable = new CompositeDisposable()
 
 class VueLanguageServer {
