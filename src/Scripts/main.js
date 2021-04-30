@@ -3,6 +3,32 @@ import { showNotification, getVlsVersion } from './helpers'
 import { dependencyManagement } from 'nova-extension-utils'
 import { VueLanguageServer } from './VueLanguageServer'
 
+// Register a Nova command for starting Vue Language Server
+nova.commands.register(
+    'tommasonegri.vue.commands.startServer',
+    function startVueServer() {
+        showNotification(
+            'vue-server-starting',
+            'Vue is Warming Up...',
+            "Don't worry, it won't take a while."
+        )
+        activate()
+    }
+)
+
+// Register a Nova command for stopping Vue Language Server
+nova.commands.register(
+    'tommasonegri.vue.commands.stopServer',
+    function startVueServer() {
+        showNotification(
+            'vue-server-stopped',
+            'Vue is Taking a Break',
+            "When you are ready I'll be here for you."
+        )
+        deactivate()
+    }
+)
+
 // Register a Nova command for opening project preferences
 // nova.commands.register(
 //     'tommasonegri.vue.commands.openWorkspaceConfig',

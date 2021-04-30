@@ -22,6 +22,15 @@
     "commands": {
         "extensions": [
             {
+                "title": "Start Vue Language Server",
+                "command": "tommasonegri.vue.commands.startServer"
+            },
+            {
+                "title": "Stop Vue Language Server",
+                "command": "tommasonegri.vue.commands.stopServer"
+            },
+            { "separator": true },
+            {
                 "title": "Reload Extension",
                 "command": "tommasonegri.vue.commands.reload"
             },
