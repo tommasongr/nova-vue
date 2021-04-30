@@ -52,7 +52,7 @@
                 "command": "tommasonegri.vue.commands.openWorkspaceConfig"
             },
             {
-                "title": "Reload extension",
+                "title": "Reload Extension",
                 "command": "tommasonegri.vue.commands.reload"
             },
             {

@@ -10,7 +10,10 @@ nova.commands.register(
         workspace.openConfig()
     })
 )
+
+// Register a Nova command for reloading the extension
 nova.commands.register('tommasonegri.vue.commands.reload', reload)
+
 dependencyManagement.registerDependencyUnlockCommand(
     'tommasonegri.vue.commands.forceClearLock'
 )
