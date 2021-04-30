@@ -186,8 +186,7 @@ export function activate() {
             console.log('Hello from Vue 💎')
         })
         .catch((err) => {
-            console.error('Failed to activate')
-            console.error(err)
+            console.error('Failed to activate with error:', err)
             nova.workspace.showErrorMessage(err)
         })
 }
