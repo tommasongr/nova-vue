@@ -56,7 +56,7 @@
                 "command": "tommasonegri.vue.commands.reload"
             },
             {
-                "title": "Force Unlock Dependency Installation",
+                "title": "Clear Dependency Installation",
                 "command": "tommasonegri.vue.commands.forceClearLock"
             }
         ]
