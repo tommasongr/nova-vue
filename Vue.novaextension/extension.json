@@ -19,32 +19,13 @@
     },
     "config": [
         {
-            "key": "tommasonegri.vue.config.mode",
-            "title": "Mode",
-            "description": "Choose the working mode for the plugin",
-            "type": "enum",
-            "values": ["Vetur", "Classic"],
-            "default": "Vetur",
-            "link": "https://github.com/tommasongr/nova-vue#modes-"
-        },
-        {
             "key": "tommasonegri.vue.config.vls-path",
             "title": "VLS Path",
             "type": "path",
             "placeholder": "/usr/local/bin/vls"
         }
     ],
-    "configWorkspace": [
-        {
-            "key": "tommasonegri.vue.config.mode",
-            "title": "Mode",
-            "description": "Choose the working mode for the plugin",
-            "type": "enum",
-            "values": ["Global Default", "Vetur", "Classic"],
-            "default": "Global Default",
-            "link": "https://github.com/tommasongr/nova-vue#modes-"
-        }
-    ],
+    "configWorkspace": [],
     "commands": {
         "extensions": [
             {
