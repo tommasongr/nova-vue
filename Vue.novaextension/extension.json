@@ -22,15 +22,11 @@
     "commands": {
         "extensions": [
             {
-                "title": "Open Project Preferences",
-                "command": "tommasonegri.vue.commands.openWorkspaceConfig"
-            },
-            {
                 "title": "Reload Extension",
                 "command": "tommasonegri.vue.commands.reload"
             },
             {
-                "title": "Clear Dependency Installation",
+                "title": "Force Dependencies Reinstallation",
                 "command": "tommasonegri.vue.commands.forceClearLock"
             }
         ]
