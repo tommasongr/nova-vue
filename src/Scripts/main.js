@@ -14,6 +14,7 @@ nova.commands.register(
 // Register a Nova command for reloading the extension
 nova.commands.register('tommasonegri.vue.commands.reload', reload)
 
+// Register a Nova command for clearing the dependencies
 dependencyManagement.registerDependencyUnlockCommand(
     'tommasonegri.vue.commands.forceClearLock'
 )
