@@ -4,12 +4,17 @@ import { dependencyManagement } from 'nova-extension-utils'
 import { VueLanguageServer } from './VueLanguageServer'
 
 // Register a Nova command for opening project preferences
-nova.commands.register(
-    'tommasonegri.vue.commands.openWorkspaceConfig',
-    function openWorkspaceConfig(workspace) {
-        workspace.openConfig()
-    }
-)
+// nova.commands.register(
+//     'tommasonegri.vue.commands.openWorkspaceConfig',
+//     function openWorkspaceConfig(workspace) {
+//         workspace.openConfig()
+//     }
+// )
+
+// {
+//     "title": "Open Project Preferences",
+//     "command": "tommasonegri.vue.commands.openWorkspaceConfig"
+// },
 
 // Register a Nova command for reloading the extension
 nova.commands.register('tommasonegri.vue.commands.reload', reload)
