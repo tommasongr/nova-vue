@@ -10,6 +10,14 @@ export class InformationView {
             identifier: 'status',
         }
 
+        this._vlsVersionElement = {
+            title: 'VLS Version',
+            value: 'Retrieving...',
+            identifier: 'vlsversion',
+            tooltip:
+                'VLS stands for Vue Language Server. VLS is the backbone of the Vetur suite.',
+        }
+
         this.getChildren = this.getChildren.bind(this)
         this.getTreeItem = this.getTreeItem.bind(this)
     }
@@ -18,6 +26,10 @@ export class InformationView {
         this._statusElement.value = value
         this._treeView.reload(this._statusElement)
     }
+    set vlsVersion(value) {
+        this._vlsVersionElement.value = value
+        this._treeView.reload(this._vlsVersionElement)
+    }
 
     reload() {
         this._treeView.reload()
@@ -25,7 +37,7 @@ export class InformationView {
 
     getChildren(element) {
         if (element == null) {
-            return [this._statusElement]
+            return [this._statusElement, this._vlsVersionElement]
         }
         return []
     }
@@ -34,6 +46,7 @@ export class InformationView {
         const item = new TreeItem(element.title, TreeItemCollapsibleState.None)
         item.descriptiveText = element.value
         item.identifier = element.identifier
+        item.tooltip = element.tooltip
         return item
     }
 
