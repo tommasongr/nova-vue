@@ -60,7 +60,7 @@ async function asyncActivate() {
     const informationView = new InformationView()
     compositeDisposable.add(informationView)
 
-    informationView.status = 'Activating...'
+    informationView.status = 'Warming up...'
 
     // If VLS isn't found, install it
     try {
@@ -173,18 +173,15 @@ async function asyncActivate() {
         })
 
     informationView.status = 'Running'
+
+    // Used for the when clause of the start/stop server command
+    nova.workspace.config.set('vueServerRunning', true)
 }
 
 export function activate() {
     console.log('Activating Vue Language Server...')
 
-    if (nova.inDevMode()) {
-        showNotification(
-            'vue-activated',
-            'Vue is Loading',
-            'Vue extension si loading'
-        )
-    }
+    console.log('hello', nova.workspace.config.get('vueServerRunning'))
 
     return asyncActivate()
         .then(() => {
@@ -202,6 +199,9 @@ export function deactivate() {
     if (langserver) {
         langserver.deactivate()
         langserver = null
+
+        // Used for the when clause of the start/stop server command
+        nova.workspace.config.set('vueServerRunning', false)
     }
 
     compositeDisposable.dispose()

@@ -23,11 +23,13 @@
         "extensions": [
             {
                 "title": "Start Vue Language Server",
-                "command": "tommasonegri.vue.commands.startServer"
+                "command": "tommasonegri.vue.commands.startServer",
+                "when": "vueServerRunning == false"
             },
             {
                 "title": "Stop Vue Language Server",
-                "command": "tommasonegri.vue.commands.stopServer"
+                "command": "tommasonegri.vue.commands.stopServer",
+                "when": "vueServerRunning == true"
             },
             { "separator": true },
             {
