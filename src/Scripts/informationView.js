@@ -51,7 +51,7 @@ export class InformationView {
     }
 
     dispose() {
-        this.status = 'Disposed'
+        this.status = 'Stopped'
         this._treeView.dispose()
     }
 }
