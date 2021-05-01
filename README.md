@@ -6,8 +6,6 @@ This is a plugin providing Vue language support for the new [Nova editor by Pani
 
 > WARNING: If you want to use PUG in your template you first have to install an extension that provides you PUG syntax, otherwise Nova will crash. Panic has been notified of this issue.
 
-## New in v4.0 💡
-
 ## Features
 
 ### Vue Language Server 🔥
@@ -16,9 +14,9 @@ This extension provides a fully featured support for [VLS](https://github.com/vu
 
 The Vue Language Server offers advanced code features like code completion, intellisense and so on.
 
-#### NEW: Settings exposed ⚙️
+#### NEW: Configurable Settings ⚙️
 
-From **v4.0** almost all the options of the Vue Language Server are configurable both as Global and per Project.
+From **v4.0** almost all the settings available for the Vue Language Server are configurable both globally and per project.
 
 ![Special theming](https://raw.githubusercontent.com/tommasongr/nova-vue/master/Vue.novaextension/Images/docs/docs-vue_language_server_settings.png)
 
@@ -34,7 +32,7 @@ From **v4.0** the extension ships with a new Information Sidebar! You can see th
 
 ### NEW: Status Notifications 🚦
 
-From **v4.0** the extension ships with an improved notification system, giving you more information about what is going on.
+From **v4.0** the extension ships with an improved notification system, giving you more information about what is going on. If you don't like them you can of course disable this feature from the settings.
 
 ---
 
@@ -66,17 +64,18 @@ If you are a developer interested in implementing this feature in your theme che
 -   [x] Completions for Vue API
 -   [x] Completions for Vue Directives
 -   [x] Completions Vue Events (@click)
--   [x] Support for typescript and coffeescript
--   [x] Support for scss, sass and less
+-   [x] Support for PUG
+-   [x] Support for SCSS, SASS, LESS and PostCSS
+-   [x] Support for JavaScript, TypeScript and CoffeeScript
 -   [x] Vue Clips (based on [Vue VSCode Snippets](https://github.com/sdras/vue-vscode-snippets))
--   [x] Support for Vetur LSP
+-   [x] Support for Vue Language Server
+-   [x] Configurable settings for Vue Language Server
 -   [x] Refined class selectors for improved highlighting
--   [x] Support for PUG Syntax
 
 ### Features on their way
 
 -   [ ] Support for jade (waiting for syntaxes)
--   [ ] Support for stylus and postcss (waiting for syntaxes)
+-   [ ] Support for stylus (waiting for syntaxes)
 
 ## Contributing 🤝
 
