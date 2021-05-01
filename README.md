@@ -32,7 +32,7 @@ From **v4.0** the extension ships with a new Information Sidebar! You can see th
 
 ---
 
-### NEW: Informative Notifications ☎️
+### NEW: Status Notifications 🚦
 
 From **v4.0** the extension ships with an improved notification system, giving you more information about what is going on.
 

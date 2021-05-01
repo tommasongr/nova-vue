@@ -160,6 +160,20 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Extension",
+            "description": "These options are specific for the Vue for Nova extension.",
+            "type": "section",
+            "children": [
+                {
+                    "key": "tommasonegri.vue.config.extension.statusNotifications",
+                    "title": "Status Notifications",
+                    "description": "Show a notification when the server changes status. For example on realod, stop and start. If disabled you will only be notified on crashes or errors.",
+                    "type": "boolean",
+                    "default": true
+                }
+            ]
         }
     ],
     "configWorkspace": [
@@ -314,6 +328,21 @@
                             "default": "Global Default"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "title": "Extension",
+            "description": "These options are specific for the Vue for Nova extension.",
+            "type": "section",
+            "children": [
+                {
+                    "key": "tommasonegri.vue.config.extension.statusNotifications",
+                    "title": "Status Notifications",
+                    "description": "Show a notification when the server changes status. For example on realod, stop and start. If disabled you will only be notified on crashes or errors.",
+                    "type": "enum",
+                    "values": ["Global Default", "Enable", "Disable"],
+                    "default": "Global Default"
                 }
             ]
         }

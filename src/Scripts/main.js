@@ -8,6 +8,7 @@ nova.commands.register('tommasonegri.vue.commands.startServer', function () {
     showNotification(
         'vue-server-starting',
         'Vue is Warming Up...',
+        false,
         "Don't worry, it won't take a while."
     )
     activate()
@@ -18,6 +19,7 @@ nova.commands.register('tommasonegri.vue.commands.stopServer', function () {
     showNotification(
         'vue-server-stopped',
         'Vue is Taking a Break',
+        false,
         "When you are ready I'll be here for you."
     )
     deactivate()
@@ -44,6 +46,9 @@ const settings = [
     'tommasonegri.vue.config.vetur.misc.useWorkspaceDependencies',
     // Developer
     'tommasonegri.vue.config.vetur.dev.logLevel',
+
+    // Extension
+    'tommasonegri.vue.config.extension.statusNotifications',
 ]
 
 // Array of all the setting specific for the global environment
@@ -148,6 +153,7 @@ async function asyncActivate() {
         showNotification(
             'vls-not-found',
             'VLS Not Found',
+            true,
             "The Vue Language Server hasn't been installed correctly. You may want to restart the server or open an issue. I'm sorry for this...",
             ['Restart', 'Open Issue', 'Ignore'],
             (reply) => {
@@ -257,6 +263,7 @@ async function reload() {
     showNotification(
         'vue-reload',
         'Vue is Reloading...',
+        false,
         "Don't worry, it won't take a while."
     )
 
