@@ -1,3 +1,9 @@
+## Version 4.1
+
+### FIX
+
+-   Reverted VLS version to 0.5.7 for unknown breaking issues
+
 ## Version 4.0
 
 ### NEW

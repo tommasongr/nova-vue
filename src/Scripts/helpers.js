@@ -1,3 +1,5 @@
+import { dependencyManagement } from 'nova-extension-utils'
+
 import isStatusNotificationsEnabled from './settings/extension/statusNotifications'
 
 /**
@@ -41,7 +43,8 @@ export function showNotification(
 export async function getVlsVersion() {
     return new Promise((resolve, reject) => {
         const process = new Process('/usr/bin/env', {
-            args: ['npm', 'view', 'vls', 'version'],
+            cwd: dependencyManagement.getDependencyDirectory(),
+            args: ['node', '-p', "require('vls/package.json').version"],
             stdio: ['ignore', 'pipe', 'ignore'],
         })
         let str = ''

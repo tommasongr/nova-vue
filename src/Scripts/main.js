@@ -1,7 +1,21 @@
 import { InformationView } from './informationView'
 import { showNotification, getVlsVersion } from './helpers'
 import { dependencyManagement } from 'nova-extension-utils'
-import { VueLanguageServer } from './VueLanguageServer'
+
+// Settings
+import isCompletionAutoImportEnabled from './settings/completionAutoImport'
+import isCompletionTagCasingEnabled from './settings/completionTagCasing'
+import isLanguageFeaturesCodeActionsEnabled from './settings/languageFeaturesCodeActions'
+import isLanguageFeaturesUpdateImportOnFileMoveEnabled from './settings/languageFeaturesUpdateImportOnFileMove'
+import isValidationInterpolationEnabled from './settings/validationInterpolation'
+import isValidationScriptEnabled from './settings/validationScript'
+import isValidationStyleEnabled from './settings/validationStyle'
+import isValidationTemplateEnabled from './settings/validationTemplate'
+import isValidationTemplatePropsEnabled from './settings/validationTemplateProps'
+import isExperimentalTemplateInterpolationServiceEnabled from './settings/experimentalTemplateInterpolationService'
+import isMiscUseWorkspaceDependenciesEnabled from './settings/miscUseWorkspaceDependencies'
+import isMiscIgnoreProjectWarningEnabled from './settings/miscIgnoreProjectWarning'
+import isDevLogLevelEnabled from './settings/devLogLevel'
 
 // Register a Nova command for starting Vue Language Server
 nova.commands.register('tommasonegri.vue.commands.startServer', function () {
@@ -181,11 +195,57 @@ async function asyncActivate() {
     }
 
     // Instantiate the Vue Language Server
-    langserver = new VueLanguageServer()
+    var serverOptions = {
+        path: vlsPath,
+    }
+    var clientOptions = {
+        // The set of document syntaxes for which the server is valid
+        syntaxes: ['vue'],
+        initializationOptions: {
+            config: {
+                vetur: {
+                    completion: {
+                        autoImport: isCompletionAutoImportEnabled(),
+                        tagCasing: isCompletionTagCasingEnabled(),
+                    },
+                    languageFeatures: {
+                        codeActions: isLanguageFeaturesCodeActionsEnabled(),
+                        updateImportOnFileMove: isLanguageFeaturesUpdateImportOnFileMoveEnabled(),
+                    },
+                    // Disabled by default for preventing xxx errors to show up
+                    validation: {
+                        interpolation: isValidationInterpolationEnabled(),
+                        script: isValidationScriptEnabled(),
+                        style: isValidationStyleEnabled(),
+                        template: isValidationTemplateEnabled(),
+                        templateProps: isValidationTemplatePropsEnabled(),
+                    },
+                    experimental: {
+                        templateInterpolationService: isExperimentalTemplateInterpolationServiceEnabled(),
+                    },
+                    dev: {
+                        logLevel: isDevLogLevelEnabled(),
+                    },
+                    format: {
+                        enable: false,
+                    },
+                    ignoreProjectWarning: isMiscIgnoreProjectWarningEnabled(),
+                    useWorkspaceDependencies: isMiscUseWorkspaceDependenciesEnabled(),
+                },
+            },
+        },
+    }
+
+    langserver = new LanguageClient(
+        'tommasonegri.vue',
+        'Vue Language Server',
+        serverOptions,
+        clientOptions
+    )
 
     // Add an event listener for when Vue Language Server stops
     compositeDisposable.add(
-        langserver.languageClient.onDidStop((err) => {
+        langserver.onDidStop((err) => {
             informationView.status = 'Stopped'
 
             // Display an error message and a restart button if the server stopped unexpectedly
@@ -211,6 +271,8 @@ async function asyncActivate() {
             }
         })
     )
+
+    langserver.start()
 
     // Retrieve the running VLS version to display in the Information Sidebar
     getVlsVersion()
@@ -244,7 +306,7 @@ export function activate() {
 export function deactivate() {
     // Clean up state before the extension is deactivated
     if (langserver) {
-        langserver.deactivate()
+        langserver.stop()
         langserver = null
 
         // Used for the when clause of the start/stop server command
