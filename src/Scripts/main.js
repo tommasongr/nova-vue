@@ -4,43 +4,87 @@ import { dependencyManagement } from 'nova-extension-utils'
 import { VueLanguageServer } from './VueLanguageServer'
 
 // Register a Nova command for starting Vue Language Server
-nova.commands.register(
-    'tommasonegri.vue.commands.startServer',
-    function startVueServer() {
-        showNotification(
-            'vue-server-starting',
-            'Vue is Warming Up...',
-            "Don't worry, it won't take a while."
-        )
-        activate()
-    }
-)
+nova.commands.register('tommasonegri.vue.commands.startServer', function () {
+    showNotification(
+        'vue-server-starting',
+        'Vue is Warming Up...',
+        "Don't worry, it won't take a while."
+    )
+    activate()
+})
 
 // Register a Nova command for stopping Vue Language Server
+nova.commands.register('tommasonegri.vue.commands.stopServer', function () {
+    showNotification(
+        'vue-server-stopped',
+        'Vue is Taking a Break',
+        "When you are ready I'll be here for you."
+    )
+    deactivate()
+})
+
+// Array of all the settings shared between global environment and workspace
+const settings = [
+    // Completion
+    'tommasonegri.vue.config.vetur.completion.autoImport',
+    'tommasonegri.vue.config.vetur.completion.tagCasing',
+    // Language Features
+    'tommasonegri.vue.config.vetur.languageFeatures.codeActions',
+    'tommasonegri.vue.config.vetur.languageFeatures.updateImportOnFileMove',
+    // Validation
+    'tommasonegri.vue.config.vetur.validation.interpolation',
+    'tommasonegri.vue.config.vetur.validation.script',
+    'tommasonegri.vue.config.vetur.validation.style',
+    'tommasonegri.vue.config.vetur.validation.template',
+    'tommasonegri.vue.config.vetur.validation.templateProps',
+    // Experimental
+    'tommasonegri.vue.config.vetur.experimental.templateInterpolationService',
+    // Misc
+    'tommasonegri.vue.config.vetur.misc.ignoreProjectWarning',
+    'tommasonegri.vue.config.vetur.misc.useWorkspaceDependencies',
+    // Developer
+    'tommasonegri.vue.config.vetur.dev.logLevel',
+]
+
+// Array of all the setting specific for the global environment
+const globalSettings = []
+
+// Register a Nova command for restoring workspace settings
 nova.commands.register(
-    'tommasonegri.vue.commands.stopServer',
-    function startVueServer() {
-        showNotification(
-            'vue-server-stopped',
-            'Vue is Taking a Break',
-            "When you are ready I'll be here for you."
-        )
-        deactivate()
+    'tommasonegri.vue.commands.restoreWorkspaceSettings',
+    function () {
+        settings.forEach((setting) => {
+            nova.workspace.config.remove(setting)
+        })
     }
 )
 
-// Register a Nova command for opening project preferences
-// nova.commands.register(
-//     'tommasonegri.vue.commands.openWorkspaceConfig',
-//     function openWorkspaceConfig(workspace) {
-//         workspace.openConfig()
-//     }
-// )
+// Register a Nova command for restoring global environment settings
+nova.commands.register(
+    'tommasonegri.vue.commands.restoreExtensionSettings',
+    function () {
+        const allSettings = settings.concat(globalSettings)
 
-// {
-//     "title": "Open Project Preferences",
-//     "command": "tommasonegri.vue.commands.openWorkspaceConfig"
-// },
+        allSettings.forEach((setting) => {
+            nova.config.remove(setting)
+        })
+    }
+)
+
+// Register a Nova command for opening extension preferences
+nova.commands.register(
+    'tommasonegri.vue.commands.openExtensionConfig',
+    function () {
+        nova.openConfig('com.tommasonegri.Vue')
+    }
+)
+// Register a Nova command for opening project preferences
+nova.commands.register(
+    'tommasonegri.vue.commands.openWorkspaceConfig',
+    function () {
+        nova.workspace.openConfig()
+    }
+)
 
 // Register a Nova command for reloading the extension
 nova.commands.register('tommasonegri.vue.commands.reload', reload)
@@ -175,7 +219,7 @@ async function asyncActivate() {
     informationView.status = 'Running'
 
     // Used for the when clause of the start/stop server command
-    nova.workspace.config.set('vueServerRunning', true)
+    nova.workspace.config.set('tommasonegri.vue.serverRunning', true)
 }
 
 export function activate() {
@@ -198,7 +242,7 @@ export function deactivate() {
         langserver = null
 
         // Used for the when clause of the start/stop server command
-        nova.workspace.config.set('vueServerRunning', false)
+        nova.workspace.config.set('tommasonegri.vue.serverRunning', false)
     }
 
     compositeDisposable.dispose()
