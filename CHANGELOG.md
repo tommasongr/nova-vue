@@ -1,3 +1,22 @@
+## Version 4.0
+
+### NEW
+
+-   Exposed VLS settings for both Global and per Project
+-   Added a new Information Sidebar
+-   Updated the version of VLS (0.7.2)
+-   Added informative notifications
+-   Added new commands for the extension
+-   Added a Clip for scaffolding a Vue file with POSTCSS
+
+### IMPROVED
+
+-   Improved general stability and maintanability with better structure and comments
+-   Polished the main extension object
+-   Polished the VueLanguageClient class
+-   Uniformed all the logs, notifications and alerts
+-   Polished the syntax definition
+
 ## Version 3.4
 
 ### FIX
