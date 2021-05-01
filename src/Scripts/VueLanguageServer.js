@@ -1,5 +1,20 @@
 import { dependencyManagement } from 'nova-extension-utils'
 
+// Settings
+import isCompletionAutoImportEnabled from './settings/completionAutoImport'
+import isCompletionTagCasingEnabled from './settings/completionTagCasing'
+import isLanguageFeaturesCodeActionsEnabled from './settings/languageFeaturesCodeActions'
+import isLanguageFeaturesUpdateImportOnFileMoveEnabled from './settings/languageFeaturesUpdateImportOnFileMove'
+import isValidationInterpolationEnabled from './settings/validationInterpolation'
+import isValidationScriptEnabled from './settings/validationScript'
+import isValidationStyleEnabled from './settings/validationStyle'
+import isValidationTemplateEnabled from './settings/validationTemplate'
+import isValidationTemplatePropsEnabled from './settings/validationTemplateProps'
+import isExperimentalTemplateInterpolationServiceEnabled from './settings/experimentalTemplateInterpolationService'
+import isMiscUseWorkspaceDependenciesEnabled from './settings/miscUseWorkspaceDependencies'
+import isMiscIgnoreProjectWarningEnabled from './settings/miscIgnoreProjectWarning'
+import isDevLogLevelEnabled from './settings/devLogLevel'
+
 export class VueLanguageServer {
     constructor() {
         // Observe the configuration setting for the server's location, and restart the server on change
@@ -39,24 +54,38 @@ export class VueLanguageServer {
         var clientOptions = {
             // The set of document syntaxes for which the server is valid
             syntaxes: ['vue'],
+
             initializationOptions: {
                 config: {
                     vetur: {
+                        completion: {
+                            autoImport: isCompletionAutoImportEnabled(),
+                            tagCasing: isCompletionTagCasingEnabled(),
+                            scaffoldSnippetSources: '',
+                        },
+                        languageFeatures: {
+                            codeActions: isLanguageFeaturesCodeActionsEnabled(),
+                            updateImportOnFileMove: isLanguageFeaturesUpdateImportOnFileMoveEnabled(),
+                        },
+                        validation: {
+                            // Disabled by default for preventing xxx errors to show up
+                            interpolation: isValidationInterpolationEnabled(),
+                            script: isValidationScriptEnabled(),
+                            style: isValidationStyleEnabled(),
+                            template: isValidationTemplateEnabled(),
+                            templateProps: isValidationTemplatePropsEnabled(),
+                        },
+                        experimental: {
+                            templateInterpolationService: isExperimentalTemplateInterpolationServiceEnabled(),
+                        },
+                        dev: {
+                            logLevel: isDevLogLevelEnabled(),
+                        },
                         format: {
                             enable: false,
                         },
-                        // Disabled for preventing xxx errors to show up
-                        // TODO: Add a setting for opening it
-                        validation: {
-                            interpolation: false,
-                        },
-                        experimental: {
-                            templateInterpolationService: true,
-                        },
-                        completion: {
-                            autoImport: true,
-                        },
-                        useWorkspaceDependencies: true,
+                        ignoreProjectWarning: isMiscIgnoreProjectWarningEnabled(),
+                        useWorkspaceDependencies: isMiscUseWorkspaceDependenciesEnabled(),
                     },
                 },
             },

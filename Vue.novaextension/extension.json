@@ -17,19 +17,336 @@
         "process": true,
         "filesystem": "readwrite"
     },
-    "config": [],
-    "configWorkspace": [],
+    "config": [
+        {
+            "title": "Vue Language Server",
+            "description": "VLS (Vue Language Server) is a language server implementation compatible with Language Server Protocol. It is developed as part of the Vetur project.",
+            "type": "section",
+            "link": "https://github.com/vuejs/vetur/tree/master/server",
+            "children": [
+                {
+                    "title": "Completion",
+                    "description": "Options for configuring all about code completion.",
+                    "type": "section",
+                    "children": [
+                        {
+                            "key": "tommasonegri.vue.config.vetur.completion.autoImport",
+                            "title": "Auto Import",
+                            "description": "Include completion for module export and auto import them.",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        {
+                            "key": "tommasonegri.vue.config.vetur.completion.tagCasing",
+                            "title": "Tag Casing",
+                            "description": "Casing conversion for tag completion.",
+                            "type": "enum",
+                            "values": ["initial", "kebab"],
+                            "default": "kebab"
+                        }
+                    ]
+                },
+                {
+                    "title": "Language Features",
+                    "description": "Options for configuring all about language features.",
+                    "type": "section",
+                    "children": [
+                        {
+                            "key": "tommasonegri.vue.config.vetur.languageFeatures.codeActions",
+                            "title": "Code Actions",
+                            "description": "Whether to enable codeActions.",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        {
+                            "key": "tommasonegri.vue.config.vetur.languageFeatures.updateImportOnFileMove",
+                            "title": "Update Import on File Move",
+                            "description": "Whether to automatic updating import path when rename or move a file.",
+                            "type": "boolean",
+                            "default": true
+                        }
+                    ]
+                },
+                {
+                    "title": "Validation",
+                    "description": "Options for configuring all about code validation.",
+                    "type": "section",
+                    "children": [
+                        {
+                            "key": "tommasonegri.vue.config.vetur.validation.interpolation",
+                            "title": "Interpolation",
+                            "description": "Validate interpolation in <template> region using Typescript language service.\n\nWARNING: Disabled for preventing xxx errors to show up.",
+                            "type": "boolean",
+                            "default": false
+                        },
+                        {
+                            "key": "tommasonegri.vue.config.vetur.validation.script",
+                            "title": "Script",
+                            "description": "Validate js/ts in <script>.",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        {
+                            "key": "tommasonegri.vue.config.vetur.validation.style",
+                            "title": "Style",
+                            "description": "Validate css/scss/less/postcss in <style>.",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        {
+                            "key": "tommasonegri.vue.config.vetur.validation.template",
+                            "title": "Template",
+                            "description": "Validate vue-html in <template> using eslint-plugin-vue.",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        {
+                            "key": "tommasonegri.vue.config.vetur.validation.templateProps",
+                            "title": "Template Props",
+                            "description": "Validate props usage in <template> region. Show error/warning for not passing declared props to child components and show error for passing wrongly typed interpolation expressions.",
+                            "type": "boolean",
+                            "default": false
+                        }
+                    ]
+                },
+                {
+                    "title": "Misc",
+                    "description": "Various options which don't fall into a specific category.",
+                    "type": "section",
+                    "children": [
+                        {
+                            "key": "tommasonegri.vue.config.vetur.misc.ignoreProjectWarning",
+                            "title": "Ignore Project Warning",
+                            "description": "Vetur will warn about not setup correctly for the project. You can disable it.",
+                            "type": "boolean",
+                            "default": false
+                        },
+                        {
+                            "key": "tommasonegri.vue.config.vetur.misc.useWorkspaceDependencies",
+                            "title": "Use Workspace Dependencies",
+                            "description": "Use dependencies from the workspace. Currently only for TypeScript.",
+                            "type": "boolean",
+                            "default": true
+                        }
+                    ]
+                },
+                {
+                    "title": "Experimental",
+                    "description": "As the name suggests these options may provide new features but with a stability trade-off. Use them carefully.",
+                    "type": "section",
+                    "children": [
+                        {
+                            "key": "tommasonegri.vue.config.vetur.experimental.templateInterpolationService",
+                            "title": "Template Interpolation Service",
+                            "description": "Enable template interpolation service that offers hover/defintion/references in Vue interpolation.",
+                            "type": "boolean",
+                            "default": true
+                        }
+                    ]
+                },
+                {
+                    "title": "Developer",
+                    "description": "These options are probably usefull only for developers who work on the VLS. You probably want to stick with the defaults.\n\nWIP: Some options are not exposed yet. Missing: VLS Path, VLS Port.",
+                    "type": "section",
+                    "children": [
+                        {
+                            "key": "tommasonegri.vue.config.vetur.dev.logLevel",
+                            "title": "Log Level",
+                            "description": "Log level for VLS.",
+                            "type": "enum",
+                            "values": ["INFO", "DEBUG"],
+                            "default": "INFO"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "configWorkspace": [
+        {
+            "title": "Vue Language Server",
+            "description": "VLS (Vue Language Server) is a language server implementation compatible with Language Server Protocol. It is developed as part of the Vetur project.",
+            "type": "section",
+            "link": "https://github.com/vuejs/vetur/tree/master/server",
+            "children": [
+                {
+                    "title": "Completion",
+                    "description": "Options for configuring all about code completion.",
+                    "type": "section",
+                    "children": [
+                        {
+                            "key": "tommasonegri.vue.config.vetur.completion.autoImport",
+                            "title": "Auto Import",
+                            "description": "Include completion for module export and auto import them.",
+                            "type": "enum",
+                            "values": ["Global Default", "Enable", "Disable"],
+                            "default": "Global Default"
+                        },
+                        {
+                            "key": "tommasonegri.vue.config.vetur.completion.tagCasing",
+                            "title": "Tag Casing",
+                            "description": "Casing conversion for tag completion.",
+                            "type": "enum",
+                            "values": ["Global Default", "initial", "kebab"],
+                            "default": "Global Default"
+                        }
+                    ]
+                },
+                {
+                    "title": "Language Features",
+                    "description": "Options for configuring all about language features.",
+                    "type": "section",
+                    "children": [
+                        {
+                            "key": "tommasonegri.vue.config.vetur.languageFeatures.codeActions",
+                            "title": "Code Actions",
+                            "description": "Whether to enable codeActions.",
+                            "type": "enum",
+                            "values": ["Global Default", "Enable", "Disable"],
+                            "default": "Global Default"
+                        },
+                        {
+                            "key": "tommasonegri.vue.config.vetur.languageFeatures.updateImportOnFileMove",
+                            "title": "Update Import on File Move",
+                            "description": "Whether to automatic updating import path when rename or move a file.",
+                            "type": "enum",
+                            "values": ["Global Default", "Enable", "Disable"],
+                            "default": "Global Default"
+                        }
+                    ]
+                },
+                {
+                    "title": "Validation",
+                    "description": "Options for configuring all about code validation.",
+                    "type": "section",
+                    "children": [
+                        {
+                            "key": "tommasonegri.vue.config.vetur.validation.interpolation",
+                            "title": "Interpolation",
+                            "description": "Validate interpolation in <template> region using Typescript language service.\n\nWARNING: Disabled for preventing xxx errors to show up.",
+                            "type": "enum",
+                            "values": ["Global Default", "Enable", "Disable"],
+                            "default": "Global Default"
+                        },
+                        {
+                            "key": "tommasonegri.vue.config.vetur.validation.script",
+                            "title": "Script",
+                            "description": "Validate js/ts in <script>.",
+                            "type": "enum",
+                            "values": ["Global Default", "Enable", "Disable"],
+                            "default": "Global Default"
+                        },
+                        {
+                            "key": "tommasonegri.vue.config.vetur.validation.style",
+                            "title": "Style",
+                            "description": "Validate css/scss/less/postcss in <style>.",
+                            "type": "enum",
+                            "values": ["Global Default", "Enable", "Disable"],
+                            "default": "Global Default"
+                        },
+                        {
+                            "key": "tommasonegri.vue.config.vetur.validation.template",
+                            "title": "Template",
+                            "description": "Validate vue-html in <template> using eslint-plugin-vue.",
+                            "type": "enum",
+                            "values": ["Global Default", "Enable", "Disable"],
+                            "default": "Global Default"
+                        },
+                        {
+                            "key": "tommasonegri.vue.config.vetur.validation.templateProps",
+                            "title": "Template Props",
+                            "description": "Validate props usage in <template> region. Show error/warning for not passing declared props to child components and show error for passing wrongly typed interpolation expressions.",
+                            "type": "enum",
+                            "values": ["Global Default", "Enable", "Disable"],
+                            "default": "Global Default"
+                        }
+                    ]
+                },
+                {
+                    "title": "Misc",
+                    "description": "Various options which don't fall into a specific category.",
+                    "type": "section",
+                    "children": [
+                        {
+                            "key": "tommasonegri.vue.config.vetur.misc.ignoreProjectWarning",
+                            "title": "Ignore Project Warning",
+                            "description": "Vetur will warn about not setup correctly for the project. You can disable it.",
+                            "type": "enum",
+                            "values": ["Global Default", "Enable", "Disable"],
+                            "default": "Global Default"
+                        },
+                        {
+                            "key": "tommasonegri.vue.config.vetur.misc.useWorkspaceDependencies",
+                            "title": "Use Workspace Dependencies",
+                            "description": "Use dependencies from the workspace. Currently only for TypeScript.",
+                            "type": "enum",
+                            "values": ["Global Default", "Enable", "Disable"],
+                            "default": "Global Default"
+                        }
+                    ]
+                },
+                {
+                    "title": "Experimental",
+                    "description": "As the name suggests these options may provide new features but with a stability trade-off. Use them carefully.",
+                    "type": "section",
+                    "children": [
+                        {
+                            "key": "tommasonegri.vue.config.vetur.experimental.templateInterpolationService",
+                            "title": "Template Interpolation Service",
+                            "description": "Enable template interpolation service that offers hover/defintion/references in Vue interpolation.",
+                            "type": "enum",
+                            "values": ["Global Default", "Enable", "Disable"],
+                            "default": "Global Default"
+                        }
+                    ]
+                },
+                {
+                    "title": "Developer",
+                    "description": "These options are probably usefull only for developers who work on the VLS. You probably want to stick with the defaults.\n\nWIP: Some options are not exposed yet. Missing: VLS Path, VLS Port.",
+                    "type": "section",
+                    "children": [
+                        {
+                            "key": "tommasonegri.vue.config.vetur.dev.logLevel",
+                            "title": "Log Level",
+                            "description": "Log level for VLS.",
+                            "type": "enum",
+                            "values": ["Global Default", "INFO", "DEBUG"],
+                            "default": "Global Default"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
     "commands": {
         "extensions": [
             {
+                "title": "Open Global Settings",
+                "command": "tommasonegri.vue.commands.openExtensionConfig"
+            },
+            {
+                "title": "Open Project Settings",
+                "command": "tommasonegri.vue.commands.openWorkspaceConfig"
+            },
+            { "separator": true },
+            {
+                "title": "Restore Defaults Global Settings",
+                "command": "tommasonegri.vue.commands.restoreExtensionSettings"
+            },
+            {
+                "title": "Restore Defaults Project Settings",
+                "command": "tommasonegri.vue.commands.restoreWorkspaceSettings"
+            },
+            { "separator": true },
+            {
                 "title": "Start Vue Language Server",
                 "command": "tommasonegri.vue.commands.startServer",
-                "when": "vueServerRunning == false"
+                "when": "tommasonegri.vue.serverRunning == false"
             },
             {
                 "title": "Stop Vue Language Server",
                 "command": "tommasonegri.vue.commands.stopServer",
-                "when": "vueServerRunning == true"
+                "when": "tommasonegri.vue.serverRunning == true"
             },
             { "separator": true },
             {
