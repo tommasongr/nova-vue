@@ -114,96 +114,7 @@
 		
 		<!-- Template -->
 		<collection name="vue-template">
-			<!-- JADE -->
-			<!-- <scope name="vue.embedded.block.template" spell-check="false" lookup="documentation">
-				<starts-with>
-					<expression>(?=&lt;(?i:template)\b)(?=[^&gt;]*lang=('jade'|\"jade\"))(?![^/&gt;]*/&gt;\s*$)</expression>
-				</starts-with>
-				<ends-with>
-					<expression>(?=&lt;/(?i:template)\b)</expression>
-				</ends-with>
-				<subscopes>
-					<scope name="vue.tag.template.open">
-						<symbol type="tag-template">
-							<display-name>
-								<component variable="name" />
-								<component selector="vue.tag.attribute.value.link" prepend=" – " />
-							</display-name>
-							<context behavior="start" group-by-name="true">
-								<auto-close string="&lt;/" completion="${name}&gt;" />
-							</context>
-						</symbol>
-						<starts-with>
-							<expression>&lt;((?i:template))</expression>
-							<capture number="1" name="vue.tag.name" />
-						</starts-with>
-						<ends-with>
-							<expression>/?&gt;</expression>
-						</ends-with>
-						<subscopes>
-							<include syntax="html" collection="attributes" />
-						</subscopes>
-					</scope>
-					<scope name="vue.embedded.block.template.content">
-						<starts-with>
-							<expression>(?&lt;=&gt;)</expression>
-						</starts-with>
-						<ends-with>
-							<expression>(?=&lt;/(?i:template)\b)</expression>
-						</ends-with>
-						
-						<subsyntax name="haml">
-							<cut-off>
-								<expression>(?=&lt;/(?i:template)\b)</expression>
-							</cut-off>
-						</subsyntax>
-					</scope>
-				</subscopes>
-			</scope> -->
-			
-			<!-- HTML -->
-			<!-- <scope name="vue.embedded.block.template" spell-check="false" lookup="documentation">
-				<starts-with>
-					<expression>(?=&lt;(?i:template)\b)</expression>
-				</starts-with>
-				<ends-with>
-					<expression>(?=&lt;/(?i:template)\b)</expression>
-				</ends-with>
-				<subscopes>
-					<scope name="vue.tag.template.open">
-						<symbol type="tag-style">
-							<context behavior="start" group-by-name="true">
-								<auto-close string="&lt;/" completion="${name}&gt;" />
-							</context>
-						</symbol>
-						<starts-with>
-							<expression>&lt;((?i:template))</expression>
-							<capture number="1" name="vue.tag.name" />
-						</starts-with>
-						<ends-with>
-							<expression>/?&gt;</expression>
-						</ends-with>
-						<subscopes>
-							<include syntax="vue-html" collection="vue-directives" />
-							<include syntax="html" collection="attributes" />
-						</subscopes>
-					</scope>
-					<scope name="vue.embedded.block.template.content">
-						<starts-with>
-							<expression>(?&lt;=&gt;)</expression>
-						</starts-with>
-						<ends-with>
-							<expression>(?=&lt;/(?i:template)\b)</expression>
-						</ends-with>
-						
-						<subsyntax name="vue-html" noncontiguous="true" export-symbols="true">
-							<cut-off>
-								<expression>(?=&lt;/(?i:template)\b)</expression>
-							</cut-off>
-						</subsyntax>
-					</scope>
-				</subscopes>
-			</scope> -->
+			<!-- TODO: Add JADE support when a syntax definition will be available on the extension library -->
 
 			<!-- PUG -->
 			<scope name="vue.tag.open.paired.template" spell-check="false" lookup="documentation">
@@ -250,7 +161,6 @@
 			<!-- HTML -->
 			<scope name="vue.tag.open.paired.template" spell-check="false" lookup="documentation">
 				<starts-with>
-					<!-- <expression>&lt;(template)(?![^\/&gt;]*\/&gt;\\s*$)</expression> -->
 					<expression>(?=&lt;(?i:template)\b)(?![^\/&gt;]*\/&gt;\\s*$)</expression>
 				</starts-with>
 				<ends-with />
@@ -289,61 +199,6 @@
 					</scope>
 				</subscopes>
 			</scope>
-			
-			<!-- <scope name="vue.tag.open.paired.template" spell-check="false" lookup="documentation">
-				<symbol type="tag-style">
-					<context behavior="subtree" group-by-name="true">
-						<auto-close string="&lt;/" completion="${name}&gt;" />
-					</context>
-				</symbol>
-				<starts-with>
-					<expression>&lt;(template)(?![^\/&gt;]*\/&gt;\\s*$)</expression>
-					<capture number="1" name="vue.tag.name" />
-				</starts-with>
-				<ends-with>
-					<expression>^&lt;/(template)&gt;</expression>
-					<expression>^(?=&lt;/(?i:template)\b)</expression>
-					<capture number="1" name="vue.tag.name" />
-				</ends-with>
-				<subscopes>
-					<include syntax="vue-html" collection="vue-directives" />
-					<include syntax="html" collection="attributes" />
-					<scope name="vue.tag.template.open">
-						<symbol type="tag-style">
-							<context behavior="start" group-by-name="true">
-								<auto-close string="&lt;/" completion="${name}&gt;" />
-							</context>
-						</symbol>
-						<starts-with>
-							<expression>&lt;((?i:template))</expression>
-							<capture number="1" name="vue.tag.name" />
-						</starts-with>
-						<ends-with>
-							<expression>/?&gt;</expression>
-						</ends-with>
-						<subscopes>
-							<include syntax="vue-html" collection="vue-directives" />
-							<include syntax="html" collection="attributes" />
-						</subscopes>
-					</scope>
-					<scope name="vue.embedded.block.template.content">
-						<starts-with>
-							<expression>(&gt;)</expression>
-						</starts-with>
-						<ends-with>
-							<expression>(?=^&lt;/template&gt;)</expression>
-						</ends-with>
-						
-						<subsyntax name="vue-html" noncontiguous="true" export-symbols="true">
-							<cut-off>
-								<expression>(?=&lt;/(?i:template)\b)</expression>
-							</cut-off>
-						</subsyntax>
-					</scope>
-				</subscopes>
-			</scope> -->
-			
-			
 		</collection>
 		
 		<!-- Style -->
@@ -468,7 +323,7 @@
 				</subscopes>
 			</scope>
 			
-			<!-- CSS -->
+			<!-- CSS & POSTCSS -->
 			<scope name="vue.embedded.block.style" spell-check="false" lookup="documentation">
 				<starts-with>
 					<expression>(?=&lt;(?i:style)\b)</expression>
