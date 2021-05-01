@@ -2,70 +2,55 @@
 
 # Vue for Nova editor
 
-This is a plugin providing Vue language support for the new [Nova editor from Panic](https://panic.com/nova/). Inspired by [Vetur](https://github.com/vuejs/vetur) and many other great Vue tools.
+This is a plugin providing Vue language support for the new [Nova editor by Panic](https://panic.com/nova/). Inspired by [Vetur](https://github.com/vuejs/vetur) and many other great Vue tools.
 
 > WARNING: If you want to use PUG in your template you first have to install an extension that provides you PUG syntax, otherwise Nova will crash. Panic has been notified of this issue.
 
-## Modes 🔥
+## New in v4.0 💡
 
-The extension now support two different mode: **Classic** and **Vetur**! You can set it in the global extension preferences and also on a project based.
+## Features
 
-In the future I'll look into a way of combining the best of both worlds, in the meantime which one should you use? Of course is up to you 😉
+### Vue Language Server 🔥
 
-### Vetur (default)
+This extension provides a fully featured support for [VLS](https://github.com/vuejs/vetur/tree/master/server) (Vue Language Server). VLS is a Language Server compatible with the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) and it is developed within the Vetur project.
 
-A complete Vetur like mode with all the great features you are already used to.
+The Vue Language Server offers advanced code features like code completion, intellisense and so on.
 
-### Classic
+#### NEW: Settings exposed ⚙️
 
-Ad hoc completions for Nova and great snippets for faster development.
+From **v4.0** almost all the options of the Vue Language Server are configurable both as Global and per Project.
 
-## Special theming 🎨
+![Special theming](https://raw.githubusercontent.com/tommasongr/nova-vue/master/Vue.novaextension/Images/docs/docs-vue_language_server_settings.png)
 
-The extension offers an easy way to improve the highlighting in Vue file.
+---
 
-![Special theming](https://raw.githubusercontent.com/tommasongr/nova-vue/master/Vue.novaextension/Images/docs-special_theming-01.png)
+### NEW: Vue Information Sidebar 🤔
 
-### Hooks
+From **v4.0** the extension ships with a new Information Sidebar! You can see the current status of the server and the version of the server currently in execution. Right now is pretty minimal but I hope to expand on it in the future releases.
 
-This is an example of implementation with all the available hooks:
+![Special theming](https://raw.githubusercontent.com/tommasongr/nova-vue/master/Vue.novaextension/Images/docs/docs-vue_information_sidebar.png)
 
-```css
-/* Vue */
+---
 
-vue.html.tag.open,
-vue.html.tag.close {
-    color: #59be84;
-}
+### NEW: Informative Notifications ☎️
 
-vue.html.tag.name {
-    color: #59be84;
-    font-weight: bold;
-}
+From **v4.0** the extension ships with an improved notification system, giving you more information about what is going on.
 
-vue.html.tag.attribute.shorthand-key {
-    color: #59be84;
-}
+---
 
-vue.html.tag.attribute.name,
-vue.html.embedded.interpolation.bracket {
-    color: #65c032;
-    font-weight: bold;
-}
+### Special Theming 🎨
 
-vue.html.tag.attribute.argument {
-    color: #59be84;
-    font-weight: bold;
-}
+Vue for Nova offers an easy way to improve the syntax highlighting in a Vue file. Have a look!
 
-vue.html.tag.attribute.modifier {
-    color: #59be84;
-}
-```
+![Special theming](https://raw.githubusercontent.com/tommasongr/nova-vue/master/Vue.novaextension/Images/docs/docs-special_theming-01.png)
 
-### Supported themes
+#### Supported themes
 
 All themes which support this feature are listed [here](https://github.com/tommasongr/nova-vue/blob/master/THEMES.md#supported-themes).
+
+#### For Developers
+
+If you are a developer interested in implementing this feature in your theme check out the available hooks [here](https://github.com/tommasongr/nova-vue/blob/master/THEMES.md#hooks).
 
 ## State of development 🧑‍💻
 

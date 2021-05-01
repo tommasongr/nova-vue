@@ -1,12 +1,12 @@
 # Special theming 🎨
 
-The extension offers an easy way to improve the highlighting in Vue files.
+Vue for Nova offers an easy way to improve the syntax highlighting in a Vue file. Have a look!
 
-![Special theming](https://raw.githubusercontent.com/tommasongr/nova-vue/master/Vue.novaextension/Images/docs-special_theming-01.png)
+![Special theming](https://raw.githubusercontent.com/tommasongr/nova-vue/master/Vue.novaextension/Images/docs/docs-special_theming-01.png)
 
 ### Hooks
 
-This is an example of implementation with all the available hooks:
+For implementing this feature in your theme you can use the following hooks:
 
 ```css
 /* Vue */

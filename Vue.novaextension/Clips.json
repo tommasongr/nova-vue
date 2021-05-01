@@ -25,6 +25,13 @@
                     "trigger": "Vue - SASS"
                 },
                 {
+                    "content": "<template>\n\t<div>\n\n\t</div>\n</template>\n\n<script>\n\texport default {\n\t\t$0\n\t}\n</script>\n\n<style lang=\"postcss\" scoped>\n\n</style>",
+                    "name": "Vue - POSTCSS",
+                    "scope": "editor",
+                    "syntax": "vue",
+                    "trigger": "Vue - POSTCSS"
+                },
+                {
                     "content": "<template>\n\t<div>\n\n\t</div>\n</template>\n\n<script>\n\texport default {\n\t\t$0\n\t}\n</script>\n\n<style lang=\"less\" scoped>\n\n</style>",
                     "name": "Vue - LESS",
                     "scope": "editor",
