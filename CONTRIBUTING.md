@@ -2,9 +2,9 @@
 
 ## Commit notation
 
--   FEATURE: New feature short description
--   FIX: Bug fix short description
--   REFACTOR: Refactoring short description
--   TEST: Testing description
--   DOCS: Documentation description
--   CHORE: Regular code maintenance description
+-   feat: New feature short description
+-   fix: Bug fix short description
+-   refactor: Refactoring short description
+-   test: Testing description
+-   docs: Documentation description
+-   chore: Regular code maintenance description

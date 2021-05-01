@@ -17,6 +17,11 @@
 -   Uniformed all the logs, notifications and alerts
 -   Polished the syntax definition
 
+### DOCS
+
+-   Improved the general quality and structure of the README
+-   Add a new Help section with some troubleshooting information
+
 ## Version 3.4
 
 ### FIX

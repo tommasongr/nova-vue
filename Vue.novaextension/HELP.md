@@ -1,38 +1,7 @@
-## Special Theming 🎨
+# Troubleshooting 🧑‍⚕️
 
-#### Hooks
+If you encounter some issue with the Vue Language Server you may want to try reload it. You can do that from the extension menu or from the Vue Information Sidebar.
 
-This is an example of implementation with all the available hooks:
+If reloading doesn't solve your problem you may want to try restoring the defaults settings. You can do that from the extension menu or the command palette.
 
-```css
-/* Vue */
-
-vue.html.tag.open,
-vue.html.tag.close {
-    color: #59be84;
-}
-
-vue.html.tag.name {
-    color: #59be84;
-    font-weight: bold;
-}
-
-vue.html.tag.attribute.shorthand-key {
-    color: #59be84;
-}
-
-vue.html.tag.attribute.name,
-vue.html.embedded.interpolation.bracket {
-    color: #65c032;
-    font-weight: bold;
-}
-
-vue.html.tag.attribute.argument {
-    color: #59be84;
-    font-weight: bold;
-}
-
-vue.html.tag.attribute.modifier {
-    color: #59be84;
-}
-```
+If none of the above solves your problems you can uninstall/reinstall the extension. That should solve any issue.
