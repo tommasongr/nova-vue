@@ -1,3 +1,9 @@
+## Version 4.2
+
+### FIX
+
+-   Added missing highlighting for Nuxt unique kebab-case tags
+
 ## Version 4.1
 
 ### FIX
