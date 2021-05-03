@@ -6,8 +6,11 @@ comment -->
 <template #slotname v-slot:content>
     <div class="book-card">
         <transition></transition>
-        <hello-world />
+        <hello-world></hello-world>
         <div @click="() => console.log(hello)"></div>
+
+        <nuxt-link :to="/test"></nuxt-link>
+
         <transition @click=""></transition>
         <a
             v-if="console.log()"

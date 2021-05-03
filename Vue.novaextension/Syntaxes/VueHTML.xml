@@ -476,12 +476,16 @@
 						<string>Nuxt</string>
 						<string>NuxtChild</string>
 						<string>NuxtLink</string>
+						<string>nuxt</string>
+						<string>nuxt-child</string>
+						<string>nuxt-link</string>
 						<string>client-only</string>
 						
 						<!-- Gridsome unique -->
 						<string>g-link</string>
 						<string>g-image</string>
 						<string>Pager</string>
+						<string>pager</string>
 					</strings>
 					<capture number="1" name="vue.html.tag.name" />
 				</starts-with>
@@ -510,6 +514,9 @@
 						<string>Nuxt</string>
 						<string>NuxtChild</string>
 						<string>NuxtLink</string>
+						<string>nuxt</string>
+						<string>nuxt-child</string>
+						<string>nuxt-link</string>
 						<string>client-only</string>
 						
 						<!-- Gridsome unique -->
