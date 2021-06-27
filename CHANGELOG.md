@@ -1,3 +1,19 @@
+## Versione 5.0
+
+### FEAT
+
+-   Display Vue version in the Information Sidebar
+
+### IMPROVE
+
+-   Upgrade Vue Language Server to version v0.7.4
+-   Greatly improve Vue syntax long-term maintainability by using template-scopes
+-   Improve syntax REGEX for better matching Vue directives
+
+### CHORE
+
+-   Upgrade development dependencies
+
 ## Version 4.2
 
 ### FIX
