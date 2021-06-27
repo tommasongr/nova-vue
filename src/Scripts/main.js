@@ -1,5 +1,5 @@
 import { InformationView } from './informationView'
-import { showNotification, getVlsVersion } from './helpers'
+import { showNotification, getVlsVersion, getVueVersion } from './helpers'
 import { dependencyManagement } from 'nova-extension-utils'
 
 // Settings
@@ -210,7 +210,8 @@ async function asyncActivate() {
                     },
                     languageFeatures: {
                         codeActions: isLanguageFeaturesCodeActionsEnabled(),
-                        updateImportOnFileMove: isLanguageFeaturesUpdateImportOnFileMoveEnabled(),
+                        updateImportOnFileMove:
+                            isLanguageFeaturesUpdateImportOnFileMoveEnabled(),
                     },
                     // Disabled by default for preventing xxx errors to show up
                     validation: {
@@ -221,7 +222,8 @@ async function asyncActivate() {
                         templateProps: isValidationTemplatePropsEnabled(),
                     },
                     experimental: {
-                        templateInterpolationService: isExperimentalTemplateInterpolationServiceEnabled(),
+                        templateInterpolationService:
+                            isExperimentalTemplateInterpolationServiceEnabled(),
                     },
                     dev: {
                         logLevel: isDevLogLevelEnabled(),
@@ -230,7 +232,8 @@ async function asyncActivate() {
                         enable: false,
                     },
                     ignoreProjectWarning: isMiscIgnoreProjectWarningEnabled(),
-                    useWorkspaceDependencies: isMiscUseWorkspaceDependenciesEnabled(),
+                    useWorkspaceDependencies:
+                        isMiscUseWorkspaceDependenciesEnabled(),
                 },
             },
         },
@@ -282,6 +285,17 @@ async function asyncActivate() {
         })
         .catch((err) => {
             console.log('No VLS Version:', err)
+        })
+
+    // Retrieve Vue version to display in the Information Sidebar
+    getVueVersion()
+        .then((version) => {
+            console.log('Vue Version', version)
+            informationView.vueVersion = version
+        })
+        .catch((err) => {
+            informationView.vueVersion = 'Not found'
+            console.log('No Vue Version:', err)
         })
 
     informationView.status = 'Running'
