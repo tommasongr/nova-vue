@@ -64,3 +64,28 @@ export async function getVlsVersion() {
         process.start()
     })
 }
+
+export async function getVueVersion() {
+    return new Promise((resolve, reject) => {
+        const process = new Process('/usr/bin/env', {
+            cwd: nova.workspace.path,
+            args: ['node', '-p', "require('vue/package.json').version"],
+            stdio: ['ignore', 'pipe', 'ignore'],
+        })
+        let str = ''
+
+        process.onStdout((versionString) => {
+            str += versionString.trim()
+        })
+
+        process.onDidExit((status) => {
+            if (status === 0) {
+                resolve(str)
+            } else {
+                reject(status)
+            }
+        })
+
+        process.start()
+    })
+}
