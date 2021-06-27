@@ -14,7 +14,7 @@ This extension provides a fully featured support for [VLS](https://github.com/vu
 
 The Vue Language Server offers advanced code features like code completion, intellisense and so on.
 
-#### NEW: Configurable Settings ⚙️
+#### Configurable Settings ⚙️
 
 From **v4.0** almost all the settings available for the Vue Language Server are configurable both globally and per project.
 
@@ -22,7 +22,7 @@ From **v4.0** almost all the settings available for the Vue Language Server are 
 
 ---
 
-### NEW: Vue Information Sidebar 🤔
+### Vue Information Sidebar 🤔
 
 From **v4.0** the extension ships with a new Information Sidebar! You can see the current status of the server and the version of the server currently in execution. Right now is pretty minimal but I hope to expand on it in the future releases.
 
@@ -30,7 +30,7 @@ From **v4.0** the extension ships with a new Information Sidebar! You can see th
 
 ---
 
-### NEW: Status Notifications 🚦
+### Status Notifications 🚦
 
 From **v4.0** the extension ships with an improved notification system, giving you more information about what is going on. If you don't like them you can of course disable this feature from the settings.
 
@@ -52,7 +52,7 @@ If you are a developer interested in implementing this feature in your theme che
 
 ## State of development 🧑‍💻
 
-### Features supported
+### Supported features
 
 -   [x] Generic Vue Tags
 -   [x] Template Tag
