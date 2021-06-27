@@ -84,7 +84,7 @@
 		<collection name="vue-directives">
 			<scope name="vue.html.tag.attribute.double-quoted" spell-check="false" lookup="documentation">
 				<starts-with>
-					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))?\s*(=)(&quot;)</expression>
+					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))?\s*(=)(&quot;)(?:(?=.*\s(?:.*)&gt;)|(?=(?:.*\n.+)+&gt;)|(?=.*&gt;))</expression>
 					<capture number="1" name="vue.html.tag.attribute.name" />
 					<capture number="2" name="vue.html.tag.attribute.shorthand-key" />
 					<capture number="3" name="vue.html.tag.attribute.name" />
@@ -107,7 +107,7 @@
 			
 			<scope name="vue.html.tag.attribute.single-quoted" spell-check="false" lookup="documentation">
 				<starts-with>
-					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))?\s*(=)(&apos;)</expression>
+					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))?\s*(=)(&apos;)(?:(?=.*\s(?:.*)&gt;)|(?=(?:.*\n.+)+&gt;)|(?=.*&gt;))</expression>
 					<capture number="1" name="vue.html.tag.attribute.name" />
 					<capture number="2" name="vue.html.tag.attribute.shorthand-key" />
 					<capture number="3" name="vue.html.tag.attribute.name" />
@@ -129,7 +129,7 @@
 			</scope>
 			
 			<scope name="vue.html.tag.attribute.unquoted">
-				<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?</expression>
+				<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:(?=.*\s(?:.*)&gt;)|(?=(?:.*\n.+)+&gt;)|(?=.*&gt;))</expression>
 				<capture number="1" name="vue.html.tag.attribute.name" />
 				<capture number="2" name="vue.html.tag.attribute.shorthand-key" />
 				<capture number="3" name="vue.html.tag.attribute.name" />
@@ -137,12 +137,12 @@
 			</scope>
 			
 			<scope name="vue.html.tag.attribute.bare">
-				<expression>(v-[a-zA-Z\-]+)(?:(?=\s)|(?=&gt;))</expression>
+				<expression>(v-[a-zA-Z\-]+)(?:(?=\s(?:.*)&gt;)|(?=(?:\n.+)+&gt;)|(?=&gt;))</expression>
 				<capture number="1" name="vue.html.tag.attribute.name" />
 			</scope>
 			
 			<scope name="vue.html.tag.attribute.slot-shorthand">
-				<expression>(\#)([a-zA-Z\-]+)(?:(?=\s)|(?=&gt;))</expression>
+				<expression>(\#)([a-zA-Z\-]+)(?:(?=\s(?:.*)&gt;)|(?=(?:\n.+)+&gt;)|(?=&gt;))</expression>
 				<capture number="1" name="vue.html.tag.attribute.shorthand-key" />
 				<capture number="2" name="vue.html.tag.attribute.name" />
 			</scope>
@@ -152,12 +152,12 @@
 		<collection name="vue-interpolation">
 			<scope name="vue.html.embedded.interpolation" spell-check="false" lookup="documentation">
 				<starts-with>
-					<expression>\{\{\{?</expression>
+					<expression>\{\{\{?(?:(?=.*\s(?:.*)&gt;)|(?=(?:.*\n.+)+&gt;)|(?=.*&gt;))</expression>
 					<capture number="0" name="vue.html.embedded.interpolation.bracket" />
 				</starts-with>
 				
 				<ends-with>
-					<expression>\}\}\}?</expression>
+					<expression>\}\}\}?(?:(?=.*\s(?:.*)&gt;)|(?=(?:.*\n.+)+&gt;)|(?=.*&gt;))</expression>
 					<capture number="0" name="vue.html.embedded.interpolation.bracket"/>
 				</ends-with>
 				
