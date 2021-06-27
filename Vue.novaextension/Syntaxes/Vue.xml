@@ -68,14 +68,6 @@
 			</ends-with>
 		</scope>
 		
-		<!-- <include syntax="self" collection="vue-template"/>
-		
-		<include syntax="self" collection="vue-style"/>
-		
-		<include syntax="self" collection="vue-script"/>
-		
-		<include syntax="self" collection="vue-generic"/> -->
-		
 		<include syntax="html"/>
 	</scopes>
 	
