@@ -1,13 +1,13 @@
 {
     "name": "Vue.novaextension",
-    "version": "4.2.0",
+    "version": "5.0.0",
     "lockfileVersion": 2,
     "requires": true,
     "packages": {
         "": {
-            "version": "4.2.0",
+            "version": "5.0.0",
             "dependencies": {
-                "vls": "^0.7.4"
+                "vls": "^0.5.7"
             }
         },
         "node_modules/@babel/code-frame": {
@@ -2386,8 +2386,7 @@
             "integrity": "sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA=="
         },
         "vls": {
-            "version": "0.7.4",
-            "resolved": "https://registry.npmjs.org/vls/-/vls-0.7.4.tgz",
+            "version": "https://registry.npmjs.org/vls/-/vls-0.7.4.tgz",
             "integrity": "sha512-uU5HCIK5vX096eMA5fBwyR7tv36m1Ssy910w5ILT5OvCUTXgBR58gZRJWrL2HxCyG8oYXC+oFWjhJc7+ExBUgQ==",
             "requires": {
                 "eslint": "^7.27.0",
