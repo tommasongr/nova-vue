@@ -1,3 +1,9 @@
+## Versione 5.1
+
+### FIX
+
+-   Rolling back to VLS v0.5.7 because of issues with setting registration
+
 ## Versione 5.0
 
 ### FEAT
