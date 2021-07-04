@@ -2,6 +2,6 @@
     "name": "Vue.novaextension",
     "version": "5.2.0",
     "dependencies": {
-        "vls": "^0.5.7"
+        "vls": "^0.7.4"
     }
 }
