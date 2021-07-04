@@ -1,3 +1,10 @@
+## Versione 5.2
+
+### FIX
+
+-   Add missing Vue tags in scope selectors
+-   Add missing support for PUG syntax
+
 ## Versione 5.1
 
 ### FIX
