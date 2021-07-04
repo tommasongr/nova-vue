@@ -1,3 +1,9 @@
+## Versione 5.3
+
+### FIX
+
+-   Fix wrong version of VLS in production
+
 ## Versione 5.2
 
 ### FIX
