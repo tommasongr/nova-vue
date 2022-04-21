@@ -1,3 +1,9 @@
+## Versione 5.4
+
+### FIX
+
+-   Fix syntax detection of alternatives languages in style and script tags
+
 ## Versione 5.3
 
 ### FIX
