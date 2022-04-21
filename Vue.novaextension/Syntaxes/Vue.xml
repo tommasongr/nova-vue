@@ -215,52 +215,10 @@
 				</subscopes>
 			</scope>
 			
-			<!-- !CSS -->
-			<scope name="vue.html.embedded.style" spell-check="false" lookup="documentation">
-				<starts-with>
-					<expression>(?=&lt;(?i:style)\b)(?![^/&gt;]*/&gt;\s*$)</expression>
-				</starts-with>
-				<ends-with>
-					<expression>(?=&lt;/(?i:style)\b)</expression>
-				</ends-with>
-				<subscopes anchored="true" skip-whitespace="false">
-					<scope name="vue.html.tag.style.open">
-						<symbol type="tag-style">
-							<context behavior="start" group-by-name="true">
-								<auto-close string="&lt;/" completion="${name}&gt;" />
-							</context>
-						</symbol>
-						<starts-with>
-							<expression>&lt;((?i:style))</expression>
-							<capture number="1" name="vue.html.tag.name" />
-						</starts-with>
-						<ends-with>
-							<expression>/?&gt;</expression>
-						</ends-with>
-						<subscopes>
-							<include syntax="html" collection="attributes" />
-						</subscopes>
-					</scope>
-					<scope name="vue.html.embedded.style.content" optional="true">
-						<starts-with>
-							<expression>(?&lt;=&gt;)</expression>
-						</starts-with>
-						<ends-with>
-							<expression>(?=&lt;/(?i:style)\b)</expression>
-						</ends-with>
-						<subsyntax name="css">
-							<cut-off>
-								<expression>(?=&lt;/(?i:style)\b)</expression>
-							</cut-off>
-						</subsyntax>
-					</scope>
-				</subscopes>
-			</scope>
-			
 			<!-- !SCSS -->
 			<scope name="vue.html.embedded.style" spell-check="false" lookup="documentation">
 				<starts-with>
-					<expression>(?=&lt;(?i:style)\b)(?=[^&gt;]*lang=('scss'|\"scss\"))(?![^/&gt;]*/&gt;\s*$)</expression>
+					<expression>(?=&lt;(?i:style)\b)(?=[^&gt;]*lang=('scss'|\"scss\"|'postcss'|\"postcss\"))(?![^/&gt;]*/&gt;\s*$)</expression>
 				</starts-with>
 				<ends-with>
 					<expression>(?=&lt;/(?i:style)\b)</expression>
@@ -383,27 +341,23 @@
 				</subscopes>
 			</scope>
 			
-			<!-- !Javascript -->
-			<scope name="vue.html.embedded.script" spell-check="false" lookup="documentation">
+			<!-- !CSS -->
+			<scope name="vue.html.embedded.style" spell-check="false" lookup="documentation">
 				<starts-with>
-					<expression>(?=&lt;(?i:script)\b)(?![^/&gt;]*/&gt;\s*$)</expression>
+					<expression>(?=&lt;(?i:style)\b)(?![^/&gt;]*/&gt;\s*$)</expression>
 				</starts-with>
 				<ends-with>
-					<expression>(?=&lt;/(?i:script)\b)</expression>
+					<expression>(?=&lt;/(?i:style)\b)</expression>
 				</ends-with>
 				<subscopes anchored="true" skip-whitespace="false">
-					<scope name="vue.html.tag.script.open">
-						<symbol type="tag-script">
-							<display-name>
-								<component variable="name" />
-								<component selector="html.tag.attribute.value.link" prepend=" – " />
-							</display-name>
+					<scope name="vue.html.tag.style.open">
+						<symbol type="tag-style">
 							<context behavior="start" group-by-name="true">
 								<auto-close string="&lt;/" completion="${name}&gt;" />
 							</context>
 						</symbol>
 						<starts-with>
-							<expression>&lt;((?i:script))</expression>
+							<expression>&lt;((?i:style))</expression>
 							<capture number="1" name="vue.html.tag.name" />
 						</starts-with>
 						<ends-with>
@@ -413,16 +367,16 @@
 							<include syntax="html" collection="attributes" />
 						</subscopes>
 					</scope>
-					<scope name="vue.html.embedded.script.content" optional="true">
+					<scope name="vue.html.embedded.style.content" optional="true">
 						<starts-with>
 							<expression>(?&lt;=&gt;)</expression>
 						</starts-with>
 						<ends-with>
-							<expression>(?=&lt;/(?i:script)\b)</expression>
+							<expression>(?=&lt;/(?i:style)\b)</expression>
 						</ends-with>
-						<subsyntax name="javascript">
+						<subsyntax name="css">
 							<cut-off>
-								<expression>(?=&lt;/(?i:script)\b)</expression>
+								<expression>(?=&lt;/(?i:style)\b)</expression>
 							</cut-off>
 						</subsyntax>
 					</scope>
@@ -513,6 +467,52 @@
 							<expression>(?=&lt;/(?i:script)\b)</expression>
 						</ends-with>
 						<subsyntax name="coffeescript">
+							<cut-off>
+								<expression>(?=&lt;/(?i:script)\b)</expression>
+							</cut-off>
+						</subsyntax>
+					</scope>
+				</subscopes>
+			</scope>
+			
+			<!-- !Javascript -->
+			<scope name="vue.html.embedded.script" spell-check="false" lookup="documentation">
+				<starts-with>
+					<expression>(?=&lt;(?i:script)\b)(?![^/&gt;]*/&gt;\s*$)</expression>
+				</starts-with>
+				<ends-with>
+					<expression>(?=&lt;/(?i:script)\b)</expression>
+				</ends-with>
+				<subscopes anchored="true" skip-whitespace="false">
+					<scope name="vue.html.tag.script.open">
+						<symbol type="tag-script">
+							<display-name>
+								<component variable="name" />
+								<component selector="html.tag.attribute.value.link" prepend=" – " />
+							</display-name>
+							<context behavior="start" group-by-name="true">
+								<auto-close string="&lt;/" completion="${name}&gt;" />
+							</context>
+						</symbol>
+						<starts-with>
+							<expression>&lt;((?i:script))</expression>
+							<capture number="1" name="vue.html.tag.name" />
+						</starts-with>
+						<ends-with>
+							<expression>/?&gt;</expression>
+						</ends-with>
+						<subscopes>
+							<include syntax="html" collection="attributes" />
+						</subscopes>
+					</scope>
+					<scope name="vue.html.embedded.script.content" optional="true">
+						<starts-with>
+							<expression>(?&lt;=&gt;)</expression>
+						</starts-with>
+						<ends-with>
+							<expression>(?=&lt;/(?i:script)\b)</expression>
+						</ends-with>
+						<subsyntax name="javascript">
 							<cut-off>
 								<expression>(?=&lt;/(?i:script)\b)</expression>
 							</cut-off>
