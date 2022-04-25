@@ -2,85 +2,92 @@
 
 # Vue for Nova editor
 
-This is a plugin providing Vue language support for the new [Nova editor by Panic](https://panic.com/nova/). Inspired by [Vetur](https://github.com/vuejs/vetur) and many other great Vue tools.
+Provides Vue syntax and language server support for Panic's macOS code editor, [Nova](https://panic.com/nova/).
 
-> WARNING: If you want to use PUG in your template you first have to install an extension that provides you PUG syntax, otherwise Nova will crash. Panic has been notified of this issue.
+**Now with Volar as the default language server!**
+
+## Prerequisites
+
+The extension supports both **Volar** and **Vetur** language servers. Volar is the new officially recommended server, therefore has become also the default choice in Vue for Nova.
+
+Since there are now two different server options, neither of them come bundled with the extension. Please follow the steps below to install the server of your choice or even both of them. You will be able to switch between the two later.
+
+### Volar setup
+
+To setup the Volar server starts by installing the actual server package:
+
+```
+npm install --global @volar/vue-language-server
+```
+
+After that, if you haven't already, install the typescript package:
+
+```
+npm install --global typescript
+```
+
+#### Global installation notice
+
+As you may have noticed we installed both packages globally (`--global`). That's because the extension will try to automatically source the executables from those locations. If you want to use instances installed somewhere else on your system you can manually specify the paths to the `vue-language-server` executable and the `tsserverlibrary.js` script from the Volar section of the extension preferences.
+
+### Vetur setup (legacy)
+
+To setup the Vetur server, please install the `vls` executable with the following command:
+
+```
+npm install --global vls@0.7.4
+```
+
+#### Version lock notice
+
+As you may have noticed we installed a specific version (`0.7.4`) of the package. That's because after some tests this is the latest working version of Vetur we successfully setup in Nova. Whenever we will find other working versions we will post them here.
+
+#### Global installation notice
+
+As you may have noticed we installed the package globally (`--global`). That's because the extension will try to automatically source the executable from that location. If you want to use an instance installed somewhere else on your system you can manually specify the path to the `vls` executable from the Vetur section of the extension preferences.
+
+---
+
+### PUG in templates
+
+In order to use PUG in your templates, please make sure to have installed an extension that provides the syntax definition for it before running Vue for Nova. Otherwise you may encounter some crashes.
+
+## Usage
+
+Enable the extension in the extension library within Nova. Enjoy.
 
 ## Features
 
-### Vue Language Server 🔥
+### Vue syntax 🖋
 
-This extension provides a fully featured support for [VLS](https://github.com/vuejs/vetur/tree/master/server) (Vue Language Server). VLS is a Language Server compatible with the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) and it is developed within the Vetur project.
+Vue for Nova defines the syntax for `.vue` files.
 
-The Vue Language Server offers advanced code features like code completion, intellisense and so on.
+### Vue language server 🔥
 
-#### Configurable Settings ⚙️
+A language server offers advanced code features like code completion, intellisense and so on.
 
-From **v4.0** almost all the settings available for the Vue Language Server are configurable both globally and per project.
+You can choose between Volar or Vetur.
 
-![Special theming](https://raw.githubusercontent.com/tommasongr/nova-vue/master/Vue.novaextension/Images/docs/docs-vue_language_server_settings.png)
+### Vue scaffold clips 📋
 
----
+Vue for Nove comes with two simple scaffolding clips. One for Vue 3 with the setup function and one for Vue 2.
 
-### Vue Information Sidebar 🤔
-
-From **v4.0** the extension ships with a new Information Sidebar! You can see the current status of the server and the version of the server currently in execution. Right now is pretty minimal but I hope to expand on it in the future releases.
-
-![Special theming](https://raw.githubusercontent.com/tommasongr/nova-vue/master/Vue.novaextension/Images/docs/docs-vue_information_sidebar.png)
-
----
-
-### Status Notifications 🚦
-
-From **v4.0** the extension ships with an improved notification system, giving you more information about what is going on. If you don't like them you can of course disable this feature from the settings.
-
----
-
-### Special Theming 🎨
+### Special theming 🎨
 
 Vue for Nova offers an easy way to improve the syntax highlighting in a Vue file. Have a look!
 
-![Special theming](https://raw.githubusercontent.com/tommasongr/nova-vue/master/Vue.novaextension/Images/docs/docs-special_theming-01.png)
-
-#### Supported themes
+![Special theming](https://raw.githubusercontent.com/tommasongr/nova-vue/master/Images/docs/docs-special_theming-01.png)
 
 All themes which support this feature are listed [here](https://github.com/tommasongr/nova-vue/blob/master/THEMES.md#supported-themes).
 
-#### For Developers
-
-If you are a developer interested in implementing this feature in your theme check out the available hooks [here](https://github.com/tommasongr/nova-vue/blob/master/THEMES.md#hooks).
-
-## State of development 🧑‍💻
-
-### Supported features
-
--   [x] Generic Vue Tags
--   [x] Template Tag
--   [x] Script Tag
--   [x] Style Tag
--   [x] Vue Directives
--   [x] Vue Interpolation
--   [x] Completions for HTML, CSS, JS and WebAPI
--   [x] Completions for Vue API
--   [x] Completions for Vue Directives
--   [x] Completions Vue Events (@click)
--   [x] Support for PUG
--   [x] Support for SCSS, SASS, LESS and PostCSS
--   [x] Support for JavaScript, TypeScript and CoffeeScript
--   [x] Vue Clips (based on [Vue VSCode Snippets](https://github.com/sdras/vue-vscode-snippets))
--   [x] Support for Vue Language Server
--   [x] Configurable settings for Vue Language Server
--   [x] Refined class selectors for improved highlighting
-
-### Features on their way
-
--   [ ] Support for jade (waiting for syntaxes)
--   [ ] Support for stylus (waiting for syntaxes)
+*If you are a theme curator interested in implementing this feature, please check out the available hooks [here](https://github.com/tommasongr/nova-vue/blob/master/THEMES.md#hooks).*
 
 ## Contributing 🤝
 
-You are welcome to contribute in any way you can think of. Seriously, I am not an expert in these things 😅.
+**Everyone interested is more than welcomed to contribute to the extension!**
 
-Maybe take a look at the [CONTRIBUTING guidelines](./CONTRIBUTING.md). Nothing fancy don't worry.
+All you have to do to get up and running with the development is to fork the GitHub repository, downloaded it locally on your machine and rename the folder to `Vue.novaextension`.
 
-Thanks!
+After that open the extension folder with Nova and in the extension menu click on `Activate Project as Extension` (if you don't see the command you may have to check the relative flag in the Nova general settings). That's it!
+
+Thanks in advance!
