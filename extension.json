@@ -52,7 +52,7 @@
           "description": "The path to the TypeScript server library (if empty, the extension will try to figure it out).",
           "type": "path",
           "placeholder": ".../typescript/lib/tsserverlibrary.js"
-        },
+        }
       ]
     },
     {
