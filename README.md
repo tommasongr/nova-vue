@@ -14,7 +14,7 @@ Since there are now two different server options, neither of them come bundled w
 
 ### Volar setup
 
-To setup the Volar server starts by installing the actual server package:
+To setup the Volar server start by installing the actual server package:
 
 ```
 npm install --global @volar/vue-language-server
