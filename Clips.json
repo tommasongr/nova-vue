@@ -1,0 +1,23 @@
+{
+  "clips": [
+    {
+      "name": "Scaffolding",
+      "children": [
+        {
+          "content": "<script setup>\n$0\n</script>\n\n<template>\n\t\n</template>\n\n<style scoped></style>",
+          "name": "Vue",
+          "scope": "editor",
+          "syntax": "vue",
+          "trigger": "vue"
+        },
+        {
+          "content": "<template>\n\t\n</template>\n\n<script>\nexport default {\n\t$0\n}\n</script>\n\n<style scoped></style>",
+          "name": "Vue 2",
+          "scope": "editor",
+          "syntax": "vue",
+          "trigger": "vue 2"
+        }
+      ]
+    }
+  ]
+}
