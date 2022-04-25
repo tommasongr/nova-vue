@@ -46,6 +46,7 @@ vue.html.tag.attribute.modifier {
 -   [Handcrafted](https://extensions.panic.com/extensions/handengineering/handengineering.Handcrafted/) by Hand Engineering (Coming soon)
 -   [NightOwls](https://extensions.panic.com/extensions/samk/samk.NightOwls/) by Sam K
 -   [Neko](https://extensions.panic.com/extensions/com.arturomartin/com.arturomartin.neko/) by Arturo Martín
+-   [Horizon](https://extensions.panic.com/extensions/colin/colin.HorizonTheme/) by Colin K.
 
 ### Add you theme
 
