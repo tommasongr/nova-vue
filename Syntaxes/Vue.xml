@@ -7,11 +7,11 @@
 		<default-extension>vue</default-extension>
 		<parent>html</parent>
 	</meta>
-	
+
 	<detectors>
 		<extension priority="1.0">vue</extension>
 	</detectors>
-	
+
 	<indentation>
 		<increase>
 			<expression>(?x)
@@ -28,7 +28,7 @@
 				)</expression>
 		</decrease>
 	</indentation>
-	
+
 	<comments>
 		<multiline>
 			<starts-with>
@@ -39,13 +39,13 @@
 			</ends-with>
 		</multiline>
 	</comments>
-	
+
 	<brackets>
 		<pair open="{" close="}" />
 		<pair open="[" close="]" />
 		<pair open="(" close=")" />
 	</brackets>
-	
+
 	<surrounding-pairs>
 		<pair open="{" close="}" />
 		<pair open="[" close="]" />
@@ -56,7 +56,7 @@
 		<pair open="“" close="”" />
 		<pair open="‘" close="’" />
 	</surrounding-pairs>
-	
+
 	<scopes spell-check="true" lookup="dictionary">
 		<!-- !Comments -->
 		<scope name="vue.comment.block">
@@ -67,18 +67,18 @@
 				<expression>--&gt;</expression>
 			</ends-with>
 		</scope>
-		
+
 		<include syntax="html"/>
 	</scopes>
-	
+
 	<template-scopes>
 		<include syntax="self" collection="vue-directives"/>
 		<include syntax="self" collection="vue-interpolation"/>
 		<include syntax="self" collection="vue-blocks"/>
 		<include syntax="self" collection="vue-special-tags"/>
 	</template-scopes>
-	
-	<collections>	
+
+	<collections>
 		<!-- !Vue Directives -->
 		<!-- This collection provides support for Vue Directives (v-for, :href, @onClick) -->
 		<collection name="vue-directives">
@@ -104,7 +104,7 @@
 					</cut-off>
 				</subsyntax>
 			</scope>
-			
+
 			<scope name="vue.html.tag.attribute.single-quoted" spell-check="false" lookup="documentation">
 				<starts-with>
 					<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))?(?:\.([a-zA-Z\-]+))?\s*(=)(&apos;)(?:(?=.*\s(?:.*)&gt;)|(?=(?:.*\n.+)+&gt;)|(?=.*&gt;))</expression>
@@ -127,7 +127,7 @@
 					</cut-off>
 				</subsyntax>
 			</scope>
-			
+
 			<scope name="vue.html.tag.attribute.unquoted">
 				<expression>(?:\b(v-)|(:|@))([a-zA-Z\-]+)(?:\:([a-zA-Z\-]+))?(?:(?=.*\s(?:.*)&gt;)|(?=(?:.*\n.+)+&gt;)|(?=.*&gt;))</expression>
 				<capture number="1" name="vue.html.tag.attribute.name" />
@@ -135,19 +135,19 @@
 				<capture number="3" name="vue.html.tag.attribute.name" />
 				<capture number="4" name="vue.html.tag.attribute.argument" />
 			</scope>
-			
+
 			<scope name="vue.html.tag.attribute.bare">
 				<expression>(v-[a-zA-Z\-]+)(?:(?=\s(?:.*)&gt;)|(?=(?:\n.+)+&gt;)|(?=&gt;))</expression>
 				<capture number="1" name="vue.html.tag.attribute.name" />
 			</scope>
-			
+
 			<scope name="vue.html.tag.attribute.slot-shorthand">
 				<expression>(\#)([a-zA-Z\-]+)(?:(?=\s(?:.*)&gt;)|(?=(?:\n.+)+&gt;)|(?=&gt;))</expression>
 				<capture number="1" name="vue.html.tag.attribute.shorthand-key" />
 				<capture number="2" name="vue.html.tag.attribute.name" />
 			</scope>
 		</collection>
-		
+
 		<!-- !Vue Interpolation -->
 		<collection name="vue-interpolation">
 			<scope name="vue.html.embedded.interpolation" spell-check="false" lookup="documentation">
@@ -155,22 +155,22 @@
 					<expression>\{\{\{?(?:(?=.*\s(?:.*)&gt;)|(?=(?:.*\n.+)+&gt;)|(?=.*&gt;))</expression>
 					<capture number="0" name="vue.html.embedded.interpolation.bracket" />
 				</starts-with>
-				
+
 				<ends-with>
 					<expression>\}\}\}?(?:(?=.*\s(?:.*)&gt;)|(?=(?:.*\n.+)+&gt;)|(?=.*&gt;))</expression>
 					<capture number="0" name="vue.html.embedded.interpolation.bracket"/>
 				</ends-with>
-				
+
 				<subsyntax name="javascript">
 					<cut-off>
 						<expression>(?=(?!\\)\}\}\}?)</expression>
-						<!-- TODO: Verify |$ --> 
+						<!-- TODO: Verify |$ -->
 						<!-- <expression>(?=(?!\\)\}\}\}?)|$</expression> -->
 					</cut-off>
 				</subsyntax>
 			</scope>
 		</collection>
-		
+
 		<!-- !Vue Blocks -->
 		<collection name="vue-blocks">
 			<!-- !PUG -->
@@ -214,7 +214,7 @@
 					</scope>
 				</subscopes>
 			</scope>
-			
+
 			<!-- !SCSS -->
 			<scope name="vue.html.embedded.style" spell-check="false" lookup="documentation">
 				<starts-with>
@@ -256,7 +256,7 @@
 					</scope>
 				</subscopes>
 			</scope>
-			
+
 			<!-- !SASS -->
 			<scope name="vue.html.embedded.style" spell-check="false" lookup="documentation">
 				<starts-with>
@@ -298,7 +298,7 @@
 					</scope>
 				</subscopes>
 			</scope>
-			
+
 			<!-- !LESS -->
 			<scope name="vue.html.embedded.style" spell-check="false" lookup="documentation">
 				<starts-with>
@@ -340,7 +340,7 @@
 					</scope>
 				</subscopes>
 			</scope>
-			
+
 			<!-- !CSS -->
 			<scope name="vue.html.embedded.style" spell-check="false" lookup="documentation">
 				<starts-with>
@@ -382,7 +382,7 @@
 					</scope>
 				</subscopes>
 			</scope>
-			
+
 			<!-- !Typescript -->
 			<scope name="vue.html.embedded.script" spell-check="false" lookup="documentation">
 				<starts-with>
@@ -428,7 +428,7 @@
 					</scope>
 				</subscopes>
 			</scope>
-			
+
 			<!-- !CoffeeScript -->
 			<scope name="vue.html.embedded.script" spell-check="false" lookup="documentation">
 				<starts-with>
@@ -474,7 +474,7 @@
 					</scope>
 				</subscopes>
 			</scope>
-			
+
 			<!-- !Javascript -->
 			<scope name="vue.html.embedded.script" spell-check="false" lookup="documentation">
 				<starts-with>
@@ -520,8 +520,92 @@
 					</scope>
 				</subscopes>
 			</scope>
+
+      <!-- !i18n -->
+      <scope name="vue.html.embedded.i18n" spell-check="false" lookup="documentation">
+        <starts-with>
+          <expression>(?=&lt;(?i:i18n)\b)(?=[^&gt;]*lang=('yaml'|\"yaml\"))(?![^/&gt;]*/&gt;\s*$)</expression>
+        </starts-with>
+        <ends-with>
+          <expression>(?=&lt;/(?i:i18n)\b)</expression>
+        </ends-with>
+        <subscopes anchored="true" skip-whitespace="false">
+          <scope name="vue.html.tag.i18n.open">
+            <symbol type="tag-style">
+              <context behavior="start" group-by-name="true">
+                <auto-close string="&lt;/" completion="${name}&gt;" />
+              </context>
+            </symbol>
+            <starts-with>
+              <expression>&lt;((?i:i18n))</expression>
+              <capture number="1" name="vue.html.tag.name" />
+            </starts-with>
+            <ends-with>
+              <expression>/?&gt;</expression>
+            </ends-with>
+            <subscopes>
+              <include syntax="html" collection="attributes" />
+            </subscopes>
+          </scope>
+          <scope name="vue.html.embedded.i18n.content" optional="true">
+            <starts-with>
+              <expression>(?&lt;=&gt;)</expression>
+            </starts-with>
+            <ends-with>
+              <expression>(?=&lt;/(?i:i18n)\b)</expression>
+            </ends-with>
+            <subsyntax name="yaml">
+              <cut-off>
+                <expression>(?=&lt;/(?i:i18n)\b)</expression>
+              </cut-off>
+            </subsyntax>
+          </scope>
+        </subscopes>
+      </scope>
+
+      <!-- !i18n -->
+      <scope name="vue.html.embedded.i18n" spell-check="false" lookup="documentation">
+        <starts-with>
+          <expression>(?=&lt;(?i:i18n)\b)(?![^/&gt;]*/&gt;\s*$)</expression>
+        </starts-with>
+        <ends-with>
+          <expression>(?=&lt;/(?i:i18n)\b)</expression>
+        </ends-with>
+        <subscopes anchored="true" skip-whitespace="false">
+          <scope name="vue.html.tag.style.open">
+            <symbol type="tag-style">
+              <context behavior="start" group-by-name="true">
+                <auto-close string="&lt;/" completion="${name}&gt;" />
+              </context>
+            </symbol>
+            <starts-with>
+              <expression>&lt;((?i:i18n))</expression>
+              <capture number="1" name="vue.html.tag.name" />
+            </starts-with>
+            <ends-with>
+              <expression>/?&gt;</expression>
+            </ends-with>
+            <subscopes>
+              <include syntax="html" collection="attributes" />
+            </subscopes>
+          </scope>
+          <scope name="vue.html.embedded.style.content" optional="true">
+            <starts-with>
+              <expression>(?&lt;=&gt;)</expression>
+            </starts-with>
+            <ends-with>
+              <expression>(?=&lt;/(?i:i18n)\b)</expression>
+            </ends-with>
+            <subsyntax name="json">
+              <cut-off>
+                <expression>(?=&lt;/(?i:i18n)\b)</expression>
+              </cut-off>
+            </subsyntax>
+          </scope>
+        </subscopes>
+      </scope>
 		</collection>
-		
+
 		<!-- !Vue Special Tags -->
 		<collection name="vue-special-tags">
 			<scope name="vue.html.tag.open.paired" spell-check="false" lookup="documentation">
@@ -542,13 +626,13 @@
 						<string>transition-group</string>
 						<string>keep-alive</string>
 						<string>slot</string>
-						
+
 						<!-- Vue Router unique -->
 						<string>RouterView</string>
 						<string>RouterLink</string>
 						<string>router-view</string>
 						<string>router-link</string>
-						
+
 						<!-- Nuxt unique -->
 						<string>Nuxt</string>
 						<string>NuxtChild</string>
@@ -557,7 +641,7 @@
 						<string>nuxt-child</string>
 						<string>nuxt-link</string>
 						<string>client-only</string>
-						
+
 						<!-- Gridsome unique -->
 						<string>g-link</string>
 						<string>g-image</string>
@@ -573,7 +657,7 @@
 					<include syntax="html" collection="attributes" />
 				</subscopes>
 			</scope>
-			
+
 			<scope name="vue.html.tag.close" spell-check="false" lookup="documentation">
 				<symbol type="tag">
 					<context behavior="end" group-by-name="true" unclosed="truncate" />
@@ -585,13 +669,13 @@
 						<string>transition-group</string>
 						<string>keep-alive</string>
 						<string>slot</string>
-						
+
 						<!-- Vue Router unique -->
 						<string>RouterView</string>
 						<string>RouterLink</string>
 						<string>router-view</string>
 						<string>router-link</string>
-						
+
 						<!-- Nuxt unique -->
 						<string>Nuxt</string>
 						<string>NuxtChild</string>
@@ -600,7 +684,7 @@
 						<string>nuxt-child</string>
 						<string>nuxt-link</string>
 						<string>client-only</string>
-						
+
 						<!-- Gridsome unique -->
 						<string>g-link</string>
 						<string>g-image</string>
