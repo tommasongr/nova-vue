@@ -12,10 +12,7 @@ exports.showNotification = function(id, title, body, actions, handler) {
   if (body) request.body = body
   if (actions) request.actions = actions
 
-  nova.notifications
-    .add(request)
-    .then((reply) => {
-      if (handler) handler(reply)
-    })
-    .catch((err) => console.error(err, err.stack))
+  nova.notifications.add(request).then(reply => {
+    if (handler) handler(reply)
+  }, err => console.error(err))
 }

@@ -5,7 +5,8 @@ const SETTINGS                = require("./settings")
 let langserver = null
 
 exports.activate = function() {
-  console.log("Hello from Vue 💎")
+  if (nova.inDevMode()) console.log("Hello from Vue 💎 (DEV mode)")
+  else console.log("Hello from Vue 💎")
 
   SETTINGS.deprecatedSettingsKeys.forEach(key => {
     nova.config.remove(key)
