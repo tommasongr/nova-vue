@@ -31,15 +31,14 @@ exports.VolarLanguageServer = class VolarLanguageServer {
         console.error(err)
 
         showNotification("volar-not-found", "Volar Not Found",
-          'The "volar" executable could not be found in your environment.',
-          ["Help", "Ignore"],
+          "You have selected Volar as the preferred language server for Vue but no executable has been found on your system. Check the docs for the installation process.",
+          ["Get Help", "Ignore"],
           (reply) => {
-            console.log(reply.actionIdx)
             switch (reply.actionIdx) {
               case 0:
                 nova.openURL("https://github.com/tommasongr/nova-vue#volar-setup")
                 break
-              case 2:
+              case 1:
                 break
             }
           }
@@ -58,16 +57,15 @@ exports.VolarLanguageServer = class VolarLanguageServer {
       } catch (err) {
         console.error(err)
 
-        showNotification("typescript-not-found", "TypeScript Not Found",
-          "Volar language server needs TypeScript to work correctly.",
-          ["Help", "Ignore"],
+        showNotification("typescript-not-found", "Volar can't find TypeScript",
+          "The Volar server needs TypeScript server library to be installed on your system. Check the docs for the installation process.",
+          ["Get Help", "Ignore"],
           (reply) => {
-            console.log(reply.actionIdx)
             switch (reply.actionIdx) {
               case 0:
                 nova.openURL("https://github.com/tommasongr/nova-vue#volar-setup")
                 break
-              case 2:
+              case 1:
                 break
             }
           }
@@ -138,7 +136,7 @@ exports.VolarLanguageServer = class VolarLanguageServer {
     catch (err) {
       // If the .start() method throws, it's likely because the path to the language server is invalid
       showNotification("volar-activation-error", "Volar Activation Failed",
-        "Something goes wrong during Volar activation..."
+        "Something went wrong during Volar activation..."
       )
 
       if (nova.inDevMode()) console.error(err)
@@ -169,7 +167,7 @@ exports.VolarLanguageServer = class VolarLanguageServer {
       process.onStderr(error_output => err += error_output)
 
       process.onDidExit(status => {
-        if (status == 1 && path.length == 0) reject(err)
+        if (status == 1 && err.length > 0) reject("Unable to find Volar executable because:", err)
 
         if (status === 0 && nova.fs.access(path, nova.fs.X_OK)) {
           if (nova.inDevMode()) console.log("Volar path (global):", path)
@@ -201,7 +199,7 @@ exports.VolarLanguageServer = class VolarLanguageServer {
       process.onStderr(error_output => err += error_output)
 
       process.onDidExit(status => {
-        if (status == 1 && npmPath.length == 0) reject(err)
+        if (status == 1 && err.length > 0) reject("Unable to find TypeScript server script because:", err)
 
         if (status === 0) {
           path = nova.path.join(npmPath, "/typescript/lib/tsserverlibrary.js")

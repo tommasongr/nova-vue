@@ -30,10 +30,9 @@ exports.VeturLanguageServer = class VeturLanguageServer {
         console.error(err)
 
         showNotification("vetur-not-found", "Vetur Not Found",
-          'The "vetur" executable could not be found in your environment.',
-          ["Help", "Ignore"],
+          "You have selected Vetur as the preferred language server for Vue but no executable has been found on your system. Check the docs for the installation process.",
+          ["Get Help", "Ignore"],
           (reply) => {
-            console.log(reply.actionIdx)
             switch (reply.actionIdx) {
               case 0:
                 nova.openURL("https://github.com/tommasongr/nova-vue#vetur-setup-legacy")
@@ -102,7 +101,7 @@ exports.VeturLanguageServer = class VeturLanguageServer {
     catch (err) {
       // If the .start() method throws, it's likely because the path to the language server is invalid
       showNotification("vetur-activation-error", "Vetur Activation Failed",
-        "Something goes wrong during Vetur activation..."
+        "Something went wrong during Vetur activation..."
       )
 
       if (nova.inDevMode()) console.error(err)
@@ -133,7 +132,7 @@ exports.VeturLanguageServer = class VeturLanguageServer {
       process.onStderr(error_output => err += error_output)
 
       process.onDidExit(status => {
-        if (status == 1 && path.length == 0) reject(err)
+        if (status == 1 && err.length > 0) reject("Unable to find Vetur executable because:", err)
 
         if (status === 0 && nova.fs.access(path, nova.fs.X_OK)) {
           if (nova.inDevMode()) console.log("Vetur path (global):", path)
