@@ -1,3 +1,14 @@
+## Versione 6.1
+
+### IMPROVE
+
+- Add better error messages and notifications when something goes wrong with language server activation
+
+### FIX
+
+- Disable custom Volar LSP requests
+- Fix minor issues with console outputs when errors occur
+
 ## Versione 6.0
 
 ### FEATURE
