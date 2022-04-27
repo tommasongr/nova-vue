@@ -1,3 +1,9 @@
+## Versione 6.2
+
+### FIX
+
+- Fix a bug that prevented the reload function to execute
+
 ## Versione 6.1
 
 ### IMPROVE
