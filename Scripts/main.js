@@ -34,8 +34,8 @@ exports.deactivate = function() {
 }
 
 function reload() {
-  deactivate()
-  activate()
+  exports.deactivate()
+  exports.activate()
 }
 
 // Register Nova commands
