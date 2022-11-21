@@ -1,0 +1,2 @@
+(comment) @subtree
+(text) @subtree

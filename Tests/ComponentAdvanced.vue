@@ -33,7 +33,7 @@ comment -->
     </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 export default {
     props: {
         bookData: {
@@ -93,3 +93,30 @@ body {
     height: @height;
 }
 </style>
+
+<i18n>
+{
+  "en": {
+    "hello": "hello world!"
+  },
+  "ja": {
+    "hello": "こんにちは、世界！"
+  }
+}
+</i18n>
+
+<graphql>
+{
+  greetings
+}
+mutation {
+  doSomething(test: true) {
+    blah
+  }
+}
+subscription {
+  someFeed() {
+    name
+  }
+}
+</graphql>
