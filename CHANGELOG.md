@@ -1,4 +1,4 @@
-## Versione 7.0
+## Version 7.0
 
 ### FEATURE
 
@@ -18,13 +18,13 @@ At the moment there are some issues loading scss, sass and less syntaxes in styl
 This is probably not related with our implementation since the same approach works fine for javascript and typescript.
 We will contact Panic and see if they can fix it in a future release.
 
-## Versione 6.2
+## Version 6.2
 
 ### FIX
 
 - Fix a bug that prevented the reload function to execute
 
-## Versione 6.1
+## Version 6.1
 
 ### IMPROVE
 
@@ -35,7 +35,7 @@ We will contact Panic and see if they can fix it in a future release.
 - Disable custom Volar LSP requests
 - Fix minor issues with console outputs when errors occur
 
-## Versione 6.0
+## Version 6.0
 
 ### FEATURE
 
@@ -47,32 +47,32 @@ We will contact Panic and see if they can fix it in a future release.
 
 - Simplify and speed up the extension by removing not so useful features and improving the code quality
 
-## Versione 5.4
+## Version 5.4
 
 ### FIX
 
 - Fix syntax detection of alternatives languages in style and script tags
 
-## Versione 5.3
+## Version 5.3
 
 ### FIX
 
 - Fix wrong version of VLS in production
 
-## Versione 5.2
+## Version 5.2
 
 ### FIX
 
 - Add missing Vue tags in scope selectors
 - Add missing support for PUG syntax
 
-## Versione 5.1
+## Version 5.1
 
 ### FIX
 
 - Rolling back to VLS v0.5.7 because of issues with setting registration
 
-## Versione 5.0
+## Version 5.0
 
 ### FEAT
 
