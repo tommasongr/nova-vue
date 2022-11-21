@@ -2,7 +2,8 @@
 (erroneous_end_tag_name) @tag.name.error
 
 ; Attribute names and values
-((attribute
+(
+  (attribute
     (attribute_name) @tag.attribute.name
     ["="]? @tag.attribute.operator
     [
@@ -18,7 +19,8 @@
 )
 
 ; Directive names and values
-((directive_attribute
+(
+  (directive_attribute
     (directive_name) @tag.attribute.name
     (directive_argument)? @tag.attribute.argument
     ["="]? @tag.attribute.operator
@@ -30,7 +32,8 @@
 )
 
 ; Link attribute names and values
-((attribute
+(
+  (attribute
     (attribute_name) @tag.attribute.name
     ["="]? @tag.attribute.operator
     [
