@@ -1,3 +1,23 @@
+## Versione 7.0
+
+### FEATURE
+
+- Add a new [tree-sitter based](https://github.com/ikatyang/tree-sitter-vue) syntax for Vue files
+- Support graphql blocks (requires external syntax extension)
+
+#### NOTES ON THE NEW SYNTAX
+
+The new tree-sitter based syntax is pretty much a one-to-one porting of the old one.
+The only missing feature is PUG support in template blocks. This is due to the new way of extending HTML with Vue stuff.
+
+Even though we consider it deprecated, the old syntax will remain for backward compatibility until Panic ends support in a future release.
+
+**Known issues:**
+
+At the moment there are some issues loading scss, sass and less syntaxes in style blocks.
+This is probably not related with our implementation since the same approach works fine for javascript and typescript.
+We will contact Panic and see if they can fix it in a future release.
+
 ## Versione 6.2
 
 ### FIX
