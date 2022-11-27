@@ -2,35 +2,16 @@
 (
   (script_element
     (start_tag
-      (tag_name) @_name
       (attribute
-        (attribute_name) @_attrname
-      )
-    )
-    (raw_text) @injection.content
-  )
-  (#eq? @_name "script")
-  (#not-eq? @_attrname "lang")
-  (#set! injection.language "javascript")
-)
-
-(
-  (script_element
-    (start_tag
-      (tag_name) @_name
-      (attribute
-        (attribute_name) @_attrname
         (quoted_attribute_value
           ["\"" "'"]
           (attribute_value) @_attrvalue
           ["\"" "'"]
-        )
-      )
+        )?
+      )?
     )
     (raw_text) @injection.content
   )
-  (#eq? @_name "script")
-  (#eq? @_attrname "lang")
   (#set-by-case-eq! @_attrvalue injection.language
     "js" "javascript"
     "ts" "typescript"
@@ -43,35 +24,16 @@
 (
   (style_element
     (start_tag
-      (tag_name) @_name
       (attribute
-        (attribute_name) @_attrname
-      )
-    )
-    (raw_text) @injection.content
-  )
-  (#eq? @_name "style")
-  (#not-eq? @_attrname "lang")
-  (#set! injection.language "css")
-)
-
-(
-  (style_element
-    (start_tag
-      (tag_name) @_name
-      (attribute
-        (attribute_name) @_attrname
         (quoted_attribute_value
           ["\"" "'"]
           (attribute_value) @_attrvalue
           ["\"" "'"]
-        )
-      )
+        )?
+      )?
     )
     (raw_text) @injection.content
   )
-  (#eq? @_name "style")
-  (#eq? @_attrname "lang")
   (#set-by-case-eq! @_attrvalue injection.language
     "css" "css"
     "scss" "scss"
