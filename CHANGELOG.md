@@ -7,16 +7,16 @@
 
 #### NOTES ON THE NEW SYNTAX
 
-The new tree-sitter based syntax is pretty much a one-to-one porting of the old one.
-The only missing feature is PUG support in template blocks. This is due to the new way of extending HTML with Vue stuff.
+The new tree-sitter based syntax is pretty much a one-to-one porting of the old one. However it comes with some caveats:
 
-Even though we consider it deprecated, the old syntax will remain for backward compatibility until Panic ends support in a future release.
+- PUG in templates will not be supported due to the new way of managing template blocks
+- Coffeescript, SCSS, SASS and Less syntaxes are **not yet** supported. They will start working automatically as soon as Panic converts them to tree-sitter
+- Under the hood the old syntax will still be shipped for backwards compatibility until Panic ends support
 
-**Known issues:**
+**Missing syntaxes workaround:**
 
-At the moment there are some issues loading scss, sass and less syntaxes in style blocks.
-This is probably not related with our implementation since the same approach works fine for javascript and typescript.
-We will contact Panic and see if they can fix it in a future release.
+If Coffeescript, SCSS, SASS or Less are essential to your workflow you can use the old syntax shipped as `Vue (Compatibility)`.\
+By default a `.vue` file will use the new tree-sitter syntax so you have to set a **custom file type** rule in the settings `Settings -> Files -> Custom Types`.
 
 ## Version 6.2
 
