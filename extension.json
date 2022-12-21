@@ -47,11 +47,11 @@
           "placeholder": ".../bin/vue-language-server"
         },
         {
-          "key": "tommasonegri.vue.config.volar.typescript.path",
+          "key": "tommasonegri.vue.config.volar.typescript.tsdk",
           "title": "TypeScript Server",
           "description": "The path to the TypeScript server library (if empty, the extension will try to figure it out).",
           "type": "path",
-          "placeholder": ".../typescript/lib/tsserverlibrary.js"
+          "placeholder": ".../typescript/lib"
         }
       ]
     },
