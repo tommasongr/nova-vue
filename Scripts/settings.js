@@ -18,7 +18,7 @@ const { devLogLevel } = require("./settings/vetur/devLogLevel")
 const globalSettingsKeys = [
   "tommasonegri.vue.config.extension.languageServer",
   "tommasonegri.vue.config.volar.path",
-  "tommasonegri.vue.config.volar.typescript.path",
+  "tommasonegri.vue.config.volar.typescript.tsdk",
   "tommasonegri.vue.config.vetur.path",
   "tommasonegri.vue.config.vetur.completion.autoImport",
   "tommasonegri.vue.config.vetur.completion.tagCasing",

@@ -6,9 +6,9 @@ exports.VolarLanguageServer = class VolarLanguageServer {
 
     // Observe the configuration setting for the server's location, and restart the server on change
     nova.config.observe("tommasonegri.vue.config.volar.path", function(path) {
-      this.start(path, nova.config.get("tommasonegri.vue.config.volar.typescript.path"))
+      this.start(path, nova.config.get("tommasonegri.vue.config.volar.typescript.tsdk"))
     }, this)
-    nova.config.onDidChange("tommasonegri.vue.config.volar.typescript.path", function(path) {
+    nova.config.onDidChange("tommasonegri.vue.config.volar.typescript.tsdk", function(path) {
       this.start(nova.config.get("tommasonegri.vue.config.volar.path"), path)
     }, this)
   }
@@ -17,7 +17,7 @@ exports.VolarLanguageServer = class VolarLanguageServer {
     this.stop()
   }
 
-  async start(path, typescriptPath) {
+  async start(path, tsdkPath) {
     if (this.languageClient) {
       this.languageClient.stop()
       nova.subscriptions.remove(this.languageClient)
@@ -51,9 +51,9 @@ exports.VolarLanguageServer = class VolarLanguageServer {
     }
 
     // Use the default TypeScript server path
-    if (!typescriptPath) {
+    if (!tsdkPath) {
       try {
-        typescriptPath = await this.typescriptGlobalPath
+        tsdkPath = await this.tsdkGlobalPath
       } catch (err) {
         console.error(err)
 
@@ -74,7 +74,7 @@ exports.VolarLanguageServer = class VolarLanguageServer {
         return
       }
     } else if (nova.inDevMode()) {
-      console.log("TypeScript path (custom):", typescriptPath)
+      console.log("TypeScript path (custom):", tsdkPath)
     }
 
     // Create the client
@@ -87,40 +87,7 @@ exports.VolarLanguageServer = class VolarLanguageServer {
       syntaxes: ["vue"],
       initializationOptions: {
         typescript: {
-          serverPath: typescriptPath,
-        },
-        languageFeatures: {
-          references: true,
-          implementation: true,
-          definition: true,
-          typeDefinition: true,
-          callHierarchy: true,
-          hover: true,
-          rename: true,
-          renameFileRefactoring: true,
-          signatureHelp: true,
-          codeAction: true,
-          workspaceSymbol: true,
-          completion: {
-            defaultTagNameCase: "both",
-            defaultAttrNameCase: "kebabCase",
-            getDocumentNameCasesRequest: false,
-            getDocumentSelectionRequest: false,
-          },
-          documentHighlight: true,
-          documentLink: true,
-          codeLens: { showReferencesNotification: false },
-          semanticTokens: true,
-          diagnostics: true,
-          schemaRequestService: true,
-        },
-        documentFeatures: {
-          selectionRange: true,
-          foldingRange: true,
-          linkedEditingRange: true,
-          documentSymbol: true,
-          documentColor: true,
-          documentFormatting: true
+          tsdk: tsdkPath,
         }
       }
     }
@@ -182,7 +149,7 @@ exports.VolarLanguageServer = class VolarLanguageServer {
     })
   }
 
-  get typescriptGlobalPath() {
+  get tsdkGlobalPath() {
     return new Promise((resolve, reject) => {
       const process = new Process("/usr/bin/env", {
         cwd: nova.workspace.path,
@@ -207,7 +174,7 @@ exports.VolarLanguageServer = class VolarLanguageServer {
           if (nova.fs.access(path, nova.fs.F_OK)) {
             if (nova.inDevMode()) console.log("TypeScript path (global):", path)
 
-            resolve(path)
+            resolve(nova.path.join(npmPath, "/typescript/lib"))
           } else {
             reject("TypeScript server not found")
           }
