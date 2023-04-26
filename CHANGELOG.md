@@ -1,3 +1,9 @@
+## Version 7.1
+
+### IMPROVE
+
+- Upgrade @volar/vue-language-server to v1.0 by @johnsoncodehk in #54
+
 ## Version 7.0
 
 ### FEATURE

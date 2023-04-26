@@ -3,7 +3,7 @@
   "name": "Vue",
   "organization": "Tommaso Negri",
   "description": "Vue syntax and Vue Language Server for Nova editor.",
-  "version": "7.0",
+  "version": "7.1",
   "categories": [
     "languages",
     "clips",
